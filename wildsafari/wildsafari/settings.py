@@ -27,7 +27,7 @@ DEBUG = True
 import os
 
 PORT = os.environ.get("PORT", "10000")
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["https://django-tour-1.onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
