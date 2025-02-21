@@ -1,0 +1,420 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+ <!-- ***** Main Banner Area Start ***** -->
+ <div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="header-text">
+            <h2>Enter a world of <em>Tourism</em> Culture  <em>Adventure</em> Hikes &amp;<em>Recreation</em></h2>
+            <p>Wild Safari - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
+            <div class="buttons">
+              <div class="big-border-button">
+                <a href="{ url 'contests' }">Explore Wild Safari</a>
+              </div>
+              <div class="icon-button">
+                <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Main Banner Area End ***** -->
+
+
+  <section class="featured-items" id="featured-items">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/mtKenya.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Walk In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Site:</span> Mt Kenya</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Categories:</span> Hike and Adventure</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static  'tour/beach.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Smile In The Nature Beach <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span>Kilifi Beach</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $1,200 + Canon EOS R7</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/flamingo.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Happy In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Vincent Adam</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $1,800 + Canon EOS R6</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/hippo.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Walk In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Rift Valley</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Categories:</span> Kenya Heritage</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/marathons.jpeg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Run In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Vincent Adam</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $5,500 + Canon EOS R3</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/maasai.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Culture <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Thomas Eddy</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $4,400 + Canon EOS R5</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/kilimanjaro.jpg'  %} " alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Walk In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Vincent Adam</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $3,800 + Canon EOS R6</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb"id="thumb-card">
+                <img src="{% static 'tour/buffalosunset.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content">
+                    <h4>Shoot In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Vincent Adam</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $2,400 + Canon EOS R7</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="thumb" id="thumb-card">
+                <img src="{% static 'tour/paracliders.jpg' %}" alt="">
+                <div class="hover-effect">
+                  <div class="content" >
+                    <h4>Fly In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                    <ul>
+                      <li><span>Contest Winner:</span> Vincent Adam</li>
+                      <li><span>Contest Author:</span> Anthony Soft</li>
+                      <li><span>Awards:</span> $1,200 + Canon EOS R10</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="popular-categories">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6>Our Top Tourism SITES</h6>
+            <h4>Check Out <em>Popular</em> Tourism <em>Sites</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="main-button">
+            <a href="{ url 'categories' }">Discover All Tourist Attraction Site</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="popular-item" id="popular-site" >
+            <div class="top-content">
+              <div class="icon">
+                <img src="{% static 'images/icon-01.png' %}" alt="">
+              </div>
+              <div class="right">
+                <h4>Wildlife & Nature</h4>
+                <span><em>126</em> Available Contests</span>
+              </div>
+            </div>
+            <div class="thumb" id="top-site">
+              <img src="{% static 'tour/lions.jpg' %}" alt="">
+              <span class="category">Top Contest</span>
+              <span class="likes"><i class="fa fa-heart"></i> 256</span>
+            </div>
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Tour</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="popular-item" id="popular-site" >
+            <div class="top-content">
+              <div class="icon">
+                <img src="{% static 'images/icon-02.png' %}" alt="">
+              </div>
+              <div class="right">
+                <h4>Beaches & Recreation</h4>
+                <span><em>116</em> Available Contests</span>
+              </div>
+            </div>
+            <div class="thumb" id="top-site" >
+              <img src="{% static 'tour/kilifi.jpg' %}" alt="">
+              <span class="category">Top Contest</span>
+              <span class="likes"><i class="fa fa-heart"></i> 256</span>
+            </div>
+            <div class="border-button">
+              <a href="{ url 't.contestdetails'}">Book Tour</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="popular-item" id="popular-site" >
+            <div class="top-content">
+              <div class="icon">
+                <img src="{% static 'images/icon-03.png' %}" alt="">
+              </div>
+              <div class="right">
+                <h4>Waterfalls & Forests</h4>
+                <span><em>164</em> Available Contests</span>
+              </div>
+            </div>
+            <div class="thumb" id="top-site">
+              <img src="{% static 'tour/falls.jpg' %}" alt="">
+              <span class="category">Top Contest</span>
+              <span class="likes"><i class="fa fa-heart"></i> 256</span>
+            </div>
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Tour</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="popular-item" id="popular-site" >
+            <div class="top-content">
+              <div class="icon">
+                <img src="{% static 'images/icon-04.png' %}" alt="">
+              </div>
+              <div class="right">
+                <h4>Culture  &  Foods</h4>
+                <span><em>135</em> Available Contests</span>
+              </div>
+            </div>
+            <div class="thumb" id="top-site">
+              <img src="{% static 'tour/maasai2.jpg' %}" alt="">
+              <span class="category">Top Contest</span>
+              <span class="likes"><i class="fa fa-heart"></i> 256</span>
+            </div>
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }}">Book Tour</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closed-contests">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>VISITED SITES</h6>
+            <h4><em>Previous Visited</em> With Photography  and <em>Adventures</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
+            <div class="item" id="popular-site" >
+              <div class="closed-item" id="popular-site" >
+                <div class="thumb"id="top-site" >
+                  <img src="{% static 'tour/maasaimarawb.jpg' %}" alt="">
+                  <span class="winner"><em>Place:</em>Maasai Mara</span>
+                  <span class="price"><em>Event :</em>Wildebeest Migration </span>
+                </div>
+                <div class="down-content">
+                  <div class="row">
+                    <div class="col-7">
+                      <h4>45 Participants <br><span>Number Of Tourist</span></h4>
+                    </div>
+                    <div class="col-5">
+                      <h4 class="pics">320 Pictures <br><span>Pictures Taken</span></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="closed-item" id="popular-site" >
+                <div class="thumb" id="top-site">
+                  <img src="{% static 'tour/Mtkenyahike.jpg' %}" alt="">
+                  <span class="winner"><em>Place:</em>  Mt Kenya</span>
+                  <span class="price"><em>Event :</em> Hikes and Nature</span>
+                </div>
+                <div class="down-content">
+                  <div class="row">
+                    <div class="col-7">
+                      <h4>76 Participants <br><span>Number Of Tourist</span></h4>
+                    </div>
+                    <div class="col-5">
+                      <h4 class="pics">410 Pictures <br><span>Pictures Taken</span></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item" id="popular-site" >
+              <div class="closed-item" id="popular-site" >
+                <div class="thumb" id="top-site">
+                  <img src="{% static 'tour/Kilifi_bay_beach.jpg' %}" alt="">
+                  <span class="winner"><em>Place:</em>Kilifi</span>
+                  <span class="price"><em>Event :</em> Beach</span>
+                </div>
+                <div class="down-content">
+                  <div class="row">
+                    <div class="col-7">
+                      <h4>65 Participants <br><span>Number Of Tourist</span></h4>
+                    </div>
+                    <div class="col-5">
+                      <h4 class="pics">284 Pictures <br><span>Submited Pics</span></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="text-center border-button">
+            <a href="{url 'contests' }">Browse Open Contests</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="pricing-plans">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>Visitor Testimonials</h6>
+            <h4>What People Are Saying About <em>Our Tourist Attraction</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pricing-item" id="popular-site" >
+            <img src="{% static 'tour/git.jpeg' %}" id="profile-img" alt="Visitor Image">
+            <h4>John Williams</h4>
+            <ul class="first-plan">
+              <li>"Absolutely breathtaking views!"</li>
+              <li>"The guided tour was informative and fun."</li>
+              <li>"Perfect spot for photography enthusiasts."</li>
+              <li>"Friendly staff and well-maintained facilities."</li>
+
+            </ul>
+            <span class="price">⭐⭐⭐⭐⭐</span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pricing-item" id="popular-site" >
+            <img src="{% static 'tour/kaka.jpg' %}" id="profile-img" alt="Visitor Image">
+            <h4>Tobias Kurgat</h4>
+            <ul class="second-plan">
+              <li>"An unforgettable experience!"</li>
+              <li>"The history behind this place is fascinating."</li>
+              <li>"Great for families and solo travelers alike."</li>
+              <li>"The sunset view is simply magical."</li>
+
+            </ul>
+            <span class="price">⭐⭐⭐⭐⭐</span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pricing-item" id="popular-site" >
+            <img src="{% static 'tour/carol.jpeg' %}" id="profile-img" alt="Visitor Image">
+            <h4>Nancy Lerina</h4>
+            <ul class="third-plan">
+              <li>"One of the best places I've ever visited."</li>
+              <li>"The architecture is stunning."</li>
+              <li>"So much to see and explore."</li>
+              <li>"The souvenir shop has unique items."</li>
+              <li>"Can't wait to come back!"</li>
+            </ul>
+            <span class="price">⭐⭐⭐⭐⭐</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
