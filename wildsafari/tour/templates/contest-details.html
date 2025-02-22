@@ -1,6 +1,156 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h1>Welcome to Wild Safari Tours</h1>
-<p>Explore the wild with us!</p>
+
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 header-text">
+          <h2 class="space-need">Embark on a <em>Solo Wild Safari Tour</em></h2>
+          <h6>Next Tour Starts Soon</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-booking">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-content">
+            <h4>Book Your Solo Wild Safari Tour</h4>
+            <p>Embark on an unforgettable adventure into the wild. Fill out the form below to reserve your spot for a solo safari tour.</p>
+            <form id="tour-booking-form">
+              <div class="form-body">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="full-name">Full Name</label>
+                      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="phone">Phone Number</label>
+                      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="tour-date">Preferred Tour Date</label>
+                      <input type="date" id="tour-date" name="tour-date" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="tour-package">Select Tour Package</label>
+                      <select id="tour-package" name="tour-package" required>
+                        <option value="" disabled selected>Choose a package</option>
+                        <option value="basic">Basic Safari Tour</option>
+                        <option value="premium">Premium Safari Tour</option>
+                        <option value="luxury">Luxury Safari Tour</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="payment-method">Payment Method</label>
+                      <select id="payment-method" name="payment-method" required>
+                        <option value="" disabled selected>Select payment method</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="mobile-money">Mobile Money</option>
+                        <option value="bank-transfer">Bank Transfer</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="special-requests">Special Requests</label>
+                      <textarea id="special-requests" name="special-requests" placeholder="Any special requests or notes"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <button type="submit" class="main-button-book">Book Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="contest-waiting">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h5>Other Preferable Sites Waiting For You:</h5>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="waiting-item" id="preferable-item">
+            <img src="{% static 'tour/mountclimbing.jpg' %}" alt="Mountain Climbing">
+            <div class="down-content">
+              <h4>Mountain Climbing</h4>
+              <p>Experience the thrill of scaling majestic peaks with our guided mountain climbing tours. Perfect for adventure enthusiasts!</p>
+              <span class="price">Price: <em>$900</em></span>
+              <span class="deadline">Deadline: <em>3 Days</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="waiting-item" id="preferable-item">
+            <img src="{% static 'tour/seadiving.jpg' %}" alt="Sea Diving">
+            <div class="down-content">
+              <h4>Sea Diving</h4>
+              <p>Dive into the crystal-clear waters and explore vibrant coral reefs and marine life with our professional diving instructors.</p>
+              <span class="price">Price: <em>$1,400</em></span>
+              <span class="deadline">Deadline: <em>2 Days</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="waiting-item" id="preferable-item">
+            <img src="{% static 'tour/sunbathing.jpg' %}" alt="Beach Sunbathing">
+            <div class="down-content">
+              <h4>Beach Sunbathing</h4>
+              <p>Relax on pristine sandy beaches, soak up the sun, and enjoy the serene beauty of coastal landscapes.</p>
+              <span class="price">Price: <em>$1,250</em></span>
+              <span class="deadline">Deadline: <em>4 Days</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="waiting-item" id="preferable-item">
+            <img src="{% static 'tour/musuem.jpg' %}" alt="Shrines And Museum Scenery">
+            <div class="down-content">
+              <h4>Shrines And Museum Scenery</h4>
+              <p>Discover the rich cultural heritage and historical landmarks with guided tours of ancient shrines and museums.</p>
+              <span class="price">Price: <em>$1,600</em></span>
+              <span class="deadline">Deadline: <em>10 Days</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
 {% endblock %}

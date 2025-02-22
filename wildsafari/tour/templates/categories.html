@@ -3,6 +3,303 @@
 {% load static %}
 
 {% block content %}
-<h1>Welcome to Wild Safari Tours</h1>
-<p>Explore the wild with us!</p>
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 header-text">
+          <h2>Discover Most Popular <em>Tourism Attraction Categories</em></h2>
+          <p>Explore the diverse and breathtaking categories of tourism attractions that await you. From natural wonders to cultural landmarks, there's something for every traveler to enjoy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="top-categories">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg col-sm-4"  >
+        <div class="item" id="items-category">
+          <div class="icon">
+            <img src="{% static 'images/icon-01.png' %}" alt="">
+          </div>
+          <h4>Wildlife</h4>
+          <span>Available Tours</span>
+          <span class="counter">14</span>
+        </div>
+      </div>
+      <div class="col-lg col-sm-4" >
+        <div class="item" id="items-category">
+          <div class="icon">
+            <img src="{% static 'images/icon-02.png' %}" alt="">
+          </div>
+          <h4>Beach & Warm Climate</h4>
+          <span>Available <Tarea></Tarea>ours</span>
+          <span class="counter">224</span>
+        </div>
+      </div>
+      <div class="col-lg col-sm-4" >
+        <div class="item" id="items-category">
+          <div class="icon">
+            <img src="{% static 'images/icon-03.png' %}" alt="">
+          </div>
+          <h4>Culture and Foods</h4>
+          <span>Available Tours</span>
+          <span class="counter">145</span>
+        </div>
+      </div>
+      <div class="col-lg col-sm-4" >
+        <div class="item" id="items-category">
+          <div class="icon">
+            <img src="{% static 'images/icon-04.png' %}" alt="">
+          </div>
+          <h4>Mountain Climbing and Hiking</h4>
+          <span>Available Tours</span>
+          <span class="counter">268</span>
+        </div>
+      </div>
+      <div class="col-lg col-sm-4" >
+        <div class="item" id="items-category">
+          <div class="icon">
+            <img src="{% static 'images/icon-01.png' %}" alt="">
+          </div>
+          <h4>Rivers and Foresty</h4>
+          <span>Available Contests</span>
+          <span class="counter">310</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="featured-contests">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center section-heading">
+          <h6>Featured Contests</h6>
+          <h4>View Most <em>Popular</em> Category <em>Contests</em></h4>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="item">
+          <div class="thumb">
+            <img src="{% static 'images/featured-image-02.jpg' %}" alt="">
+            <div class="hover-effect">
+              <div class="content">
+                <div class="top-content">
+                  <span class="award">Book Price</span>
+                  <span class="price">$1,600</span>
+                </div>
+                <h4>Walk In The Nature Night</h4>
+                <div class="info">
+                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>60<br>Participants</span>
+                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>188<br>Submissions</span>
+                </div>
+                <div class="border-button">
+                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="item">
+          <div class="thumb">
+            <img src="{% static 'images/featured-image-01.jpg' %}" alt="">
+            <div class="hover-effect">
+              <div class="content">
+                <div class="top-content">
+                  <span class="award">Book Price</span>
+                  <span class="price">$3,200</span>
+                </div>
+                <h4>Walk In The Nature Night</h4>
+                <div class="info">
+                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>78<br>Participants</span>
+                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>240<br>Submissions</span>
+                </div>
+                <div class="border-button">
+                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="item">
+          <div class="thumb">
+            <img src="{% static 'images/featured-image-03.jpg' %}" alt="">
+            <div class="hover-effect">
+              <div class="content">
+                <div class="top-content">
+                  <span class="award">Book Price</span>
+                  <span class="price">$4,100</span>
+                </div>
+                <h4>Walk In The Nature Night</h4>
+                <div class="info">
+                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>112<br>Participants</span>
+                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>286<br>Submissions</span>
+                </div>
+                <div class="border-button">
+                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="item">
+          <div class="thumb">
+            <img src="{% static 'images/featured-image-04.jpg' %}" alt="">
+            <div class="hover-effect">
+              <div class="content">
+                <div class="top-content">
+                  <span class="award">Book Price</span>
+                  <span class="price">$3,400</span>
+                </div>
+                <h4>Walk In The Nature Night</h4>
+                <div class="info">
+                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>54<br>Participants</span>
+                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>140<br>Submissions</span>
+                </div>
+                <div class="border-button">
+                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="item">
+          <div class="thumb">
+            <img src="{% static 'images/featured-image-05.jpg' %}" alt="">
+            <div class="hover-effect">
+              <div class="content">
+                <div class="top-content">
+                  <span class="award">Book Price</span>
+                  <span class="price">$2,200</span>
+                </div>
+                <h4>Walk In The Nature Night</h4>
+                <div class="info">
+                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>68<br>Participants</span>
+                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>162<br>Submissions</span>
+                </div>
+                <div class="border-button">
+                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>What Our Adventurers Say</h6>
+            <h4>What <em>Wild Safari</em> Visitors Are Saying <em>About Us</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-8 offset-lg-2">
+            <div class="owl-testimonials owl-carousel">
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“Wild Safari Adventures was the most thrilling experience of my life! From the breathtaking landscapes to the close encounters with wildlife, every moment was unforgettable.”</p>
+                    <h4>Sarah Johnson</h4>
+                    <span>Adventurer #007704</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/carol.jpeg' %}" alt="Sarah Johnson" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“The guides were incredibly knowledgeable and made us feel safe throughout the entire safari. I can’t wait to come back for another adventure!”</p>
+                    <h4>Michael Brown</h4>
+                    <span>Adventurer #007772</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/carol.jpeg' %}" alt="Michael Brown" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“Wild Safari Adventures exceeded all my expectations. The luxury tents, delicious food, and incredible wildlife sightings made this trip a dream come true.”</p>
+                    <h4>Emily Davis</h4>
+                    <span>Adventurer #007794</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/git.jpeg' %}" alt="Emily Davis" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“I’ve been on safaris before, but Wild Safari Adventures is in a league of its own. The attention to detail and personalized service made all the difference.”</p>
+                    <h4>David Wilson</h4>
+                    <span>Adventurer #007765</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/git.jpeg' %}" alt="David Wilson" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“If you’re looking for an adventure of a lifetime, Wild Safari Adventures is the way to go. The memories I made here will stay with me forever.”</p>
+                    <h4>Laura Martinez</h4>
+                    <span>Adventurer #007788</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/carol.jpeg' %}" alt="Laura Martinez" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-12">
+          <div class="clients">
+            <div class="row">
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/lion.jpg' %}" alt="Lion" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/elephant2.jpg' %}" alt="Elephant" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/giraff.jpg' %}" alt="Giraffe" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/zebra.jpg' %}" alt="Zebra" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/cheateah.jpg' %}" alt="Cheetah" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/rhino.jpg' %}" alt="Rhino" class="animal-image">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 {% endblock %}
