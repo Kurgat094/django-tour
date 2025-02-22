@@ -52,7 +52,7 @@
   }
 
   .main-button-book {
-    background-color: #1815d4 !important;
+    background-color: #19a553;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -63,8 +63,9 @@
   }
 
   .main-button-book:hover {
-    background-color: #c350e6;
+    background-color: #1d2ae4;
   }
+
 
 
 
