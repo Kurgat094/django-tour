@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.auth.models import User
+from .forms import SignUpForm
 
 # Create your views here.
 
@@ -18,3 +21,14 @@ def contestdetails(request):
 
 def users(request):
     return render(request, 'users.html')
+
+
+# Auth functions
+
+def signin(request):
+   
+    return render(request, 'login.html')
+
+def signup(request):
+    
+    return render(request, 'register.html' , {'form': SignUpForm()})
