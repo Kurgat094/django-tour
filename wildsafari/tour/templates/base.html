@@ -40,12 +40,12 @@
                         <li class="has-sub">
                             <a href="javascript:void(0)">Book &amp; Visit</a>
                             <ul class="sub-menu">
-                                <li><a href="#">Bookings</a></li>
-                                <li><a href="#">Single Booking</a></li>
+                                <li><a href="{%  url 'contests' %}">Bookings</a></li>
+                                <li><a href="{% url 'contestdetails' %}">Single Booking</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Users</a></li>
+                        <li><a href="{% url 'categories' %}">Categories</a></li>
+                        <li><a href="{% url 'users' %}">Users</a></li>
                     </ul>
                     <div class="border-button">
                       <a id="modal_trigger" href="#modal" class="sign-in-up"><i class="fa fa-user"></i> Sign In/Up</a>

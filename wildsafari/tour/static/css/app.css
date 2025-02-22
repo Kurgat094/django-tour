@@ -52,7 +52,7 @@
   }
 
   .main-button-book {
-    background-color: #ff6f61;
+    background-color: #1815d4 !important;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -63,7 +63,7 @@
   }
 
   .main-button-book:hover {
-    background-color: #e65a50;
+    background-color: #c350e6;
   }
 
 
@@ -75,4 +75,19 @@
 
   #item-category{
     height: 250px!important;
+  }
+
+  .animal-image {
+    width: 90px;          /* Set width to 70px */
+    height: 90px;         /* Set height to 70px */
+    border-radius: 50%;   /* Make the image circular */
+    object-fit: cover;    /* Ensure the image covers the area without distortion */
+  }
+
+
+  .testimonial-image {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
   }
