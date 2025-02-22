@@ -27,10 +27,13 @@ DEBUG = True
 import os
 
 PORT = os.environ.get("PORT", "10000")
-ALLOWED_HOSTS = ["https://django-tour-1.onrender.com","django-tour-1.onrender.com","localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["https://django-tour-1.onrender.com","django-tour-1.onrender.com","localhost", "127.0.0.1","0.0.0.0"]
 
 
 # Application definition
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
