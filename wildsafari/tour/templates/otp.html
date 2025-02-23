@@ -1,0 +1,42 @@
+{%  extends 'base.html' %}
+
+{% load static %}
+{% block title %}Stevensons Trail OTP{% endblock %}
+
+{% block content %}
+
+<div class="main-banner" id="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <!-- Sign-In Form -->
+          <div class="sign-in-form">
+            <h3>One Time Password</h3>
+            {% if form.errors %}
+                <div class="alert alert-warning" role="alert">
+                    <ul class="mb-0">
+                        {% for key, error in form.errors.items %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'otp' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="username">Otp Code</label>
+                <input type="text" id="otp" name="otp" placeholder="Enter otp sent to your email" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Verify</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

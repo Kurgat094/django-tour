@@ -114,7 +114,7 @@
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .form-group label {
@@ -147,9 +147,9 @@
   background-color: #7a0485;
 }
 
-.form-group p {
+.form-group h6 {
   text-align: center;
-  
+  margin: 0px !important;
   color: rgb(23, 73, 139) !important;
 }
 
@@ -162,3 +162,11 @@
   text-decoration: underline;
 }
 
+
+.float-left {
+  float: left;
+  width: 30%; 
+  margin-right: 10px;  
+  text-align: right;
+  line-height: 2; 
+}
