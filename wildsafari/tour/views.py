@@ -1,7 +1,4 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login
-from django.contrib.auth.models import User
-from .forms import SignUpForm
+from django.shortcuts import render
 
 # Create your views here.
 
@@ -31,4 +28,4 @@ def signin(request):
 
 def signup(request):
     
-    return render(request, 'register.html' , {'form': SignUpForm()})
+    return render(request, 'register.html' )
