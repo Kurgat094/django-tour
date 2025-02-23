@@ -1,0 +1,47 @@
+{% extends 'admin/adminhome.html' %}
+
+{% block title %}
+Admin Approvals
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Tourist Bookings</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Solo/Group Tour</th>
+                    <th>Place of Visit</th>
+                    <th>Date of Visit</th>
+                    <th>Package Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td> booking.name </td>
+                    <td> booking.email </td>
+                    <td> booking.phone </td>
+                    <td> booking.tour_type </td>
+                    <td> booking.place_of_visit </td>
+                    <td> booking.date_of_visit </td>
+                    <td> booking.package_type </td>
+                    <td>
+                        <a href="" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
+                        <a href="" class="btn btn-danger btn-sm"style="margin:1px; padding:1px; width:100%;">Deny</a>
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan="8" class="text-center">No bookings found.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
