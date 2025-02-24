@@ -91,7 +91,7 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ['name', 'group_type', 'group_size','contactname' ,'email', 'phone', 'date_of_visit', 'time_of_visit', 'place_of_visit', 'tour_package', 'payment_method']
+        fields = ['name', 'group_type', 'group_size','contactname' ,'email', 'phone', 'date_of_visit', 'time_of_visit', 'place_of_visit', 'tour_package', 'payment_method' ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -104,7 +104,8 @@ class BookingForm(forms.ModelForm):
         self.fields["date_of_visit"].widget.attrs.update({"placeholder": "Date of Visit"})
         self.fields["time_of_visit"].widget.attrs.update({"placeholder": "Time of Visit"})
         self.fields["place_of_visit"].widget.attrs.update({"placeholder": "Place of Visit"})
-        self.fields["tour_package"].widget.attrs.update({"placeholder": "Tour Package"})    
+        self.fields["tour_package"].widget.attrs.update({"placeholder": "Tour Package"})
+        self.fields["payment_method"].widget.attrs.update({"placeholder": "Payment Method"})    
 
     def clean_group_size(self):
         group_size = self.cleaned_data.get('group_size')
@@ -114,7 +115,28 @@ class BookingForm(forms.ModelForm):
     
 
 class SoloBookingForm(forms.ModelForm):
-    
+
+    TOUR_PACKAGE_CHOICES = [
+        ('basic', 'Basic Package'),
+        ('premium', 'Premium Package'),
+        ('luxury', 'Luxury Package'),
+    ]
+
+    PAYMENT_METHOD_CHOICES = [
+        ('mpesa', 'M-Pesa'),
+        ('credit_card', 'Credit Card'),
+        ('debit_card', 'Debit Card'),
+        ('paypal', 'Paypal'),
+    ]
+    s_tour_package = forms.ChoiceField(
+        choices=[('', 'Select a Tour Package')] + TOUR_PACKAGE_CHOICES, 
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
+    s_payment_method = forms.ChoiceField(
+        choices=[('', 'Select Payment Method')] + PAYMENT_METHOD_CHOICES, 
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
     s_date_of_visit = forms.DateField(
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
     )
@@ -123,10 +145,9 @@ class SoloBookingForm(forms.ModelForm):
         widget=forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'})
     )
 
-class Meta:
-    model = SoloBooking
-    fields = ['contact_name', 's_email', 's_phone', 's_date_of_visit', 's_time_of_visit', 
-                  's_place_of_visit', 's_tour_package', 's_payment_method']
+    class Meta:
+        model = SoloBooking
+        fields = ['contact_name', 's_email', 's_phone', 's_date_of_visit', 's_time_of_visit', 's_place_of_visit', 's_tour_package', 's_payment_method' ,'s_status']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
