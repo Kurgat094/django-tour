@@ -14,6 +14,9 @@ from .forms import BookingForm
 from django.core.mail import send_mail
 import random
 import logging
+from django.views.decorators.csrf import csrf_exempt
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +30,7 @@ def home(request):
 def categories(request):
     return render(request, 'categories.html')
 
+@csrf_exempt
 def contests(request):
     form = BookingForm()  # Correctly instantiate the form
     if request.method == "POST":
@@ -40,6 +44,7 @@ def contests(request):
 
     return render(request, 'contests.html', {"form": form})
 
+@csrf_exempt
 def contestdetails(request):
     form = SoloBooking
     if request.method == "POST":
@@ -60,7 +65,7 @@ def users(request):
 
 
 # Auth functions
-
+@csrf_exempt
 def signin(request):
     if request.method=="POST":
        form= AuthenticationForm(request,data=request.POST)
@@ -86,6 +91,7 @@ def signin(request):
         form=AuthenticationForm()
     return render(request, 'login.html')
 
+@csrf_exempt
 def signup(request):
     form=SignUpForm
     if request.method=='POST':
@@ -129,10 +135,12 @@ def signup(request):
     return render(request, 'register.html', context)
 
 
+
 def signout(request):
     logout(request)
     return redirect('signin')
-   
+
+@csrf_exempt 
 def otp(request):
     if request.method=="POST":
         user_otp=request.POST['otp']
@@ -163,8 +171,6 @@ def add_tourism_site(request):
     return render(request, 'admin/tourismattractionsites.html', {'form': form})
 
 
-def adminhome(request):
-    return render(request, 'admin/adminhome.html')
 
 
 def adminhome(request):
