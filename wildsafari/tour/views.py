@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
@@ -40,22 +40,21 @@ def contests(request):
             messages.success(request, "Booking successful")
         else:
             messages.error(request, "Booking failed")
-            return render(request, 'contests.html', {"form": form})
+            return render(request, 'contests.html', )
 
     return render(request, 'contests.html', {"form": form})
 
 @csrf_exempt
 def contestdetails(request):
-    form = SoloBooking
+    form = SoloBookingForm()  # Correctly instantiate the form
     if request.method == "POST":
         form = SoloBookingForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Booking successful")
-            return redirect('home')
         else:
             messages.error(request, "Booking failed")
-            return render(request, 'contest-details.html', {"form": form})
+            return render(request, 'contest-details.html',)
 
     return render(request, 'contest-details.html', {"form": form})
 
@@ -177,4 +176,137 @@ def adminhome(request):
     return render(request, 'admin/adminhome.html')
 
 def approvals(request):
-    return render(request, 'admin/approvals.html')
+    bookings = Booking.objects.all()
+    solo_bookings = SoloBooking.objects.all()
+    
+    context = {
+        'bookings': bookings,
+        'solo_bookings': solo_bookings
+    }
+    return render(request, 'admin/approvals.html', context)
+
+
+def group_approval(request, id):
+    booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
+    booking.status = "Approved"
+    booking.save()
+
+    subject = "Booking Approved"
+    message = f"""Hello Adventurer!  
+
+Great news! 🎉 Your booking with Stevensons Trails Company has been **approved**!  
+
+🗺️ Get ready to embark on an unforgettable adventure filled with breathtaking views and thrilling experiences.  
+
+📅 Your approved booking details are confirmed, and we can't wait to host you! If you have any questions or need further assistance, feel free to reach out. 
+
+Your Tour will be on {booking.date_of_visit} at {booking.time_of_visit} at {booking.place_of_visit}
+
+Thanks for choosing us—your adventure starts now!
+
+If you didn’t make this booking, please contact us immediately.  
+
+Thanks for choosing us—your adventure starts now!  
+
+Happy Trails,  
+🌲 The Stevensons Trails Team 🌲  
+"""
+
+    from_email = "tobiaskipkogei@gmail.com"
+    recipient_list = [booking.email]  # Use the actual email from booking
+
+    send_mail(subject, message, from_email, recipient_list)
+
+    return redirect('approvals')
+
+def solo_approval(request,id):
+    solo_booking = get_object_or_404(SoloBooking, id=id)  # Fetch the booking safely
+    solo_booking.status = "Approved"
+    solo_booking.save()
+
+    subject = "Booking Approved"
+    message = f"""Hello Adventurer!  
+
+Great news! 🎉 Your booking with Stevensons Trails Company has been **approved**!  
+
+🗺️ Get ready to embark on an unforgettable adventure filled with breathtaking views and thrilling experiences.  
+
+📅 Your approved booking details are confirmed, and we can't wait to host you! If you have any questions or need further assistance, feel free to reach out.  
+
+Your Tour will be on {solo_booking.s_date_of_visit} at {solo_booking.s_time_of_visit} at {solo_booking.s_place_of_visit} 
+
+Thanks for choosing us—your adventure starts now!
+
+If you didn’t make this booking, please contact us immediately.  
+
+Thanks for choosing us—your adventure starts now!  
+
+Happy Trails,  
+🌲 The Stevensons Trails Team 🌲  
+"""
+
+    from_email = "tobiaskipkogei@gmail.com"
+    recipient_list = [solo_booking.s_email]  # Use the actual email from booking
+
+    send_mail(subject, message, from_email, recipient_list)
+    
+    return redirect('approvals')
+
+
+def group_denial(request,id):
+    booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
+    booking.status = "Decline"
+    booking.save()
+
+    subject = "Booking Denied"
+    message = f"""Hello Adventurer,  
+
+We regret to inform you that your booking for { booking.place_of_visit }with **Stevensons Trails Company** has not been approved. 😞  
+
+Unfortunately, due to [reason, e.g., unavailability, scheduling conflicts, or other circumstances], we are unable to confirm your booking at this time.  
+
+We sincerely apologize for any inconvenience this may cause. If you’d like to reschedule or explore other available options, please feel free to reach out to us.  
+
+If you have any questions or need assistance, we're here to help!  
+
+We hope to welcome you on an adventure with us soon.  
+
+Best Regards,  
+🌲 The Stevensons Trails Team 🌲  
+"""
+
+    from_email = "tobiaskipkogei@gmail.com"
+    recipient_list = [booking.email]  # Use the actual email from booking
+
+    send_mail(subject, message, from_email, recipient_list)
+
+    return redirect('approvals')
+    
+def solo_denial(request,id):
+    solo_booking = get_object_or_404(SoloBooking, id=id)  # Fetch the booking safely
+    solo_booking.s_status = "Decline"
+    solo_booking.save()
+
+    subject = "Booking Denied"
+    message = f"""Hello Adventurer,  
+
+We regret to inform you that your booking  for { solo_booking.s_place_of_visit } tour with **Stevensons Trails Company** has not been approved. 😞  
+
+Unfortunately, due to [reason, e.g., unavailability, scheduling conflicts, or other circumstances], we are unable to confirm your booking at this time.  
+
+We sincerely apologize for any inconvenience this may cause. If you’d like to reschedule or explore other available options, please feel free to reach out to us.  
+
+If you have any questions or need assistance, we're here to help!  
+
+We hope to welcome you on an adventure with us soon.  
+
+Best Regards,  
+🌲 The Stevensons Trails Team 🌲  
+"""
+    
+    from_email = "tobiaskipkogei@gmail.com"
+    recipient_list = [solo_booking.s_email]  
+
+    send_mail(subject, message, from_email, recipient_list)
+
+    return redirect('approvals')

@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Otp)
 admin.site.register(Booking)
 admin.site.register(TourismSite)
+admin.site.register(SoloBooking)

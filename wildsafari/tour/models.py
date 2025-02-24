@@ -23,8 +23,10 @@ class Booking(models.Model):
     place_of_visit=models.CharField(max_length=100)
     tour_package=models.CharField(max_length=100)
     payment_method=models.CharField(max_length=100)
+    status = models.TextField(default='Pending',max_length=100)
     
-class SoloBooking(Booking):
+class SoloBooking(models.Model):
+    id = models.AutoField(primary_key=True)
     contact_name = models.CharField(max_length=255,)  # Choose an appropriate default
     s_email=models.EmailField()
     s_phone=models.CharField(max_length=10)
@@ -33,6 +35,8 @@ class SoloBooking(Booking):
     s_place_of_visit=models.CharField(max_length=100)
     s_tour_package=models.CharField(max_length=100)
     s_payment_method=models.CharField(max_length=100)
+    s_status = models.TextField(default='Pending',max_length=100)
+    
 
 
 class TourismSite(models.Model):

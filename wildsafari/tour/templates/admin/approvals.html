@@ -14,32 +14,66 @@ Admin Approvals
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Solo/Group Tour</th>
+                    <th>Solo or Group Tour</th>
                     <th>Place of Visit</th>
                     <th>Date of Visit</th>
+                    <th>Time of Visit</th>
                     <th>Package Type</th>
+                    <th>Payment Method</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                
+                {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.email }}</td>
+                        <td>{{ booking.phone }}</td>
+                        <td>{{ booking.group_type }}</td>
+                        <td>{{ booking.place_of_visit }}</td>
+                        <td>{{ booking.date_of_visit }}</td>
+                        <td>{{ booking.time_of_visit }}</td>
+                        <td>{{ booking.tour_package }}</td>
+                        <td>{{ booking.payment_method }}</td>
+                        <td>{{ booking.status }}</td>
+                        <td>
+                            <a href="{% url 'group_approval' booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
+                            <a href="{% url 'group_denial' booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
+                        </td>
+                        
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center">No bookings found.</td>
+                    </tr>
+                {% endfor %}
+
+                {% for solo_booking in solo_bookings  %}
+
                 <tr>
-                    <td> booking.name </td>
-                    <td> booking.email </td>
-                    <td> booking.phone </td>
-                    <td> booking.tour_type </td>
-                    <td> booking.place_of_visit </td>
-                    <td> booking.date_of_visit </td>
-                    <td> booking.package_type </td>
+                    <td>{{ solo_booking.contact_name }}</td>
+                    <td>{{ solo_booking.s_email}}</td>
+                    <td>{{ solo_booking.s_phone  }}</td>
+                    <td>Solo</td>
+                    <td>{{ solo_booking.s_place_of_visit }}</td>
+                    <td>{{ solo_booking.s_date_of_visit }}</td>
+                    <td>{{ solo_booking.s_time_of_visit  }}</td>
+                    <td>{{ solo_booking.s_tour_package }}</td>
+                    <td>{{ solo_booking.s_payment_method }}</td>
+                    <td>{{ solo_booking.s_status }}</td>
                     <td>
-                        <a href="" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
-                        <a href="" class="btn btn-danger btn-sm"style="margin:1px; padding:1px; width:100%;">Deny</a>
+                        <a href="{% url 'solo_approval' solo_booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
+                        <a href="{% url 'solo_denial' solo_booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
                     </td>
+                    
                 </tr>
-               
-                <tr>
-                    <td colspan="8" class="text-center">No bookings found.</td>
-                </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center">No bookings found.</td>
+                    </tr>
+                {% endfor %}
+
             </tbody>
         </table>
     </div>

@@ -22,5 +22,10 @@ urlpatterns = [
     # Admin urls
     path('approvals', approvals, name='approvals'),
     path('adminhome', adminhome, name='adminhome'),
+    path('group_approval/<int:id>/', group_approval, name='group_approval'),
+    path('group_denial/<int:id>/', group_denial, name='group_denial'),
+
+    path('solo_approval/<int:id>/', solo_approval, name='solo_approval'),
+    path('solo_denial/<int:id>/', solo_denial, name='solo_denial'),
 
 ]
