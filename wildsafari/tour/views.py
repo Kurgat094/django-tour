@@ -81,8 +81,8 @@ def signin(request):
                     print(role.name)
                     if role.name=='admin':
                         return redirect('adminhome')
-                
-                    return redirect('home')
+                    else:
+                        return redirect('home')
                 else:
                     messages.error(request,"please verify you accont")
                     return redirect('otp')
