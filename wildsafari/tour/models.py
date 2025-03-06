@@ -52,13 +52,13 @@ class Itinerary(models.Model):
     day_number = models.PositiveIntegerField()
     title = models.CharField(max_length=255)
     description = models.TextField()
-    meals = models.CharField(max_length=50, help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+    meals = models.TextField( help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
 
     class Meta:
-        ordering = ['day_number']
+        ordering = ['name']
 
     def __str__(self):
-        return f"Day {self.day_number}: {self.title}"
+        return f" Day {self.day_number} -{self.name.name} "
     
 
 class TanzaniaSite(models.Model):
@@ -66,6 +66,34 @@ class TanzaniaSite(models.Model):
     description = models.TextField(default="No description available") 
     place=models.CharField(max_length=200)
     image = models.ImageField()
+    details=models.TextField(default="No details available")
 
     def __str__(self):
         return self.name
+
+class Tanzania_Itinerary(models.Model):
+    name=models.ForeignKey(TanzaniaSite,on_delete=models.CASCADE,related_name="Tz_itinerary") 
+    day_number=models.PositiveIntegerField()
+    title=models.CharField(max_length=255)  
+    description=models.TextField()
+    meals=models.TextField(help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return f" Day {self.day_number} -{self.name.name} "
+
+
+# contact messages
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=255)
+    telephone = models.CharField(max_length=20)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255, blank=True, null=True)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.subject if self.subject else 'No Subject'}"

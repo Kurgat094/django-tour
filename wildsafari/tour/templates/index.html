@@ -38,13 +38,13 @@
           <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
             
             {% for site in tourism_sites %}
-            <a href="{% url 'book' site.id %}" class="item" id="popular-site">
+            <a href="{% url 'book' site.id %}#booking" class="item" id="popular-site">
                 <div class="thumb" id="thumb-card">
                   
                     <img src="{{ site.image.url }}" alt="">
                     <div class="hover-effect">
                         <div class="content">
-                            <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                            <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                             <ul>
                                 <li><span>Place:</span>{{ site.place }}</li>
                                 <li><span>Description:</span> {{ site.description }}</li>
@@ -78,90 +78,31 @@
             <a href="{ url 'categories' }">Discover All Tourist Attraction Site</a>
           </div>
         </div>
-        
+
+        {% for site in tourism_sites1 %}
         <div class="col-lg-3 col-sm-6">
+          
           <div class="popular-item" id="popular-site" >
             <div class="top-content">
               <div class="right">
-                <h4>Wildlife & Nature</h4>
+                <h4>{{ site.name }}</h4>
                 <!-- <span><em>126</em> Available Contests</span> -->
               </div>
             </div>
             <div class="thumb" id="top-site">
-              <img src="{% static 'tour/lions.jpg' %}" alt="">
-              <span class="category">Top Contest</span>
-              <span class="likes"><i class="fa fa-heart"></i> 256</span>
+              <img src="{{ site.image.url }}" alt="">
+              <span class="category">{{ site.place }}</span>
+              
             </div>
             <div class="border-button">
-              <a href="{ url 'contestdetails' }">Book Tour</a>
+              <a href="{% url 'book' site.id %}">Book Tour</a>
             </div>
           </div>
         </div>
+        {% endfor %}
 
 
-        <div class="col-lg-3 col-sm-6">
-          <div class="popular-item" id="popular-site" >
-            <div class="top-content">
-              <div class="icon">
-                <img src="{% static 'images/icon-02.png' %}" alt="">
-              </div>
-              <div class="right">
-                <h4>Beaches & Recreation</h4>
-                <!-- <span><em>116</em> Available Contests</span> -->
-              </div>
-            </div>
-            <div class="thumb" id="top-site" >
-              <img src="{% static 'tour/kilifi.jpg' %}" alt="">
-              <!-- <span class="category">Top Contest</span>
-              <span class="likes"><i class="fa fa-heart"></i> 256</span> -->
-            </div>
-            <div class="border-button">
-              <a href="{ url 't.contestdetails'}">Book Tour</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="popular-item" id="popular-site" >
-            <div class="top-content">
-              <div class="icon">
-                <img src="{% static 'images/icon-03.png' %}" alt="">
-              </div>
-              <div class="right">
-                <h4>Waterfalls & Forests</h4>
-                <!-- <span><em>164</em> Available Contests</span> -->
-              </div>
-            </div>
-            <div class="thumb" id="top-site">
-              <img src="{% static 'tour/falls.jpg' %}" alt="">
-              <!-- <span class="category">Top Contest</span>
-              <span class="likes"><i class="fa fa-heart"></i> 256</span> -->
-            </div>
-            <div class="border-button">
-              <a href="{ url 'contestdetails' }">Book Tour</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div class="popular-item" id="popular-site" >
-            <div class="top-content">
-              <div class="icon">
-                <img src="{% static 'images/icon-04.png' %}" alt="">
-              </div>
-              <div class="right">
-                <h4>Culture  &  Foods</h4>
-                <!-- <span><em>135</em> Available Contests</span> -->
-              </div>
-            </div>
-            <div class="thumb" id="top-site">
-              <img src="{% static 'tour/maasai2.jpg' %}" alt="">
-              <!-- <span class="category">Top Contest</span>
-              <span class="likes"><i class="fa fa-heart"></i> 256</span> -->
-            </div>
-            <div class="border-button">
-              <a href="{ url 'contestdetails' }">Book Tour</a>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
   </section>

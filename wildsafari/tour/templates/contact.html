@@ -79,8 +79,27 @@
           </div>
         </div>
         <div class="col-lg-12">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="{% url 'contact_messages' %}" method="post">
             <div class="row">
+              {% if form.errors %}
+                          <div class="alert alert-warning" role="alert">
+                              <ul class="mb-0">
+                                  {% for key, error in form.errors.items %}
+                                      <li>{{ error }}</li>
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                      {% endif %}
+                      {% if messages %}
+            <div class="messages">
+              {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+                  {% csrf_token %}
               <div class="col-lg-6">
                 <fieldset>
                   <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
