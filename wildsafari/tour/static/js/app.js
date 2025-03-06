@@ -59,3 +59,16 @@ document.getElementById('group-size').addEventListener('input', function () {
           }
       });
   };
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        let messages = document.querySelectorAll('.popup-message');
+        messages.forEach(function (msg) {
+            msg.style.animation = "fadeOut 0.5s ease-in-out forwards";
+            setTimeout(() => msg.remove(), 500);  // Remove message after animation
+        });
+    }, 5000);  // Message disappears after 5 seconds
+});

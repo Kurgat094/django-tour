@@ -23,10 +23,11 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 @csrf_exempt
 def home(request):
-    tourism_sites = TourismSite.objects.all()[:6]  # Fetch first 10 tourism sites
-    tourism_sites_2 = TourismSite.objects.all()[6:20]
+    tourism_sites = TourismSite.objects.filter(itinerary__isnull=False).distinct()
+    tourism_sites1 = TourismSite.objects.filter(itinerary__isnull=True)[:8]
+    tourism_sites_2 = TourismSite.objects.all()[8:30]  # Fetch the next 10 tourism sites
     itinaries = Itinerary.objects.all()
-    return render(request, 'index.html', {'tourism_sites': tourism_sites  , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2})
+    return render(request, 'index.html', {'tourism_sites': tourism_sites  , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2 , 'tourism_sites1': tourism_sites1})
 
 
 @csrf_exempt
@@ -66,6 +67,64 @@ def book(request, site_id):
         'itineraries': itineraries,
         'form': form,
     })
+
+def tzbook(request, site_id):
+    # Get the tourism site or return a 404 error if not found
+    tourism_site = get_object_or_404(TanzaniaSite, id=site_id)
+    
+    # Get the itineraries for the selected tourism site
+    itineraries = Tanzania_Itinerary.objects.filter(name=tourism_site)
+
+    form = BookingForm()  # Correctly instantiate the form
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            Booking.objects.create(
+                name=form.cleaned_data['name'],
+                contactname=form.cleaned_data['contactname'],
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone'],
+                place_of_visit=tourism_site.place,  # Automatically set from tourism_site
+                tour_package=form.cleaned_data['tour_package'],
+                date_of_visit=form.cleaned_data['date_of_visit'],
+                time_of_visit=form.cleaned_data['time_of_visit']
+            )
+            messages.success(request, "Booking successful!")
+            return redirect('home',)
+        else:
+            messages.error(request, "Booking failed")
+            return render(request, 'contests.html', )
+    
+    return render(request, 'contests.html', {
+        'tourism_site': tourism_site,
+        'itineraries': itineraries,
+        'form': form,
+    })
+
+@csrf_exempt
+def contact_messages(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        telephone = request.POST.get("telephone")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject", "")
+        message = request.POST.get("message")
+
+        # Save the message to the database
+        ContactMessage.objects.create(
+            name=name,
+            telephone=telephone,
+            email=email,
+            subject=subject,
+            message=message
+        )
+
+        messages.success(request, "Your message has been sent successfully!")
+        return redirect(request.META.get("HTTP_REFERER", "contests"))
+
+
+    return render(request, "contests.html")
+
 
 @csrf_exempt
 def contests(request):
@@ -121,7 +180,7 @@ def signin(request):
                     role=Group.objects.get(user=user)
                     print(role.name)
                     if role.name=='admin':
-                        return redirect('adminhome')
+                        return redirect('approvals')
                     elif role.name=='user':
                         return redirect('home')
                     
@@ -362,7 +421,11 @@ Best Regards,
 # Other Site Views And Services
 @csrf_exempt
 def tanzania(request):
-    return render(request, 'tanzania.html')
+    tourism_sites = TanzaniaSite.objects.filter(Tz_itinerary__isnull=False).distinct()
+    tourism_sites1 = TanzaniaSite.objects.filter(Tz_itinerary__isnull=True)[:8]
+    tourism_sites_2 = TanzaniaSite.objects.all()[8:30]  # Fetch the next 10 tourism sites
+    itinaries = Tanzania_Itinerary.objects.all()
+    return render(request, 'tanzania.html',{ 'tourism_sites': tourism_sites , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2 , 'tourism_sites1': tourism_sites1})  
 
 @csrf_exempt
 def kenya(request):

@@ -6,6 +6,8 @@
 
 {% block content %}
 
+
+
 <div class="page-heading" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{ tourism_site.image.url }}');">
   <div class="container">
       <div class="row">
@@ -16,7 +18,7 @@
 
           {% if tourism_site.details %}
 <div class="col-lg-8 offset-lg-2 header-text">
-    <p>{{ tourism_site.details }}</p>
+    <p>{{ tourism_site.details|linebreaksbr }}</p>
 </div>
   {% endif %}
       </div>
@@ -45,7 +47,7 @@
               <tr>
                   <td>{{ itinerary.day_number }}</td>
                   <td>{{ itinerary.title }}</td>
-                  <td>{{ itinerary.description }}</td>
+                  <td>{{ itinerary.description|linebreaksbr }}</td>
                   <td>{{ itinerary.meals }}</td>
               </tr>
               {% endfor %}
@@ -55,7 +57,7 @@
   {% endif %}
 </div>
 
-<div class="tour-booking">
+<div class="tour-booking" id="booking">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -74,6 +76,10 @@
                               </ul>
                           </div>
                       {% endif %}
+                      
+                      
+          
+
                   {% csrf_token %}
                   
                   <div class="col-lg-6">
@@ -120,10 +126,10 @@
                 
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="">Date of Visit</label>
-                      <input type="date" name="date_of_visit" class="form-control" placeholder="Date" required>
+                        <label for="">Date of Visit</label>
+                        <input type="date" name="date_of_visit" id="date_of_visit" class="form-control" required>
                     </div>
-                  </div>
+                </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">Time of Visit</label>
@@ -206,9 +212,20 @@
             </div>
           </div>
           <div class="col-lg-12">
-            <form id="contact" action="" method="post">
+            <form id="contact" action="{% url 'contact_messages' %}" method="post">
               <div class="row">
                 <div class="col-lg-6">
+                  {% if form.errors %}
+                          <div class="alert alert-warning" role="alert">
+                              <ul class="mb-0">
+                                  {% for key, error in form.errors.items %}
+                                      <li>{{ error }}</li>
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                      {% endif %}
+                     
+                  {% csrf_token %}
                   <fieldset>
                     <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
                   </fieldset>
@@ -245,8 +262,6 @@
       </div>
     </div>
   </div>
-
-
 
 
 {% endblock %}
