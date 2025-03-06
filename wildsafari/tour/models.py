@@ -13,8 +13,6 @@ class Otp(models.Model):
 
 class Booking(models.Model):
     name=models.CharField(max_length=100)
-    group_type=models.CharField(max_length=100)
-    group_size=models.IntegerField()
     contactname = models.CharField(max_length=255,)  # Choose an appropriate default
     email=models.EmailField()
     phone=models.CharField(max_length=10)
@@ -22,7 +20,7 @@ class Booking(models.Model):
     time_of_visit=models.TimeField()
     place_of_visit=models.CharField(max_length=100)
     tour_package=models.CharField(max_length=100)
-    payment_method=models.CharField(max_length=100)
+
     status = models.TextField(default='Pending',max_length=100)
     
 class SoloBooking(models.Model):
@@ -41,10 +39,33 @@ class SoloBooking(models.Model):
 
 class TourismSite(models.Model):
     name = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    categories = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='tourism_sites/')
+    description = models.TextField(default="No description available") 
+    place=models.CharField(max_length=200)
+    image = models.ImageField()
+    details = models.TextField(default="No details available")
 
     def __str__(self):
         return self.name
 
+class Itinerary(models.Model):
+    name = models.ForeignKey(TourismSite, on_delete=models.CASCADE, related_name="itinerary")
+    day_number = models.PositiveIntegerField()
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    meals = models.CharField(max_length=50, help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+
+    class Meta:
+        ordering = ['day_number']
+
+    def __str__(self):
+        return f"Day {self.day_number}: {self.title}"
+    
+
+class TanzaniaSite(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(default="No description available") 
+    place=models.CharField(max_length=200)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.name

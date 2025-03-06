@@ -17,7 +17,7 @@
             <p>Stevensons Trail - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
             <div class="buttons">
               <div class="big-border-button">
-                <a href="{ url 'contests' }">Explore Stevensons Trail Company</a>
+                <a href="{% url 'categories' %}">Explore Stevensons Trail Company</a>
               </div>
               <div class="icon-button">
                 <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
@@ -36,141 +36,26 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/mtKenya.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Walk In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Site:</span> Mt Kenya</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Categories:</span> Hike and Adventure</li>
-                    </ul>
-                  </div>
+            
+            {% for site in tourism_sites %}
+            <a href="{% url 'book' site.id %}" class="item" id="popular-site">
+                <div class="thumb" id="thumb-card">
+                  
+                    <img src="{{ site.image.url }}" alt="">
+                    <div class="hover-effect">
+                        <div class="content">
+                            <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
+                            <ul>
+                                <li><span>Place:</span>{{ site.place }}</li>
+                                <li><span>Description:</span> {{ site.description }}</li>
+                                <li><span>Book:</span>Reserve Available </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static  'tour/beach.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Smile In The Nature Beach <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span>Kilifi Beach</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Awards:</span> $1,200 + Canon EOS R7</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/flamingo.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Happy In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span> Lake Bogoria</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Awards:</span> $1,800 + Canon EOS R6</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/hippo.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Walk In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span> Rift Valley</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Categories:</span> Kenya Heritage</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/marathons.jpeg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Run In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span>Elgeyo Marakwet</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Awards:</span> $5,500 + Canon EOS R3</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/maasai.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Culture <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span> Maasai land</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Awards:</span> $4,400 + Canon EOS R5</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/kilimanjaro.jpg'  %} " alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Walk In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span> Kilimanjaro</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Awards:</span> $3,800 + Canon EOS R6</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb"id="thumb-card">
-                <img src="{% static 'tour/buffalosunset.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content">
-                    <h4>Buffalo In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span> Tsavo park</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Event:</span> Buffalos</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="thumb" id="thumb-card">
-                <img src="{% static 'tour/paracliders.jpg' %}" alt="">
-                <div class="hover-effect">
-                  <div class="content" >
-                    <h4>Fly In The Nature <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span>(4.5)</span></h4>
-                    <ul>
-                      <li><span>Place:</span> Elgeyo Escarpments</li>
-                      <!-- <li><span>Contest Author:</span> Anthony Soft</li> -->
-                      <li><span>Event:</span> Paracliders</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </a>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -185,7 +70,7 @@
         <div class="col-lg-6">
           <div class="section-heading">
             <h6>Our Top Tourism SITES</h6>
-            <h4>Check Out <em>Popular</em> Tourism <em>Sites</em></h4>
+            <h4>Check Out <em>Popular</em> Tourism <em>Sites Kenya</em></h4>
           </div>
         </div>
         <div class="col-lg-6">
@@ -193,12 +78,10 @@
             <a href="{ url 'categories' }">Discover All Tourist Attraction Site</a>
           </div>
         </div>
+        
         <div class="col-lg-3 col-sm-6">
           <div class="popular-item" id="popular-site" >
             <div class="top-content">
-              <div class="icon">
-                <img src="{% static 'images/icon-01.png' %}" alt="">
-              </div>
               <div class="right">
                 <h4>Wildlife & Nature</h4>
                 <!-- <span><em>126</em> Available Contests</span> -->
@@ -214,6 +97,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="col-lg-3 col-sm-6">
           <div class="popular-item" id="popular-site" >
             <div class="top-content">
@@ -273,7 +158,7 @@
               <span class="likes"><i class="fa fa-heart"></i> 256</span> -->
             </div>
             <div class="border-button">
-              <a href="{ url 'contestdetails' }}">Book Tour</a>
+              <a href="{ url 'contestdetails' }">Book Tour</a>
             </div>
           </div>
         </div>
