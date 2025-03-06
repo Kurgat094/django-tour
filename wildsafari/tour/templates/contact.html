@@ -91,14 +91,15 @@
                           </div>
                       {% endif %}
                       {% if messages %}
-            <div class="messages">
-              {% for message in messages %}
-                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            </div>
-            {% endif %}
+                      <div id="popup-message-container">
+                          {% for message in messages %}
+                              <div class="popup-message">
+                                  {{ message }}
+                                  <span class="close-btn" onclick="closePopup(this)">&times;</span>
+                              </div>
+                          {% endfor %}
+                      </div>
+                  {% endif %}
                   {% csrf_token %}
               <div class="col-lg-6">
                 <fieldset>
