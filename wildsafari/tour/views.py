@@ -21,14 +21,51 @@ from django.views.decorators.csrf import csrf_exempt
 logger = logging.getLogger(__name__)
 
 # Create your views here.
-
+@csrf_exempt
 def home(request):
-    return render(request, 'index.html')
+    tourism_sites = TourismSite.objects.all()[:6]  # Fetch first 10 tourism sites
+    tourism_sites_2 = TourismSite.objects.all()[6:20]
+    itinaries = Itinerary.objects.all()
+    return render(request, 'index.html', {'tourism_sites': tourism_sites  , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2})
 
 
-
+@csrf_exempt
 def categories(request):
     return render(request, 'categories.html')
+
+@csrf_exempt
+def book(request, site_id):
+    # Get the tourism site or return a 404 error if not found
+    tourism_site = get_object_or_404(TourismSite, id=site_id)
+    
+    # Get the itineraries for the selected tourism site
+    itineraries = Itinerary.objects.filter(name=tourism_site)
+
+    form = BookingForm()  # Correctly instantiate the form
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            Booking.objects.create(
+                name=form.cleaned_data['name'],
+                contactname=form.cleaned_data['contactname'],
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone'],
+                place_of_visit=tourism_site.place,  # Automatically set from tourism_site
+                tour_package=form.cleaned_data['tour_package'],
+                date_of_visit=form.cleaned_data['date_of_visit'],
+                time_of_visit=form.cleaned_data['time_of_visit']
+            )
+            messages.success(request, "Booking successful!")
+            return redirect('home',)
+        else:
+            messages.error(request, "Booking failed")
+            return render(request, 'contests.html', )
+    
+    return render(request, 'contests.html', {
+        'tourism_site': tourism_site,
+        'itineraries': itineraries,
+        'form': form,
+    })
 
 @csrf_exempt
 def contests(request):
@@ -58,9 +95,13 @@ def contestdetails(request):
 
     return render(request, 'contest-details.html', {"form": form})
 
-
+@csrf_exempt
 def users(request):
-    return render(request, 'users.html')
+    return render(request, 'contact.html')
+
+@csrf_exempt
+def terms_conditions(request):
+    return render(request, 'terms_conditions.html')
 
 
 # Auth functions
@@ -135,7 +176,7 @@ def signup(request):
     return render(request, 'register.html', context)
 
 
-
+@csrf_exempt
 def signout(request):
     logout(request)
     return redirect('signin')
@@ -159,7 +200,7 @@ def otp(request):
 
 
 # Admin Roles
-
+@csrf_exempt
 def add_tourism_site(request):
     if request.method == 'POST':
         form = TourismSiteForm(request.POST, request.FILES)
@@ -172,10 +213,11 @@ def add_tourism_site(request):
 
 
 
-
+@csrf_exempt
 def adminhome(request):
     return render(request, 'admin/adminhome.html')
 
+@csrf_exempt
 def approvals(request):
     bookings = Booking.objects.all()
     solo_bookings = SoloBooking.objects.all()
@@ -186,7 +228,7 @@ def approvals(request):
     }
     return render(request, 'admin/approvals.html', context)
 
-
+@csrf_exempt
 def group_approval(request, id):
     booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
     booking.status = "Approved"
@@ -219,7 +261,7 @@ Happy Trails,
     send_mail(subject, message, from_email, recipient_list)
 
     return redirect('approvals')
-
+@csrf_exempt
 def solo_approval(request,id):
     solo_booking = get_object_or_404(SoloBooking, id=id)  # Fetch the booking safely
     solo_booking.status = "Approved"
@@ -253,7 +295,7 @@ Happy Trails,
     
     return redirect('approvals')
 
-
+@csrf_exempt
 def group_denial(request,id):
     booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
     booking.status = "Decline"
@@ -282,7 +324,7 @@ Best Regards,
     send_mail(subject, message, from_email, recipient_list)
 
     return redirect('approvals')
-    
+@csrf_exempt    
 def solo_denial(request,id):
     solo_booking = get_object_or_404(SoloBooking, id=id)  # Fetch the booking safely
     solo_booking.s_status = "Decline"
@@ -311,3 +353,25 @@ Best Regards,
     send_mail(subject, message, from_email, recipient_list)
 
     return redirect('approvals')
+
+
+
+
+
+
+# Other Site Views And Services
+@csrf_exempt
+def tanzania(request):
+    return render(request, 'tanzania.html')
+
+@csrf_exempt
+def kenya(request):
+    return render(request, 'categories.html')
+
+@csrf_exempt
+def uganda(request):
+    return render(request, 'uganda.html')
+
+@csrf_exempt
+def rwanda(request):
+    return render(request, 'rwanda.html')

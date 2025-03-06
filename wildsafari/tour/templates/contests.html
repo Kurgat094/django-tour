@@ -6,74 +6,62 @@
 
 {% block content %}
 
-<div class="page-heading">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2 header-text">
-          <h2>Book Your Tour in Our <em>Stevensons Trail Company</em></h2>
-          <p>Embark on an unforgettable journey into the heart of the wild. Our guided safari tours offer you the chance to witness majestic wildlife, breathtaking landscapes, and the thrill of adventure. Whether you're a nature enthusiast or a photography lover, our tours are designed to provide you with an experience of a lifetime. Book now and explore the untamed beauty of nature!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="search-form">
+<div class="page-heading" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{ tourism_site.image.url }}');">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <form id="search-form" name="gs" method="submit" role="search" action="#">
-          <div class="row">
-            <div class="col-lg-4">
-              <fieldset>
-                  <label for="contest" class="form-label">Search For Tour</label>
-                  <input type="text" name="tour" class="searchText" placeholder="Tour to..." autocomplete="on" required>
-              </fieldset>
-            </div>
-            <div class="col-lg-4">
-              <fieldset>
-                  <label for="category" class="form-label">Tour Category</label>
-                  <select name="category" class="form-select" aria-label="Choose a category" id="category" onchange="this.form.click()">
-                      <option selected>Choose a category</option>
-                      <option type="checkbox" name="Nature" value="Nature">Nature</option>
-                      <option value="Portrait">Moutains and Hikes</option>
-                      <option value="Space">Beaches</option>
-                      <option value="Space">Waterfalls</option>
-                      <option value="Space">Wildlife</option>
-                      <option value="Space">Culture</option>
-                  </select>
-              </fieldset>
-            </div>
-            <div class="col-lg-2">
-              <fieldset>
-                  <label for="chooseprice" class="form-label">Price</label>
-                  <select name="Price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                      <option selected>Choose a price</option>
-                      <option value="500">$500 to $1,000</option>
-                      <option value="1500">$1,500 to $2,000</option>
-                      <option value="2500">$2,500 to $3000</option>
-                      <option value="3500+">$3,500+</option>
-                  </select>
-              </fieldset>
-            </div>
-            <div class="col-lg-2">
-              <fieldset>
-                  <button class="main-button">Search Now</button>
-              </fieldset>
-            </div>
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2 header-text">
+              <h2>Book Your Tour  At <em>{{ tourism_site.place }}</em></h2>
+              <p>Embark on an unforgettable journey into the heart of the wild. <br><em>{{ tourism_site.description }}</em> </p>
           </div>
-        </form>
+
+          {% if tourism_site.details %}
+<div class="col-lg-8 offset-lg-2 header-text">
+    <p>{{ tourism_site.details }}</p>
+</div>
+  {% endif %}
       </div>
-    </div>
   </div>
+</div>
+
+
+
+<div class="container mt-4">
+  
+
+  {% if itineraries %}
+  <h2 class="text-center text-primary">Itinerary</h2>
+  <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover">
+          <thead class="table-primary">
+              <tr>
+                  <th>Day</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Meals</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for itinerary in itineraries %}
+              <tr>
+                  <td>{{ itinerary.day_number }}</td>
+                  <td>{{ itinerary.title }}</td>
+                  <td>{{ itinerary.description }}</td>
+                  <td>{{ itinerary.meals }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
+  {% endif %}
 </div>
 
 <div class="tour-booking">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
           <div class="main-content">
-            <h4>Book Your Group Wild Safari Tour</h4>
-            <p>Embark on an unforgettable adventure into the wild with your group. Fill out the form below to reserve your spot for a group safari tour.</p>
+            <h4>Book Your Tour At Stevensons Trails</h4>
+            <p>Embark on an unforgettable adventure into the wild with us. Fill out the form below to reserve your spot for a {{ tourism_site.place }}  tour.</p>
             <form id="tour-booking-form" method="post">
               <div class="form-body">
                 <div class="row">
@@ -87,19 +75,168 @@
                           </div>
                       {% endif %}
                   {% csrf_token %}
-                  {%  for forms in form %}
+                  
                   <div class="col-lg-6">
                     <div class="form-group">
-                      {{ forms.label_tag }}
-                      {{ forms }}
+                      <label for="">Name</label>
+                      <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
                   </div>
-                  {%  endfor %}
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="">Contact name</label>
+                      <input type="text" name="contactname" class="form-control" placeholder="Contact Name" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="">Email</label>
+                      <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="">Phone Number</label>
+                      <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="">Place Of Visit</label>
+                      <input type="text" name="place_of_visit" value="{{ tourism_site.place }}" class="form-control" placeholder="Place of Visit" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="tour_package">Tour Package</label>
+                        <select name="tour_package" class="form-control" required>
+                            <option value="" disabled selected>Select a package</option>
+                            <option value="basic">Basic Package</option>
+                            <option value="premium">Premium Package</option>
+                            <option value="luxury">Luxury Package</option>
+                        </select>
+                    </div>
+                  </div>
+                
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="">Date of Visit</label>
+                      <input type="date" name="date_of_visit" class="form-control" placeholder="Date" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="">Time of Visit</label>
+                      <input type="time" name="time_of_visit" class="form-control" placeholder="Time" required>
+                    </div>
+                  </div>
+                  
                   <div class="col-lg-12">
                     <div class="form-group">
                       <button type="submit" class="main-button-book">Book Now</button>
                     </div>
                   </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <p><a href="{% url 'terms_conditions' %}">View Our Terms And Conditions</a></p>   
+                    </div>  
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+          <!-- What's Included -->
+          <div class="col-lg-3">
+              <div class="card p-4">
+                  <h3 class="text-success"><i class="fas fa-check-circle icon"></i> What's Included?</h3>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Accommodation and meals as stipulated in the itinerary.</li>
+                      <li class="list-group-item">Transport in a chauffeur-driven Land Cruiser or tour van with a pop-up roof for easy game viewing & photography.</li>
+                      <li class="list-group-item">Services of an English-speaking driver-guide.</li>
+                      <li class="list-group-item">Game viewing drives and park entrance fees as indicated in the itinerary.</li>
+                      <li class="list-group-item">All Government taxes and levies.</li>
+                      <li class="list-group-item">Mineral water during drives only.</li>
+                      <li class="list-group-item">24-hour stand-by contact number.</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card p-4">
+              <h3 class="text-danger"><i class="fas fa-times-circle icon"></i> What's Excluded?</h3>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Visa fees and travel insurance.</li>
+                  <li class="list-group-item">All items of personal nature (e.g., telephone call bills, fax/email bills, etc.).</li>
+                  <li class="list-group-item">Tips and gratuities to hotel, lodge, camp staff, and driver-guide(s).</li>
+                  <li class="list-group-item">Alcoholic and non-alcoholic drinks.</li>
+                  <li class="list-group-item">Any local or international flight and departure taxes.</li>
+                  <li class="list-group-item">Laundry services.</li>
+                  <li class="list-group-item">Any other item(s) not included in our itinerary.</li>
+              </ul>
+          </div>
+          </div>
+              
+        <div class="row">
+          <div class="col-lg-12" style="margin-top: 40px;">
+            <div class="text-center section-heading">
+              <h6>Contact This User</h6>
+              <h4>Don't Be Shy <em></em> to contact the <em>Stevensons Trail Company</em></h4>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="info-item">
+              <i class="fa fa-phone"></i>
+              <h4>Phone Numbers</h4>
+              <span><a href="#">+254 796108272</a><br><a href="#">+254 726053339</a></span>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="info-item">
+              <i class="fa fa-envelope"></i>
+              <h4>Email Addresses</h4>
+              <span><a href="#">stevensonstrail@company.com</a><br><a href="#">Stevensons Trail Company</a></span>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="info-item">
+              <i class="fa fa-map-marked"></i>
+              <h4>Office Location</h4>
+              <span><a href="#">30700 Naivasha , Kenya,<br>IL 60601, Naivasha</a></span>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <form id="contact" action="" method="post">
+              <div class="row">
+                <div class="col-lg-6">
+                  <fieldset>
+                    <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                  </fieldset>
+                </div>
+                <div class="col-lg-6">
+                  <fieldset>
+                    <input type="text" name="telephone" id="telephone" placeholder="Your Telephone..." autocomplete="on" required>
+                  </fieldset>
+                </div>
+                <div class="col-lg-6">
+                  <fieldset>
+                    <input type="email" name="email" id="email" placeholder="Your E-mail..." required="">
+                  </fieldset>
+                </div>
+                <div class="col-lg-6">
+                  <fieldset>
+                    <input type="text" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="orange-button">Send Message Now</button>
+                  </fieldset>
                 </div>
               </div>
             </form>
@@ -109,219 +246,7 @@
     </div>
   </div>
 
-<section class="photos-videos">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="text-center section-heading">
-          <h6> Stevensons Trail Company Most Visit</h6>
-          <h4>Our <em>Most</em> Featured <em> Visit</em> Stevensons Trail Company</h4>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="item">
-          <div class="thumb" id="thumb-cards">
-            <img src="{% static 'tour/flamingo.jpg' %}" alt="">
-            <div class="top-content">
-              <h4>Flamigo Bogoria</h4>
-            </div>
-          </div>
-          <div class="down-content">
-            <div class="row">
-              <div class="col-7">
-                <h2>Ranked: 1st</h2>
-              </div>
-              <div class="col-5">
-                <h6>Category: Photos</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="item">
-          <div class="thumb" id="thumb-cards">
 
-            <img src="{% static 'tour/maasaimarawb.jpg' %}" alt="">
-            <div class="play-button"></div>
-            <div class="top-content">
-              <h4>Wildebeest</h4>
-            </div>
-          </div>
-          <div class="down-content">
-            <div class="row">
-              <div class="col-7">
-                <h2>Ranked: 2nd</h2>
-              </div>
-              <div class="col-5">
-                <h6>Category: Photos</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="item">
-          <div class="thumb" id="thumb-cards">
-            <img src="{% static 'tour/Kilifi_bay_beach.jpg' %}" alt="">
-            <div class="top-content">
-              <h4>Beach Kilifi Bay</h4>
-            </div>
-          </div>
-          <div class="down-content">
-            <div class="row">
-              <div class="col-7">
-                <h2>Ranked: 3rd</h2>
-              </div>
-              <div class="col-5">
-                <h6>Category: Photos</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="item">
-          <div class="thumb" id="thumb-cards">
-            <img src="{% static 'tour/monkeys.jpeg' %}" alt="">
-            <div class="top-content">
-              <h4>Green Forest</h4>
-
-            </div>
-          </div>
-          <div class="down-content">
-            <div class="row">
-              <div class="col-7">
-                <h2>Ranked: 4th</h2>
-              </div>
-              <div class="col-5">
-                <h6>Category: Photo</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="item">
-          <div class="thumb" id="thumb-cards">
-            <img src="{% static 'tour/chogoriakenya.jpg' %}" alt="">
-            <div class="top-content">
-              <h4>Rocky Mountain</h4>
-            </div>
-          </div>
-          <div class="down-content">
-            <div class="row">
-              <div class="col-7">
-                <h2>Ranked: 5th</h2>
-              </div>
-              <div class="col-5">
-                <h6>Category: Random</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contest-win">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="text-center section-heading">
-          <h6>Recently Added Tourism Site </h6>
-          <h4>Current <em>Tour</em> to Visit Now &amp; <em>Book</em></h4>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="contest-item" id="top-site">
-          <div class="top-content">
-            <span class="award"> <a href="" style="color: white">Book Now</a>
-            </span>
-            <span class="price">$1,200</span>
-          </div>
-          <img src="{% static 'tour/chalbi.jpg' %}" alt="">
-          <h4>Hot Climate</h4>
-          <!-- {{-- <div class="info">
-            <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>80 Participants</span>
-            <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>260 Submissions</span>
-          </div> --}} -->
-          <div class="border-button">
-            <a href="{ url 'contestdetails' }">Book Solo Tour</a>
-          </div>
-          <span class="info">* Client will pay via Online Payments</span>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="contest-item" id="top-site">
-          <div class="top-content">
-            <span class="award"> <a href="" style="color: white">Book Now</a>
-            </span>
-            <span class="price">$2,400</span>
-          </div>
-          <img src="{% static 'tour/torokfalls.jpg' %}" alt="">
-          <h4>Great Rift Valley</h4>
-          <!-- {{-- <div class="info">
-            <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>60 Participants</span>
-            <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>212 Submissions</span>
-          </div> --}} -->
-          <div class="border-button">
-            <a href="{ url 'contestdetails' }">Book Solo Tour</a>
-          </div>
-          <span class="info">* Client will pay via Online Payments</span>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="contest-item" id="top-site">
-          <div class="top-content">
-            <span class="award"> <a href="" style="color: white">Book Now</a>
-            </span>
-            <span class="price">$3,600</span>
-          </div>
-          <img src="{% static 'tour/rendile.jpg' %}" alt="">
-          <h4>Cushites Culture</h4>
-          <!-- {{-- <div class="info">
-            <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>55 Participants</span>
-            <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>150 Submissions</span>
-          </div> --}} -->
-          <div class="border-button">
-            <a href="{ url 'contest-details' }">Book Solo Tour</a>
-          </div>
-          <span class="info">* Client will pay via Online Payments</span>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="contest-item" id="top-site">
-          <div class="top-content" >
-            <span class="award"> <a href="" style="color: white">Book Now</a>
-            </span>
-            <span class="price">$4,800</span>
-          </div>
-          <img src="{% static 'tour/migingo.jpg' %}" alt="">
-          <h4>Migingo in Lake victoria</h4>
-          <!-- {{-- <div class="info">
-            <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>40 Participants</span>
-            <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>120 Submissions</span>
-          </div> --}} -->
-          <div class="border-button">
-            <a href="{ url 'contestdetails' }">Book Solo Tour</a>
-          </div>
-          <span class="info">* Client will pay via Online Payments</span>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <ul class="pagination">
-          <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-          <li><a href="#">1</a></li>
-          <li class="active"><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 {% endblock %}

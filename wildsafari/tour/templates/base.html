@@ -31,21 +31,24 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{% url 'home' %}" class="logo">
-                        <img src="{% static 'tour/stevenson_logo-.png' %}" style="height: 60px; width:80px;" alt="Stevensons Tail Company" >
+                        <img src="{% static 'tour/logo-stevensons-.png' %}" style="height: 60px; width:80px;" alt="Stevensons Tail Company" >
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
+                    <ul class="nav" id="dashboard">
                         <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                        <li><a href="{% url 'categories' %}">Explore Us</a></li>
                         <li class="has-sub">
-                            <a href="javascript:void(0)">Book &amp; Visit</a>
+                            <a href="javascript:void(0)">Other  Services</a>
                             <ul class="sub-menu">
-                                <li><a href="{%  url 'contests' %}">Bookings</a></li>
-                                <li><a href="{% url 'contestdetails' %}">Single Booking</a></li>
+                                <li><a href="{% url 'kenya' %}">Kenya</a></li>
+                                <li><a href="{% url 'uganda' %}">Uganda</a></li>
+                                <li><a href="{% url 'tanzania' %}">Tanzania</a></li>
+                                <li><a href="{% url 'rwanda'%}">Rwanda</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'categories' %}">Categories</a></li>
-                        <li><a href="{% url 'users' %}">Contact</a></li>
+                        <li><a href="{% url 'users' %}">Contact Us</a></li>
+
                     </ul>
                     <div class="border-button">
                         {% if user.is_authenticated %}
@@ -70,7 +73,27 @@
 </header>
 
 
+</form>
+</div>
 
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Enter Payment Details</h2>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="amount">Amount to Pay:</label>
+                <input type="number" id="amount" name="amount" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required>
+            </div>
+            <button type="button" id="confirmPayment" class="btn btn-primary">Confirm Payment</button>
+        </form>
+    </div>
+</div>
 
 
   {%  block content %}
@@ -82,8 +105,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright © 2024 <a href="#">Stevensons Trail Company</a>. All rights reserved.
-                <br>Experience the thrill of the wild with our guided safari tours. Explore nature's beauty and witness majestic wildlife in their natural habitat.
+                <p> View Our <em><b><a href="{% url 'terms_conditions' %}">Terms And Conditions</a></b></em>
+                    <br>Copyright © 2024 <a href="#">Stevensons Trail Company</a>. All rights reserved.
+                <br>Experience the thrill of the wild with our guided safari tours. Explore nature's beauty and witness majestic wildlife in their natural habitat. </p>
             </div>
         </div>
     </div>
@@ -106,5 +130,6 @@
 <script src="{% static 'js/custom.js' %}"></script>
 <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 <script src="{% static 'js/app.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 </html>

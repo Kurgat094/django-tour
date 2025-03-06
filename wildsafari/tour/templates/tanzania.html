@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static  %}
+
+{% block title %}Tanzania{% endblock %}
+
+{% block content %}
+<section class="photos-videos">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6> Stevensons Trail Company Most Visit</h6>
+            <h4>Our <em>Most</em> Featured <em> Visit</em> At Tanzania</h4>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="item">
+            <div class="thumb" id="thumb-cards">
+              <img src="{% static 'tour/flamingo.jpg' %}" alt="">
+              <div class="top-content">
+                <h4>Flamigo Bogoria</h4>
+              </div>
+            </div>
+            <div class="down-content">
+              <div class="row">
+                <div class="col-7">
+                  <h2>Ranked: 1st</h2>
+                </div>
+                <div class="col-5">
+                  <h6>Category: Photos</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="item">
+            <div class="thumb" id="thumb-cards">
+  
+              <img src="{% static 'tour/maasaimarawb.jpg' %}" alt="">
+              <div class="play-button"></div>
+              <div class="top-content">
+                <h4>Wildebeest</h4>
+              </div>
+            </div>
+            <div class="down-content">
+              <div class="row">
+                <div class="col-7">
+                  <h2>Ranked: 2nd</h2>
+                </div>
+                <div class="col-5">
+                  <h6>Category: Photos</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="item">
+            <div class="thumb" id="thumb-cards">
+              <img src="{% static 'tour/Kilifi_bay_beach.jpg' %}" alt="">
+              <div class="top-content">
+                <h4>Beach Kilifi Bay</h4>
+              </div>
+            </div>
+            <div class="down-content">
+              <div class="row">
+                <div class="col-7">
+                  <h2>Ranked: 3rd</h2>
+                </div>
+                <div class="col-5">
+                  <h6>Category: Photos</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="item">
+            <div class="thumb" id="thumb-cards">
+              <img src="{% static 'tour/monkeys.jpeg' %}" alt="">
+              <div class="top-content">
+                <h4>Green Forest</h4>
+  
+              </div>
+            </div>
+            <div class="down-content">
+              <div class="row">
+                <div class="col-7">
+                  <h2>Ranked: 4th</h2>
+                </div>
+                <div class="col-5">
+                  <h6>Category: Photo</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="item">
+            <div class="thumb" id="thumb-cards">
+              <img src="{% static 'tour/chogoriakenya.jpg' %}" alt="">
+              <div class="top-content">
+                <h4>Rocky Mountain</h4>
+              </div>
+            </div>
+            <div class="down-content">
+              <div class="row">
+                <div class="col-7">
+                  <h2>Ranked: 5th</h2>
+                </div>
+                <div class="col-5">
+                  <h6>Category: Random</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contest-win">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>Recently Added Tourism Site </h6>
+            <h4>Current <em>Tour</em> to Visit Now &amp; <em>Book</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content">
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$1,200</span>
+            </div>
+            <img src="{% static 'tour/chalbi.jpg' %}" alt="">
+            <h4>Hot Climate</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>80 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>260 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content">
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$2,400</span>
+            </div>
+            <img src="{% static 'tour/torokfalls.jpg' %}" alt="">
+            <h4>Great Rift Valley</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>60 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>212 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content">
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$3,600</span>
+            </div>
+            <img src="{% static 'tour/rendile.jpg' %}" alt="">
+            <h4>Cushites Culture</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>55 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>150 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contest-details' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content" >
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$4,800</span>
+            </div>
+            <img src="{% static 'tour/migingo.jpg' %}" alt="">
+            <h4>Migingo in Lake victoria</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>40 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>120 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

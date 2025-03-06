@@ -405,7 +405,7 @@ Header Style
 
 .header-area .main-nav .nav li.has-sub ul li a:hover {
   background: #fff;
-  color: #00bdfe!important;
+  color: #00bdfe;
   padding-left: 25px;
 }
 
@@ -627,6 +627,7 @@ Header Style
     border-bottom: 1px solid #eee;
     padding-left: 0px !important;
     padding-right: 0px !important;
+   
   }
   .header-area .main-nav .nav li a {
     height: 50px !important;
@@ -2311,6 +2312,7 @@ Users Page
 .user-info {
   text-align: center;
   margin-top: -85px;
+  
 }
 
 .user-info h4 {
@@ -2329,7 +2331,10 @@ Users Page
   margin-top: 30px;
   padding: 30px;
   border-radius: 15px;
+  width: 250px;
+  height: 250px;
   border: 1px solid #afafaf;
+  justify-content: space-around;
 }
 
 .user-info .info h4 {

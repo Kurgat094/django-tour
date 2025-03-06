@@ -12,14 +12,13 @@ Admin Approvals
             <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
+                    <th>Contact Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Solo or Group Tour</th>
                     <th>Place of Visit</th>
                     <th>Date of Visit</th>
                     <th>Time of Visit</th>
                     <th>Package Type</th>
-                    <th>Payment Method</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -28,14 +27,13 @@ Admin Approvals
                 {% for booking in bookings %}
                     <tr>
                         <td>{{ booking.name }}</td>
+                        <td>{{ booking.contactname }}</td>
                         <td>{{ booking.email }}</td>
                         <td>{{ booking.phone }}</td>
-                        <td>{{ booking.group_type }}</td>
                         <td>{{ booking.place_of_visit }}</td>
                         <td>{{ booking.date_of_visit }}</td>
                         <td>{{ booking.time_of_visit }}</td>
                         <td>{{ booking.tour_package }}</td>
-                        <td>{{ booking.payment_method }}</td>
                         <td>{{ booking.status }}</td>
                         <td>
                             <a href="{% url 'group_approval' booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>

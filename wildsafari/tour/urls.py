@@ -1,13 +1,21 @@
 from django.urls import path
 from .views import *
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    # user urls
     path('', home, name='home'),
     path('categories', categories, name='categories'),
     path('contests', contests, name='contests'),
+    path('book/<int:site_id>/', book, name='book'),
     path('contestdetails', contestdetails, name='contestdetails'),
     path('users', users, name='users'),
+    path('terms_conditions', terms_conditions, name='terms_conditions'),
+
+
+    # Auth urls
     path('signin', signin, name='signin'),
     path('signup', signup, name='signup'),
     path('signout', signout, name='signout'),
@@ -24,8 +32,19 @@ urlpatterns = [
     path('adminhome', adminhome, name='adminhome'),
     path('group_approval/<int:id>/', group_approval, name='group_approval'),
     path('group_denial/<int:id>/', group_denial, name='group_denial'),
-
     path('solo_approval/<int:id>/', solo_approval, name='solo_approval'),
     path('solo_denial/<int:id>/', solo_denial, name='solo_denial'),
 
+
+
+    # other services
+
+    path('uganda',uganda,name='uganda'),
+    path('kenya',kenya,name='kenya'),
+    path('tanzania',tanzania,name='tanzania'),
+    path('rwanda',rwanda,name='rwanda'),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

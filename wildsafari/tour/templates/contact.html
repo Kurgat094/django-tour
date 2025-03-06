@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Wild Safari Contact{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 header-text">
+          <h2>Explore Stevensons Trail Company and <em>Contact Details</em></h2>
+          <p>Embark on an unforgettable journey with <em>Stevensons Trails Company</em> If you have any questions or need assistance, feel free to <a rel="nofollow" href="https://stevensons-trails-company-1n65.onrender.com/users" target="_blank">contact us</a>. We're here to help you plan your next thrilling safari experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="user-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="avatar">
+            <img src="{% static 'tour/logo-stevensons-.png' %}" alt="">
+            <h4> <b>Stevensons Trail Company</b></h4>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="info-box">
+            <h4>Our Vision</h4>
+            <h6>To be a best choice safari Partner</h6>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-sm-6">
+          <div class="info-box">
+            <h4>Our Mission</h4>
+            <h6>To  offer best holiday experience to our clients</h6>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="info-box">
+            <h4>Core value </h4>
+            <h6> Customer oriented company.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="contact-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>Contact This User</h6>
+            <h4>Don't Be Shy <em></em> to contact the <em>Stevensons Trail Company</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-item">
+            <i class="fa fa-phone"></i>
+            <h4>Phone Numbers</h4>
+            <span><a href="#">+254 796108272</a><br><a href="#">+254 726053339</a></span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-item">
+            <i class="fa fa-envelope"></i>
+            <h4>Email Addresses</h4>
+            <span><a href="#">stevensonstrail@company.com</a><br><a href="#">Stevensons Trail Company</a></span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-item">
+            <i class="fa fa-map-marked"></i>
+            <h4>Office Location</h4>
+            <span><a href="#">30700 Naivasha , Kenya,<br>IL 60601, Naivasha</a></span>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="text" name="telephone" id="telephone" placeholder="Your Telephone..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="email" name="email" id="email" placeholder="Your E-mail..." required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="text" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Send Message Now</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>What Our Adventurers Say</h6>
+            <h4>What <em>Stevensons Trail Company</em> Visitors Are Saying <em>About Us</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-8 offset-lg-2">
+            <div class="owl-testimonials owl-carousel">
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“Stevensons Trail Company was the most thrilling experience of my life! From the breathtaking landscapes to the close encounters with wildlife, every moment was unforgettable.”</p>
+                    <h4>Sarah Johnson</h4>
+                    <span>Adventurer #007704</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/carol.jpeg' %}" alt="Sarah Johnson" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“The guides were incredibly knowledgeable and made us feel safe throughout the entire safari. I can’t wait to come back for another adventure!”</p>
+                    <h4>Michael Brown</h4>
+                    <span>Adventurer #007772</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/carol.jpeg' %}" alt="Michael Brown" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“Stevensons Trail Company exceeded all my expectations. The luxury tents, delicious food, and incredible wildlife sightings made this trip a dream come true.”</p>
+                    <h4>Emily Davis</h4>
+                    <span>Adventurer #007794</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/git.jpeg' %}" alt="Emily Davis" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“I’ve been on safaris before, but Stevensons Trail Company is in a league of its own. The attention to detail and personalized service made all the difference.”</p>
+                    <h4>David Wilson</h4>
+                    <span>Adventurer #007765</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/git.jpeg' %}" alt="David Wilson" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="content">
+                  <div class="left-content">
+                    <p>“If you’re looking for an adventure of a lifetime, Stevensons Trail Company is the way to go. The memories I made here will stay with me forever.”</p>
+                    <h4>Laura Martinez</h4>
+                    <span>Adventurer #007788</span>
+                  </div>
+                  <div class="image">
+                    <img src="{% static 'tour/carol.jpeg' %}" alt="Laura Martinez" class="testimonial-image">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-12">
+          <div class="clients">
+            <div class="row">
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/lion.jpg' %}" alt="Lion" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/elephant2.jpg' %}" alt="Elephant" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/giraff.jpg' %}" alt="Giraffe" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/zebra.jpg' %}" alt="Zebra" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/cheateah.jpg' %}" alt="Cheetah" class="animal-image">
+                </div>
+                <div class="col-lg-2 col-4">
+                  <img src="{% static 'tour/rhino.jpg' %}" alt="Rhino" class="animal-image">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+{% endblock %}

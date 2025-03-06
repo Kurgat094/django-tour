@@ -45,41 +45,13 @@ class BookingForm(forms.ModelForm):
         ('luxury', 'Luxury Package'),
     ]
 
-    PAYMENT_METHOD_CHOICES = [
-        ('mpesa', 'M-Pesa'),
-        ('credit_card', 'Credit Card'),
-        ('debit_card', 'Debit Card'),
-        ('paypal', 'Paypal'),
-    ]
-
-    GROUP_TYPE_CHOICES = [
-        ('family', 'Family'),
-        ('friends', 'Friends'),
-        ('institute', 'Institute'),
-        ('company', 'Company'),
-        ('workmate', 'Workmate'),
-        ('adventure', 'Adventure with New People'),
-    ]
+   
 
     tour_package = forms.ChoiceField(
         choices=[('', 'Select a Tour Package')] + TOUR_PACKAGE_CHOICES, 
         widget=forms.Select(attrs={'class': 'form-control'})
     )
 
-    payment_method = forms.ChoiceField(
-        choices=[('', 'Select Payment Method')] + PAYMENT_METHOD_CHOICES, 
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
-
-    group_type = forms.ChoiceField(
-        choices=[('', 'Select Group Type')] + GROUP_TYPE_CHOICES,
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
-
-    group_size = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'class': 'form-control', 'min': '2'}),
-        min_value=2
-    )
 
     date_of_visit = forms.DateField(
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
@@ -91,21 +63,19 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ['name', 'group_type', 'group_size','contactname' ,'email', 'phone', 'date_of_visit', 'time_of_visit', 'place_of_visit', 'tour_package', 'payment_method' ]
+        fields = ['name', 'contactname' ,'email', 'phone', 'date_of_visit', 'time_of_visit', 'place_of_visit', 'tour_package']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        self.fields["group_type"].widget.attrs.update({"placeholder": "Group Type"})
-        self.fields["group_size"].widget.attrs.update({"placeholder": "Group Size"})
+        self.fields["name"].widget.attrs.update({"placeholder": "Name"})
         self.fields["contactname"].widget.attrs.update({"placeholder": "Contact Name"})
         self.fields["email"].widget.attrs.update({"placeholder": "Email"})
         self.fields["phone"].widget.attrs.update({"placeholder": "Phone"})
         self.fields["date_of_visit"].widget.attrs.update({"placeholder": "Date of Visit"})
         self.fields["time_of_visit"].widget.attrs.update({"placeholder": "Time of Visit"})
         self.fields["place_of_visit"].widget.attrs.update({"placeholder": "Place of Visit"})
-        self.fields["tour_package"].widget.attrs.update({"placeholder": "Tour Package"})
-        self.fields["payment_method"].widget.attrs.update({"placeholder": "Payment Method"})    
+        self.fields["tour_package"].widget.attrs.update({"placeholder": "Tour Package"})   
 
     def clean_group_size(self):
         group_size = self.cleaned_data.get('group_size')
@@ -167,4 +137,4 @@ class SoloBookingForm(forms.ModelForm):
 class TourismSiteForm(forms.ModelForm):
     class Meta:
         model = TourismSite
-        fields = ['name', 'price', 'categories', 'image']
+        fields = ['name', 'description','place','image']
