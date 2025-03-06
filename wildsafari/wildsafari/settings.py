@@ -66,7 +66,7 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     "https://stevensons-trails-company-1n65.onrender.com",
 ]
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # CORS Settings
 CORS_ALLOW_CREDENTIALS = True  # Allow cookies & authentication
 CORS_ALLOWED_ORIGINS = [
