@@ -35,23 +35,23 @@
         <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
           
           {% for site in tourism_sites %}
-          <a href="{% url 'tzbook' site.id %}#booking" class="item" id="popular-site">
+          <div class="item" id="popular-site">
               <div class="thumb" id="thumb-card">
                 
                   <img src="{{ site.image.url }}" alt="">
                   <div class="hover-effect">
-                      <div class="content">
+                      <a href="{% url 'tzbook' site.id %}#booking" class="content">
                           <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
                           <ul>
                               <li><span>Place:</span>{{ site.place }}</li>
                               <li><span>Description:</span> {{ site.description }}</li>
                               <li><span>Book:</span>Reserve Available </li>
                           </ul>
-                      </div>
+                        </a>
                   </div>
                   
               </div>
-          </a>
+          </div>
           {% endfor %}
         </div>
       </div>
