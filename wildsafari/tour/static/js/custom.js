@@ -152,45 +152,18 @@
 		context = 'large';
 	}
 
-	// // refresh the page only if you're crossing into a context
-	// // that isn't already set
-	// $(window).resize(function() {
-	// 	if(($window.width() <= 768) && (context != 'small')) {
-	// 		//refresh the page
-	// 		location.reload();
-	// 	} else if ((768 < $window.width()  < 970) && (context != 'medium')) {
-	// 		location.reload();
-	// 	} else if (context != 'large') {
-	// 		location.reload();
-	// 	}
-	// });
-	
-	$(document).ready(function() {
-		var context = '';
-	
-		function checkWindowSize() {
-			var width = $(window).width();
-	
-			if (width <= 768 && context !== 'small') {
-				context = 'small';
-				location.reload();
-			} else if (width > 768 && width < 970 && context !== 'medium') {
-				context = 'medium';
-				location.reload();
-			} else if (width >= 970 && context !== 'large') {
-				context = 'large';
-				location.reload();
-			}
+	// refresh the page only if you're crossing into a context
+	// that isn't already set
+	$(window).resize(function() {
+		if(($window.width() <= 768) && (context != 'small')) {
+			//refresh the page
+			location.reload();
+		} else if ((768 < $window.width()  < 970) && (context != 'medium')) {
+			location.reload();
+		} else if (context != 'large') {
+			location.reload();
 		}
-	
-		$(window).resize(function() {
-			checkWindowSize();
-		});
-	
-		// Initialize the correct context on page load
-		checkWindowSize();
 	});
-	
 
 	$("#modal_trigger").leanModal({
 		top: 100,
