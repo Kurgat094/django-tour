@@ -34,50 +34,7 @@
 <!-- External CDN -->
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
-<style>
-    #popup-message-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-  
-  .popup-message {
-      background-color: #28a745; /* Green success color */
-      color: white;
-      padding: 15px 20px;
-      border-radius: 5px;
-      position: relative;
-      min-width: 300px;
-      height: 70px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  .popup-message .close-btn {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 18px;
-  }
-  
-  @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes fadeOut {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(-20px); }
-  }
-  
-  </style>
+
 </head>
 <body>
         <!-- ***** Header Area Start ***** -->
@@ -197,32 +154,5 @@
 <script src="{% static 'js/custom.js' %}" defer></script>
 
 
-<script>
-    // Get the input field
-    let dateInput = document.getElementById("date_of_visit");
-
-    // Get tomorrow's date in YYYY-MM-DD format
-    let today = new Date();
-    today.setDate(today.getDate() + 1); // Set to tomorrow
-    let minDate = today.toISOString().split("T")[0];
-
-    // Set the min attribute to tomorrow's date
-    dateInput.setAttribute("min", minDate);
-    
-    document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-            let messages = document.querySelectorAll('.popup-message');
-            messages.forEach(function (msg) {
-                msg.style.animation = "fadeOut 0.5s ease-in-out forwards";
-                setTimeout(() => msg.remove(), 500);  // Remove message after fade-out
-            });
-        }, 5000);  // Disappear after 5 seconds
-    });
-
-    function closePopup(element) {
-        element.parentElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
-        setTimeout(() => element.parentElement.remove(), 500);
-    }
-</script>
 </body>
 </html>

@@ -72,3 +72,29 @@ document.getElementById('group-size').addEventListener('input', function () {
         });
     }, 5000);  // Message disappears after 5 seconds
 });
+
+// Get the input field
+let dateInput = document.getElementById("date_of_visit");
+
+// Get tomorrow's date in YYYY-MM-DD format
+let today = new Date();
+today.setDate(today.getDate() + 1); // Set to tomorrow
+let minDate = today.toISOString().split("T")[0];
+
+// Set the min attribute to tomorrow's date
+dateInput.setAttribute("min", minDate);
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        let messages = document.querySelectorAll('.popup-message');
+        messages.forEach(function (msg) {
+            msg.style.animation = "fadeOut 0.5s ease-in-out forwards";
+            setTimeout(() => msg.remove(), 500);  // Remove message after fade-out
+        });
+    }, 5000);  // Disappear after 5 seconds
+});
+
+function closePopup(element) {
+    element.parentElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    setTimeout(() => element.parentElement.remove(), 500);
+}
