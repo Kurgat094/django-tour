@@ -41,6 +41,7 @@ urlpatterns = [
     # other services
 
     path('uganda',uganda,name='uganda'),
+    path('ugbook/<int:site_id>/',ugbook,name='ugbook'),
     path('kenya',kenya,name='kenya'),
     path('tanzania',tanzania,name='tanzania'),
     path('tzbook/<int:site_id>/',tzbook,name='tzbook'),

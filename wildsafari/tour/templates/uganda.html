@@ -4,6 +4,61 @@
 {% block title %}Uganda{% endblock %}
 
 {% block content %}
+
+ <!-- ***** Main Banner Area Start ***** -->
+ <div class="main-banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'tour/Uganda.jpg' %}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="header-text">
+          <h2>Enter a world of <em>Tourism</em> Culture  <em>Adventure</em> Hikes &amp;<em>Recreation</em></h2>
+          <p>Stevensons Trail - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
+          <div class="buttons">
+            <div class="big-border-button">
+              <a href="{% url 'categories' %}">Explore Stevensons Trail Company</a>
+            </div>
+            <div class="icon-button">
+              <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
+
+<section class="featured-items" id="featured-items">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
+          
+          {% for site in tourism_sites %}
+          <div class="item" id="popular-site">
+              <div class="thumb" id="thumb-card">
+                
+                  <img src="{{ site.image.url }}" alt="">
+                  <div class="hover-effect">
+                      <a href="{% url 'ugbook' site.id %}#booking" class="content">
+                          <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
+                          <ul>
+                              <li><span>Place:</span>{{ site.place }}</li>
+                              <li><span>Description:</span> {{ site.description }}</li>
+                              <li><span>Book:</span><b style="color: blue;">Click to Reserve</b></li>
+                          </ul>
+                        </a>
+                  </div>
+                  
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="photos-videos">
     <div class="container">
       <div class="row">
