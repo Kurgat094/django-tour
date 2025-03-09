@@ -273,11 +273,11 @@ Header Style
 }
 
 .header-area .main-nav .logo img {
-  max-width: 142px;
+  max-width: 100px;
 }
 
 .background-header .main-nav .logo {
-  width: 142px;
+  width: 100px;
 }
 
 .header-area .main-nav .nav {
@@ -294,27 +294,35 @@ Header Style
 }
 
 .nav {
-  justify-content: center;
+  display: flex;
+  justify-content: space-around; /* Distributes items evenly */
+  align-items: center;
+  background: #00aaff;
+  padding: 1px 2px;
+  list-style: none;
+  flex-wrap: nowrap;
 }
 
 .header-area .main-nav .nav li:first-child {
-  padding-left: 60px;
+  padding-left:0px !important;
 }
 
 .header-area .main-nav .nav li:last-child {
-  padding-right: 60px;
+  padding-right: 5px;
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color: #00bdfe;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #00aaff;
 }
 
 .header-area .main-nav .nav li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   color: #fff;
   -webkit-transition: all 0.3s ease 0s;
@@ -322,9 +330,10 @@ Header Style
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   height: 70px;
-  line-height: 70px;
+  line-height: 30px;
   border: transparent;
   letter-spacing: 1px;
+  padding: 5px;
 }
 
 .header-area .main-nav .border-button {
@@ -332,26 +341,29 @@ Header Style
   margin-top: 13px;
   text-align: right;
 }
+.header-area .main-nav .nav li a :hover{
+  color: green !important;
+  transform: scale(1.1) !important;
+}
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover,
 .background-header .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover {
-  padding-left: 25px !important;
+  padding-left: 10px !important;
 }
 
-.header-area .main-nav .nav li:hover a,
-.header-area .main-nav .nav li a.active {
-  color: #fff;
-}
 
-.background-header .main-nav .nav li:hover a,
-.background-header .main-nav .nav li a.active {
-  color: #fff;
+.main-nav .nav li:hover a{
+  color: rgb(13, 124, 82) !important;
+  transform: scale(1.1) !important;
+}
+ .main-nav .nav li a.active {
+  color: #ec44c8;
   opacity: 1;
 }
 
 .header-area .main-nav .nav li.has-sub {
   position: relative;
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 .header-area .main-nav .nav li.has-sub:after {

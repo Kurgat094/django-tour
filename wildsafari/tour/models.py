@@ -84,7 +84,28 @@ class Tanzania_Itinerary(models.Model):
     def __str__(self):
         return f" Day {self.day_number} -{self.name.name} "
 
+# Uganda
+class UgandaSite(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(default="No description available") 
+    place=models.CharField(max_length=200)
+    image = models.ImageField()
+    details=models.TextField(default="No details available")
 
+    def __str__(self):
+        return self.name
+class Uganda_Itinerary(models.Model):
+    name=models.ForeignKey(UgandaSite,on_delete=models.CASCADE,related_name="Ug_itinerary") 
+    day_number=models.PositiveIntegerField()
+    title=models.CharField(max_length=255)  
+    description=models.TextField()
+    meals=models.TextField(help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return f" Day {self.day_number} -{self.name.name} "
 # contact messages
 
 class ContactMessage(models.Model):

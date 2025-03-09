@@ -100,6 +100,39 @@ def tzbook(request, site_id):
         'itineraries': itineraries,
         'form': form,
     })
+@csrf_exempt
+def ugbook(request, site_id):
+    # Get the tourism site or return a 404 error if not found
+    tourism_site = get_object_or_404(UgandaSite, id=site_id)
+    
+    # Get the itineraries for the selected tourism site
+    itineraries = Uganda_Itinerary.objects.filter(name=tourism_site)
+
+    form = BookingForm()  # Correctly instantiate the form
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            Booking.objects.create(
+                name=form.cleaned_data['name'],
+                contactname=form.cleaned_data['contactname'],
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone'],
+                place_of_visit=tourism_site.place,  # Automatically set from tourism_site
+                tour_package=form.cleaned_data['tour_package'],
+                date_of_visit=form.cleaned_data['date_of_visit'],
+                time_of_visit=form.cleaned_data['time_of_visit']
+            )
+            messages.success(request, "Booking successful!")
+            return redirect('home',)
+        else:
+            messages.error(request, "Booking failed")
+            return render(request, 'contests.html', )
+        
+    return render(request, 'contests.html', {
+        'tourism_site': tourism_site,
+        'itineraries': itineraries,
+        'form': form,
+    })
 
 @csrf_exempt
 def contact_messages(request):
@@ -433,7 +466,11 @@ def kenya(request):
 
 @csrf_exempt
 def uganda(request):
-    return render(request, 'uganda.html')
+    tourism_sites = UgandaSite.objects.filter(Ug_itinerary__isnull=False).distinct()
+    tourism_sites1 = UgandaSite.objects.filter(Ug_itinerary__isnull=True)[:8]
+    tourism_sites_2 = UgandaSite.objects.all()[8:30]  # Fetch the next 10 tourism sites
+    itinaries = Uganda_Itinerary.objects.all()
+    return render(request, 'uganda.html', { 'tourism_sites': tourism_sites , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2 , 'tourism_sites1': tourism_sites1})
 
 @csrf_exempt
 def rwanda(request):
