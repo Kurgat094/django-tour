@@ -38,7 +38,7 @@ def categories(request):
 def book(request, site_id):
     # Get the tourism site or return a 404 error if not found
     tourism_site = get_object_or_404(TourismSite, id=site_id)
-    
+    day_count = tourism_site.itinerary.count()
     # Get the itineraries for the selected tourism site
     itineraries = Itinerary.objects.filter(name=tourism_site)
 
@@ -65,13 +65,14 @@ def book(request, site_id):
     return render(request, 'contests.html', {
         'tourism_site': tourism_site,
         'itineraries': itineraries,
+        'day_count': day_count,
         'form': form,
     })
 
 def tzbook(request, site_id):
     # Get the tourism site or return a 404 error if not found
     tourism_site = get_object_or_404(TanzaniaSite, id=site_id)
-    
+    day_count = tourism_site.Tz_itinerary.count()
     # Get the itineraries for the selected tourism site
     itineraries = Tanzania_Itinerary.objects.filter(name=tourism_site)
 
@@ -98,13 +99,14 @@ def tzbook(request, site_id):
     return render(request, 'contests.html', {
         'tourism_site': tourism_site,
         'itineraries': itineraries,
+        'day_count': day_count,
         'form': form,
     })
 @csrf_exempt
 def ugbook(request, site_id):
     # Get the tourism site or return a 404 error if not found
     tourism_site = get_object_or_404(UgandaSite, id=site_id)
-    
+    day_count = tourism_site.Ug_itinerary.count()
     # Get the itineraries for the selected tourism site
     itineraries = Uganda_Itinerary.objects.filter(name=tourism_site)
 
@@ -131,6 +133,7 @@ def ugbook(request, site_id):
     return render(request, 'contests.html', {
         'tourism_site': tourism_site,
         'itineraries': itineraries,
+        'day_count': day_count,
         'form': form,
     })
 
