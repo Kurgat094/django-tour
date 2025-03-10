@@ -295,9 +295,12 @@ Header Style
 
 .nav {
   display: flex;
-  justify-content: space-around; /* Distributes items evenly */
+  justify-content: space-around; 
   align-items: center;
-  background: #00aaff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../tour/giraffe.jpg');
+  background-position: center; 
+  background-size: cover;  
+  background-repeat: no-repeat;
   padding: 1px 2px;
   list-style: none;
   flex-wrap: nowrap;
@@ -314,7 +317,8 @@ Header Style
 .header-area .main-nav .nav li {
   padding-left: 5px;
   padding-right: 5px;
-  background-color: #00aaff;
+  background-color: transparent;
+  border-radius: 5px;
 }
 
 .header-area .main-nav .nav li a {
@@ -342,18 +346,18 @@ Header Style
   text-align: right;
 }
 .header-area .main-nav .nav li a :hover{
-  color: green !important;
+  color: rgb(30, 12, 194) !important;
   transform: scale(1.1) !important;
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover,
 .background-header .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover {
-  padding-left: 10px !important;
+  padding-left: 10px ;
 }
 
 
 .main-nav .nav li:hover a{
-  color: rgb(13, 124, 82) !important;
+  color: rgb(84, 143, 252) !important;
   transform: scale(1.1) !important;
 }
  .main-nav .nav li a.active {
@@ -560,6 +564,7 @@ Header Style
   .header-area .main-nav .nav li {
     padding-left: 10px;
     padding-right: 10px;
+    align-items: center;
   }
   .header-area .main-nav:before {
     display: none;
@@ -570,6 +575,10 @@ Header Style
   .header-area .main-nav .nav {
     height: auto;
     flex-basis: 100%;
+    display: flex;
+    background: none !important;
+    align-items: center; /* Centers list items horizontally */
+    text-align: center;
   }
   .header-area .main-nav .logo {
     position: absolute;
@@ -637,16 +646,16 @@ Header Style
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #eee;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
    
   }
   .header-area .main-nav .nav li a {
     height: 50px !important;
     line-height: 50px !important;
-    padding: 0px !important;
+    padding: 10px !important;
     border: none !important;
-    background: #f7f7f7 !important;
+    
     color: #191a20 !important;
   }
   .header-area .main-nav .nav li a:hover {
@@ -1467,7 +1476,10 @@ footer.no-space {
 }
 
 footer {
-  background-color: #00bdfe;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../tour/giraffe.jpeg');
+    background-position: center;  /* Ensures lower part is visible */
+    background-size: cover;  /* Ensures the image covers the entire section */
+    background-repeat: no-repeat;
   text-align: center;
   
 }

@@ -12,13 +12,17 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-8 offset-lg-2 header-text">
-              <h2>Book Your Tour  At <em>{{ tourism_site.place }}</em></h2>
-              <p>Embark on an unforgettable journey into the heart of the wild. <br><em>{{ tourism_site.description }}</em> </p>
+           {% if tourism_site.itinerary.all or tourism_site.Ug_itinerary.all or tourism_site.Tz_itinerary.all%}
+        <h2>{{ day_count }}-day tour at <em>{{ tourism_site.place }}</em></h2>
+        <p>Embark on an unforgettable journey into the heart of the wild. <br>
+           <em>{{ tourism_site.description }}</em>
+        </p>
+    {% endif %}
           </div>
 
           {% if tourism_site.details %}
 <div class="col-lg-8 offset-lg-2 header-text">
-    <p>{{ tourism_site.details|linebreaksbr }}</p>
+    <p style="color: aqua;">{{ tourism_site.details|linebreaksbr }}</p>
 </div>
   {% endif %}
       </div>
