@@ -26,15 +26,70 @@ font & reset css
 ---------------------------------------------
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900");
+
 /*
 ---------------------------------------------
 reset
 ---------------------------------------------
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
-pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
-s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
-figure, header, nav, section, article, aside, footer, figcaption {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
   margin: 0;
   padding: 0;
   border: 0;
@@ -62,13 +117,20 @@ html[xmlns] .clearfix {
   height: 1%;
 }
 
-ul, li {
+ul,
+li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-header, nav, section, article, aside, footer, hgroup {
+header,
+nav,
+section,
+article,
+aside,
+footer,
+hgroup {
   display: block;
 }
 
@@ -76,7 +138,8 @@ header, nav, section, article, aside, footer, hgroup {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   background-color: #fff;
@@ -90,7 +153,12 @@ a {
   text-decoration: none !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0px;
   margin-bottom: 0px;
   color: #2a2a2a;
@@ -133,16 +201,21 @@ body {
 }
 
 @media (max-width: 991px) {
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden;
   }
+
   .mobile-top-fix {
     margin-top: 30px;
     margin-bottom: 0px;
   }
+
   .mobile-bottom-fix {
     margin-bottom: 30px;
   }
+
   .mobile-bottom-fix-big {
     margin-bottom: 60px;
   }
@@ -231,12 +304,12 @@ Header Style
 
 .background-header {
   background-color: #fff;
-  height: auto!important;
-  position: fixed!important;
-  top: 0!important;
+  height: auto !important;
+  position: fixed !important;
+  top: 0 !important;
   left: 0;
   right: 0;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
   -webkit-transition: all .5s ease 0s;
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
@@ -295,11 +368,11 @@ Header Style
 
 .nav {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../tour/giraffe.jpg');
-  background-position: center; 
-  background-size: cover;  
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   padding: 1px 2px;
   list-style: none;
@@ -307,7 +380,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li:first-child {
-  padding-left:0px !important;
+  padding-left: 0px !important;
 }
 
 .header-area .main-nav .nav li:last-child {
@@ -345,22 +418,24 @@ Header Style
   margin-top: 13px;
   text-align: right;
 }
-.header-area .main-nav .nav li a :hover{
+
+.header-area .main-nav .nav li a :hover {
   color: rgb(30, 12, 194) !important;
   transform: scale(1.1) !important;
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover,
 .background-header .main-nav .nav li.has-sub ul.sub-menu li:last-child a:hover {
-  padding-left: 10px ;
+  padding-left: 10px;
 }
 
 
-.main-nav .nav li:hover a{
+.main-nav .nav li:hover a {
   color: rgb(84, 143, 252) !important;
   transform: scale(1.1) !important;
 }
- .main-nav .nav li a.active {
+
+.main-nav .nav li a.active {
   color: #ec44c8;
   opacity: 1;
 }
@@ -405,7 +480,7 @@ Header Style
   opacity: 1;
   display: block;
   background: #f7f7f7;
-  color: #2a2a2a!important;
+  color: #2a2a2a !important;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;
@@ -561,55 +636,64 @@ Header Style
 }
 
 @media (max-width: 1200px) {
-  .header-area{
+  .header-area {
     height: 108px;
   }
-  
+
   .header-area .main-nav .nav li {
     padding-left: 10px;
     padding-right: 10px;
     align-items: center;
   }
+
   .header-area .main-nav:before {
     display: none;
   }
 }
 
 @media (max-width: 767px) {
-  
-  
+
+
   .header-area .main-nav .nav {
     height: auto;
     flex-basis: 100%;
     display: flex;
     background: none !important;
-    align-items: center; /* Centers list items horizontally */
+    align-items: center;
+    /* Centers list items horizontally */
     text-align: center;
   }
+
   .header-area .main-nav .logo {
     position: absolute;
     left: 30px;
     top: 15px;
   }
+
   .background-header .main-nav .logo {
     top: 0px;
   }
+
   .background-header .main-nav .border-button {
     top: 0px !important;
   }
+
   .header-area .main-nav .border-button {
     position: absolute;
     top: 15px;
     right: 70px;
   }
+
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #00bdfe!important;
+    color: #00bdfe !important;
     opacity: 1;
   }
+
   .header-area.header-sticky .nav li.search-icon a {
     width: 100%;
   }
+
   .header-area {
     background-color: #f7f7f7;
     padding: 0px 15px;
@@ -617,19 +701,23 @@ Header Style
     box-shadow: none;
     text-align: center;
   }
+
   .header-area .container {
     padding: 0px;
   }
+
   .header-area .logo {
     margin-left: 0px;
   }
+
   .header-area .menu-trigger {
     display: block !important;
   }
-  
+
   .header-area .main-nav {
     overflow: hidden;
   }
+
   .header-area .main-nav .nav {
     float: none;
     width: 100%;
@@ -640,29 +728,35 @@ Header Style
     transition: all 0s ease 0s;
     margin-left: 0px;
   }
+
   .header-area .main-nav .nav li:first-child {
     border-top: 1px solid #eee;
   }
-  .header-area.header-sticky  .main-nav{
+
+  .header-area.header-sticky .main-nav {
     min-height: 90px;
     overflow: visible;
   }
+
   .header-area.header-sticky .nav {
     margin-top: 105px !important;
     height: auto;
   }
+
   .background-header.header-sticky .nav {
     margin-top: 70px !important;
     height: auto;
   }
+
   .header-area .main-nav .nav li {
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #eee;
     padding-left: 20px !important;
     padding-right: 20px !important;
-   
+
   }
+
   .header-area .main-nav .nav li a {
     height: 50px !important;
     line-height: 50px !important;
@@ -670,10 +764,12 @@ Header Style
     border: none !important;
     color: #191a20 !important;
   }
+
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #00bdfe!important;
+    color: #00bdfe !important;
   }
+
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     position: relative;
     visibility: inherit;
@@ -686,23 +782,30 @@ Header Style
     height: 0px;
     transition: all 0s;
   }
+
   .header-area .main-nav .nav li.submenu ul li a {
     font-size: 12px;
     font-weight: 400;
   }
+
   .header-area .main-nav .nav li.submenu ul li a:hover:before {
     width: 0px;
   }
+
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     height: auto;
   }
+
   .header-area .main-nav .nav li.has-sub:after {
-    color: #3B06EE; /* Adjusted hex color */
+    color: #3B06EE;
+    /* Adjusted hex color */
     right: 30px;
     font-size: 14px;
     top: 15px;
-}
-  .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
+  }
+
+  .header-area .main-nav .nav li.submenu:hover ul,
+  .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
   }
 }
@@ -870,6 +973,7 @@ a.btn_red {
 .action_btns a {
   display: block;
 }
+
 /* User Login Form */
 
 .user_login {
@@ -917,6 +1021,7 @@ a.btn_red {
   color: #00bdfe;
   transition: all .3s;
 }
+
 /* User Register Form */
 
 .user_register {
@@ -965,7 +1070,7 @@ Banner Style
 */
 
 .main-banner {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../tour/background.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../tour/background.jpg');
 
   background-repeat: no-repeat;
   background-position: center center;
@@ -992,7 +1097,7 @@ Banner Style
   color: #fff;
   padding: 30px 0px;
   margin: 40px 75px 0px 75px;
-  border-top: 1px solid rgba(250,250,250,0.2);
+  border-top: 1px solid rgba(250, 250, 250, 0.2);
 }
 
 .main-banner .buttons {
@@ -1066,7 +1171,7 @@ section.featured-items {
 }
 
 .featured-items .item .thumb .hover-effect {
-  background-color: rgba(250,250,250,0.92);
+  background-color: rgba(250, 250, 250, 0.92);
   left: 0;
   top: 100%;
   width: 100%;
@@ -1138,7 +1243,7 @@ section.featured-items {
 }
 
 .featured-items .owl-nav .owl-prev span,
-.featured-items .owl-nav .owl-next span  {
+.featured-items .owl-nav .owl-next span {
   width: 46px;
   height: 46px;
   line-height: 46px;
@@ -1196,7 +1301,7 @@ section.popular-categories .main-button {
 .popular-item .icon img {
   max-width: 36px;
   border-radius: 0px;
-  
+
 }
 
 .popular-item h4 {
@@ -1225,7 +1330,7 @@ section.popular-categories .main-button {
 
 .popular-item img {
   border-radius: 15px;
-  height: 250px; 
+  height: 250px;
 }
 
 .popular-item .thumb {
@@ -1384,7 +1489,7 @@ section.closed-contests {
 }
 
 .closed-contests .owl-nav .owl-prev span,
-.closed-contests .owl-nav .owl-next span  {
+.closed-contests .owl-nav .owl-next span {
   width: 46px;
   height: 46px;
   line-height: 46px;
@@ -1490,11 +1595,13 @@ footer.no-space {
 
 footer {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../tour/giraffe.jpeg');
-    background-position: center;  /* Ensures lower part is visible */
-    background-size: cover;  /* Ensures the image covers the entire section */
-    background-repeat: no-repeat;
+  background-position: center;
+  /* Ensures lower part is visible */
+  background-size: cover;
+  /* Ensures the image covers the entire section */
+  background-repeat: no-repeat;
   text-align: center;
-  
+
 }
 
 footer p {
@@ -1516,7 +1623,7 @@ page heading
 */
 
 .page-heading {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../tour/torokfalls.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../tour/torokfalls.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1546,13 +1653,13 @@ page heading
   color: #fff;
   padding: 30px 0px;
   margin: 40px 75px 0px 75px;
-  border-top: 2px solid rgba(250,250,250,0.2);
+  border-top: 2px solid rgba(250, 250, 250, 0.2);
 }
 
 .page-heading h6 {
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 2px solid rgba(250,250,250,0.2);
+  border-top: 2px solid rgba(250, 250, 250, 0.2);
   font-size: 20px;
   color: #fff;
 }
@@ -1561,19 +1668,25 @@ page heading
   margin-top: 30px;
 }
 
-.page-heading .main-content .days, .page-heading .main-content .hours, .page-heading .main-content .minutes, .page-heading .main-content .seconds {
+.page-heading .main-content .days,
+.page-heading .main-content .hours,
+.page-heading .main-content .minutes,
+.page-heading .main-content .seconds {
   width: 20%;
 }
+
 .page-heading .main-content .counter div {
   margin: 0 2px;
   display: inline-block;
   text-align: center;
 }
+
 @media (min-width: 992px) {
   .page-heading .main-content .counter div {
     margin: 0px 10px;
   }
 }
+
 .page-heading .main-content .counter div .value {
   font-size: 50px;
   color: #fff;
@@ -1664,29 +1777,37 @@ Contests Page
   border-radius: 15px;
 
 }
-#profile-img{
-    border-radius: 50%;
-    width:70px;
-    height: 70px;
+
+#profile-img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
 }
 
-#thumb-card img{
-    width: 100%;
-    height: 250px;
+#thumb-card img {
+  width: 100%;
+  height: 250px;
 }
-#thumb-cards img{
-    width: 100%;
-    height: 350px;
+
+#thumb-cards img {
+  width: 100%;
+  height: 350px;
 }
+
 #thumb-cards video {
-    height:250px;
-    width: 100%; /* Makes the video responsive within its container */
-    max-width: 500px; /* Ensures the video does not exceed 400px */
-    height: auto; /* Maintains aspect ratio */
-    border-radius: 10px; /* Optional: Adds rounded corners */
-  }
-#top-site img{
-    height: 250px;
+  height: 250px;
+  width: 100%;
+  /* Makes the video responsive within its container */
+  max-width: 500px;
+  /* Ensures the video does not exceed 400px */
+  height: auto;
+  /* Maintains aspect ratio */
+  border-radius: 10px;
+  /* Optional: Adds rounded corners */
+}
+
+#top-site img {
+  height: 250px;
 }
 
 .photos-videos .item .thumb .play-button a {
@@ -1700,7 +1821,7 @@ Contests Page
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-23px,-23px);
+  transform: translate(-23px, -23px);
   opacity: 0;
   transition: all .3s;
 }
@@ -1771,7 +1892,8 @@ Contests Page
   color: #fff;
   background-color: #00bdfe;
   border-radius: 10px;
-  padding: 8px 12px;;
+  padding: 8px 12px;
+  ;
 }
 
 .contest-win .contest-item .top-content span.price {
@@ -2157,7 +2279,7 @@ Categories Page
   margin-right: 10px;
 }
 
-.featured-contests .item  {
+.featured-contests .item {
   margin-bottom: 30px;
 }
 
@@ -2166,7 +2288,7 @@ Categories Page
   overflow: hidden;
 }
 
-.featured-contests .item .thumb  img {
+.featured-contests .item .thumb img {
   border-radius: 15px;
 }
 
@@ -2197,7 +2319,8 @@ Categories Page
   color: #fff;
   background-color: #00bdfe;
   border-radius: 10px;
-  padding: 8px 12px;;
+  padding: 8px 12px;
+  ;
 }
 
 .featured-contests .item .hover-effect .content .top-content span.price {
@@ -2349,7 +2472,7 @@ Users Page
 .user-info {
   text-align: center;
   margin-top: -85px;
-  
+
 }
 
 .user-info h4 {
@@ -2529,22 +2652,27 @@ section.contact-us .info-item a {
 section.contact-us .info-item a:hover {
   color: #00bdfe;
 }
-section.contact-us{
+
+section.contact-us {
   margin-bottom: 25px;
 }
 
-section.pricing-plans{
+section.pricing-plans {
   margin-bottom: 25px;
 }
-section.contest-win{
+
+section.contest-win {
   margin-bottom: 25px;
 }
-section.testimonials{
+
+section.testimonials {
   margin-bottom: 25px;
 }
-section.contest-waiting{
+
+section.contest-waiting {
   margin-bottom: 25px;
 }
+
 #contact {
   margin-top: 60px;
 }
@@ -2589,6 +2717,7 @@ section.contest-waiting{
 #contact textarea::placeholder {
   color: #212741;
 }
+
 #contact button.orange-button {
   font-size: 14px;
   width: 100%;
@@ -2626,20 +2755,25 @@ body {
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     display: none;
   }
+
   .testimonials .item .content {
     display: inline-block;
     text-align: center;
   }
+
   .testimonials .item .content .image {
     margin-top: 30px;
   }
+
   .testimonials .item .content .left-content {
     margin-right: 0px;
   }
+
   .featured-items .owl-nav .owl-next,
   .closed-contests .owl-nav .owl-next {
     right: -10px !important;
   }
+
   .featured-items .owl-nav .owl-prev,
   .closed-contests .owl-nav .owl-prev {
     left: -10px !important;
@@ -2650,81 +2784,103 @@ body {
   .header-area .main-nav .nav li:first-child {
     padding-left: 15px !important;
   }
+
   .header-area .main-nav .nav li:last-child {
     padding-right: 15px !important;
   }
+
   .header-area .main-nav .nav li ul li:first-child {
     padding-left: 0px !important;
   }
+
   .header-area .main-nav .nav li ul li:last-child {
     padding-right: 0px !important;
   }
+
   .border-button a {
     font-size: 14px;
     padding: 10px 20px;
   }
+
   .header-area .main-nav .logo {
     margin-right: 5px;
   }
+
   .section-heading {
     text-align: center;
   }
+
   section.popular-categories .main-button {
     text-align: center;
     margin-top: -30px;
   }
+
   section.popular-categories .popular-item {
     margin-top: 30px;
   }
+
   .contest-win .contest-item {
     margin-bottom: 30px;
   }
+
   .contest-details .top-content {
     text-align: center;
   }
+
   .contest-details .top-content ul {
     text-align: center;
     margin-top: 30px;
   }
+
   .contest-details .top-content ul li:first-child {
     margin-left: 10px;
   }
+
   .contest-details .top-content ul li {
     margin: 0px 10px;
   }
+
   .contest-details .item {
     margin-bottom: 20px;
   }
+
   .contest-waiting .waiting-item {
     margin-bottom: 30px;
   }
+
   .top-categories .item,
   section.contact-us .info-item {
     margin-bottom: 15px;
   }
+
   section.popular-categories,
   .contest-win {
     padding: 0px;
   }
+
   .pricing-item {
     margin-bottom: 15px;
   }
+
   .featured-contests .item .hover-effect .content .info {
     display: flex !important;
   }
 }
 
 @media (max-width: 1200px) {
+
   .featured-items .owl-nav .owl-next,
   .closed-contests .owl-nav .owl-next {
     right: -25px;
   }
+
   .featured-items .owl-nav .owl-prev,
   .closed-contests .owl-nav .owl-prev {
     left: -25px;
   }
+
   .featured-contests .item .hover-effect .content .info {
     display: none;
   }
-  
+
 }
