@@ -562,10 +562,10 @@ Header Style
 
 @media (max-width: 1200px) {
   .header-area{
-    height: auto;
+    height: 105px;
   }
   .header-area .main-nav{
-    height: auto;
+    height: 105px;
   }
   .header-area .main-nav .nav li {
     padding-left: 10px;
@@ -579,7 +579,7 @@ Header Style
 
 @media (max-width: 767px) {
   .header-area .main-nav{
-    height: auto;
+    height: 105px;
   }
   .header-area .main-nav .nav {
     height: auto;
