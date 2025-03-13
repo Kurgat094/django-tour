@@ -24,15 +24,21 @@ logger = logging.getLogger(__name__)
 @csrf_exempt
 def home(request):
     tourism_sites = TourismSite.objects.filter(itinerary__isnull=False).distinct()
-    tourism_sites1 = TourismSite.objects.filter(itinerary__isnull=True)[:8]
-    tourism_sites_2 = TourismSite.objects.all()[8:30]  # Fetch the next 10 tourism sites
+    tourism_sites1 = TourismSite.objects.filter(itinerary__isnull=True)[:4]
+    tourism_sites_2 = TourismSite.objects.all()[4:30]  # Fetch the next 10 tourism sites
     itinaries = Itinerary.objects.all()
     return render(request, 'index.html', {'tourism_sites': tourism_sites  , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2 , 'tourism_sites1': tourism_sites1})
 
 
 @csrf_exempt
 def categories(request):
-    return render(request, 'categories.html')
+    # to show the first 8 tourism sites
+
+    tourism_sites = TourismSite.objects.all()
+
+    tourism_sites1 = TanzaniaSite.objects.all()
+    tourism_sites2 = UgandaSite.objects.all()
+    return render(request, 'categories.html', {'tourism_sites': tourism_sites, 'tourism_sites1': tourism_sites1, 'tourism_sites2': tourism_sites2})
 
 @csrf_exempt
 def book(request, site_id):
