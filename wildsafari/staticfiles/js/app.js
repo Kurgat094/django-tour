@@ -98,3 +98,4 @@ function closePopup(element) {
     element.parentElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
     setTimeout(() => element.parentElement.remove(), 500);
 }
+
