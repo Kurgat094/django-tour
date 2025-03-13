@@ -63,17 +63,13 @@
   <section class="closed-contests">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="text-center section-heading">
             <h6>Our Top Tourism SITES</h6>
             <h4>Check Out <em>Popular</em> Tourism <em>Sites Uganda</em></h4>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="main-button" style="float: right;">
-            <a href="{% url 'categories' %}#ugportfolio">Discover All Tourist Attraction Site</a>
-          </div>
-        </div>
+       
         <div class="col-lg-12">
           <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
             {% for site in tourism_sites1 %}
