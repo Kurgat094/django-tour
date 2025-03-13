@@ -5,6 +5,11 @@
 {% block title %}Stevensons Trail Company Categories{% endblock %}
 
 {% block content %}
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
 
 <div class="page-heading">
     <div class="container">
@@ -17,341 +22,152 @@
     </div>
   </div>
 
-<div class="top-categories">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg col-sm-4"  >
-        <div class="item" id="items-category">
-          <div class="icon">
-            <img src="{% static 'images/icon-01.png' %}" alt="">
-          </div>
-          <h4>Wildlife</h4>
-          <span>Available Tours</span>
-          <span class="counter">14</span>
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center header-text" style="margin-bottom: 15px;">
+                    <h6 style="color: rgb(24, 12, 182);">Kanya Tour</h6>
+                    <h2>Explore Our <em>Kenya</em> Tourism Site</h2>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-lg col-sm-4" >
-        <div class="item" id="items-category">
-          <div class="icon">
-            <img src="{% static 'images/icon-02.png' %}" alt="">
-          </div>
-          <h4>Beach & Warm Climate</h4>
-          <span>Available <Tarea></Tarea>ours</span>
-          <span class="counter">224</span>
-        </div>
-      </div>
-      <div class="col-lg col-sm-4" >
-        <div class="item" id="items-category">
-          <div class="icon">
-            <img src="{% static 'images/icon-03.png' %}" alt="">
-          </div>
-          <h4>Culture and Foods</h4>
-          <span>Available Tours</span>
-          <span class="counter">145</span>
-        </div>
-      </div>
-      <div class="col-lg col-sm-4" >
-        <div class="item" id="items-category">
-          <div class="icon">
-            <img src="{% static 'images/icon-04.png' %}" alt="">
-          </div>
-          <h4>Mountain Climbing and Hiking</h4>
-          <span>Available Tours</span>
-          <span class="counter">268</span>
-        </div>
-      </div>
-      <div class="col-lg col-sm-4" >
-        <div class="item" id="items-category">
-          <div class="icon">
-            <img src="{% static 'images/icon-01.png' %}" alt="">
-          </div>
-          <h4>Rivers and Foresty</h4>
-          <span>Available Contests</span>
-          <span class="counter">310</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<section class="featured-contests">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
+        <!-- Flexbox Row for Horizontal Layout -->
+        <div class="row d-flex flex-wrap justify-content-between" id="tourism-container">
+            {% for site in tourism_sites %} 
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 site-item {% if forloop.counter > 8 %}hidden{% endif %}">
+                <div class="thumb" id="thumb-card">
+                    <img src="{{ site.image.url }}" alt="{{ site.name }}" class="img-fluid">
+                    <div class="hover-effect">
+                        <a href="{% url 'book' site.id %}#booking" class="content">
+                            <h4>{{ site.name }}</h4>
+                            <span>{{ site.description }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Load More Button -->
         <div class="text-center section-heading">
-          <h6>Featured Contests</h6>
-          <h4>View Most <em>Popular</em> Category <em>Contests</em></h4>
+          <div class="main-button">
+            <a id="load-more"style="color: white;">Load More Sites</a>
+            <button id="view-less" class="btn btn-secondary" style="display: none;">View Less</button>
+          </div>
         </div>
+    </div>
+</section>
+
+  
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center header-text" style="margin-bottom: 15px;">
+              <h6 style="color: rgb(24, 12, 182);">Tanzania Tour</h6>
+              <h2>Explore Our <em>Tanzania</em> Tourism Site</h2>
+          </div>
       </div>
-      <div class="col-lg-6">
-        <div class="item">
-          <div class="thumb">
-            <img src="{% static 'images/featured-image-02.jpg' %}" alt="">
+      </div>
+      
+      <!-- Flexbox Row for Horizontal Layout -->
+      <div class="row d-flex flex-wrap justify-content-between">
+        {% for site in tourism_sites1 %} 
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 {% if forloop.counter > 8 %}hidden{% endif %}">
+          <div class="thumb" id="thumb-card">
+            <img src="{{ site.image.url }}" alt="{{ site.name }}" class="img-fluid">
             <div class="hover-effect">
-              <div class="content">
-                <div class="top-content">
-                  <span class="award">Book Price</span>
-                  <span class="price">$1,600</span>
-                </div>
-                <h4>Walk In The Nature Night</h4>
-                <div class="info">
-                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>60<br>Participants</span>
-                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>188<br>Submissions</span>
-                </div>
-                <div class="border-button">
-                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
-                </div>
-              </div>
+              <a href="{% url 'tzbook' site.id %}#booking" class="content">
+                <h4>{{ site.name }}</h4>
+                <span>{{ site.description }}</span>
+              </a>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
-      <div class="col-lg-6">
-        <div class="item">
-          <div class="thumb">
-            <img src="{% static 'images/featured-image-01.jpg' %}" alt="">
-            <div class="hover-effect">
-              <div class="content">
-                <div class="top-content">
-                  <span class="award">Book Price</span>
-                  <span class="price">$3,200</span>
-                </div>
-                <h4>Walk In The Nature Night</h4>
-                <div class="info">
-                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>78<br>Participants</span>
-                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>240<br>Submissions</span>
-                </div>
-                <div class="border-button">
-                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="item">
-          <div class="thumb">
-            <img src="{% static 'images/featured-image-03.jpg' %}" alt="">
-            <div class="hover-effect">
-              <div class="content">
-                <div class="top-content">
-                  <span class="award">Book Price</span>
-                  <span class="price">$4,100</span>
-                </div>
-                <h4>Walk In The Nature Night</h4>
-                <div class="info">
-                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>112<br>Participants</span>
-                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>286<br>Submissions</span>
-                </div>
-                <div class="border-button">
-                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="item">
-          <div class="thumb">
-            <img src="{% static 'images/featured-image-04.jpg' %}" alt="">
-            <div class="hover-effect">
-              <div class="content">
-                <div class="top-content">
-                  <span class="award">Book Price</span>
-                  <span class="price">$3,400</span>
-                </div>
-                <h4>Walk In The Nature Night</h4>
-                <div class="info">
-                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>54<br>Participants</span>
-                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>140<br>Submissions</span>
-                </div>
-                <div class="border-button">
-                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="item">
-          <div class="thumb">
-            <img src="{% static 'images/featured-image-05.jpg' %}" alt="">
-            <div class="hover-effect">
-              <div class="content">
-                <div class="top-content">
-                  <span class="award">Book Price</span>
-                  <span class="price">$2,200</span>
-                </div>
-                <h4>Walk In The Nature Night</h4>
-                <div class="info">
-                  <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>68<br>Participants</span>
-                  <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>162<br>Submissions</span>
-                </div>
-                <div class="border-button">
-                  <a href="{% url 'contestdetails' %}">Solo Tour</a>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="text-center section-heading">
+        <div class="main-button">
+          <a id="load-more">Load More Sites</a>
+          <button id="view-less" class="btn btn-secondary" style="display: none;">View Less</button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="portfolio">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/diani.jpg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Walk In the Beach</h4>
-              <span>Ranked: <em>2nd</em></span>
-              <!-- <span>Award Won: <em>None</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
+  <section class="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center header-text" style="margin-bottom: 15px;">
+              <h6 style="color: rgb(24, 12, 182);">Uganda Tour</h6>
+              <h2>Explore Our <em>Uganda</em> Tourism Site</h2>
+          </div>
+      </div>
+      </div>
+      
+      <!-- Flexbox Row for Horizontal Layout -->
+      <div class="row d-flex flex-wrap justify-content-between">
+        {% for site in tourism_sites2 %} 
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 {% if forloop.counter > 8 %}hidden{% endif %}">
+          <div class="thumb" id="thumb-card">
+            <img src="{{ site.image.url }}" alt="{{ site.name }}" class="img-fluid">
+            <div class="hover-effect">
+              <a href="{% url 'ugbook' site.id %}#booking" class="content">
+                <h4>{{ site.name }}</h4>
+                <span>{{ site.description }}</span>
+              </a>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
-      <div class="col-lg-5">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/nature.jpg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Walk In The Nature</h4>
-              <span>Ranked: <em>3rd</em></span>
-              <!-- <span>Award Won: <em>EOS R3</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/monkeys.jpeg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Walk In The Forest</h4>
-              <span>Ranked: <em>4th</em></span>
-              <!-- <span>Award: <em>EOS R7</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/forest.jpg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Forest Nature</h4>
-              <span>Ranked: <em>2nd</em></span>
-              <!-- <span>Award: <em>EOS R3</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/flyrivers.jpeg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Fly thru the river</h4>
-              <span>Ranked: <em>1st</em></span>
-              <!-- <span>Award: <em>EOS R1</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/mountclimbing.jpg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Rocky Mountain</h4>
-              <span>Ranked: <em>2nd</em></span>
-              <!-- <span>Award Won: <em>None</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/rock.jpg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Rocky Mountain . Part 2</h4>
-              <span>Ranked: <em>2nd</em></span>
-              <!-- <span>Award Won: <em>None</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/bluelake.jpg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Blue Lake Nature</h4>
-              <span>Ranked: <em>4th</em></span>
-              <!-- <span>Award Won: <em>None</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="thumb" id="thumb-card">
-          <img src="{% static 'tour/giraffe.jpeg' %}" alt="">
-          <div class="hover-effect">
-            <div class="content">
-              <h4>Walk In The Forest</h4>
-              <span>Ranked: <em>3rd</em></span>
-              <!-- <span>Award Won: <em>None</em></span> -->
-              <!-- <ul>
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-eye"></i></a></li>
-              </ul> -->
-            </div>
-          </div>
+      <div class="text-center section-heading">
+        <div class="main-button">
+          <a id="load-more">Load More Sites</a>
+          <button id="view-less" class="btn btn-secondary" style="display: none;">View Less</button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let loadMoreBtn = document.getElementById("load-more");
+        let viewLessBtn = document.getElementById("view-less");
+    
+        loadMoreBtn.addEventListener("click", function() {
+            let hiddenSites = document.querySelectorAll(".site-item.hidden");
+    
+            // Show 6 more sites
+            for (let i = 0; i < 8 && i < hiddenSites.length; i++) {
+                hiddenSites[i].classList.remove("hidden");
+            }
+    
+            // Hide Load More button if all sites are shown
+            if (document.querySelectorAll(".site-item.hidden").length === 0) {
+                loadMoreBtn.style.display = "none";
+                viewLessBtn.style.display = "inline-block";
+            }
+        });
+    
+        viewLessBtn.addEventListener("click", function() {
+            let allSites = document.querySelectorAll(".site-item");
+    
+            // Hide extra sites again
+            for (let i = 8; i < allSites.length; i++) {
+                allSites[i].classList.add("hidden");
+            }
+    
+            // Reset buttons
+            loadMoreBtn.style.display = "inline-block";
+            viewLessBtn.style.display = "none";
+        });
+    });
+    </script>
+    
+    
 
 {% endblock %}

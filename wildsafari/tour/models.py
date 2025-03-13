@@ -19,7 +19,7 @@ class Booking(models.Model):
     date_of_visit=models.DateField()
     time_of_visit=models.TimeField()
     place_of_visit=models.CharField(max_length=100)
-    tour_package=models.CharField(max_length=100)
+    
 
     status = models.TextField(default='Pending',max_length=100)
     
@@ -31,7 +31,7 @@ class SoloBooking(models.Model):
     s_date_of_visit=models.DateField()
     s_time_of_visit=models.TimeField()
     s_place_of_visit=models.CharField(max_length=100)
-    s_tour_package=models.CharField(max_length=100)
+
     s_payment_method=models.CharField(max_length=100)
     s_status = models.TextField(default='Pending',max_length=100)
     

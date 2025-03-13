@@ -62,129 +62,106 @@
     </div>
   </section>
 
-
-
-<section class="popular-categories">
-    <div class="container-fluid">
+  <section class="closed-contests">
+    <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <div class="section-heading">
+          <div class="text-center section-heading">
             <h6>Our Top Tourism SITES</h6>
             <h4>Check Out <em>Popular</em> Tourism <em>Sites Kenya</em></h4>
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="main-button">
-            <a href="{ url 'categories' }">Discover All Tourist Attraction Site</a>
-          </div>
-        </div>
-
-        {% for site in tourism_sites1 %}
-        <div class="col-lg-3 col-sm-6">
-          
-          <div class="popular-item" id="popular-site" >
-            <div class="top-content">
-              <div class="right">
-                <h4>{{ site.name }}</h4>
-                <!-- <span><em>126</em> Available Contests</span> -->
-              </div>
-            </div>
-            <div class="thumb" id="top-site">
-              <img src="{{ site.image.url }}" alt="">
-              <span class="category">{{ site.place }}</span>
-              
-            </div>
-            <div class="border-button">
-              <a href="{% url 'book' site.id %}">Book Tour</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-
-       
-      </div>
-    </div>
-  </section>
-
-  <section class="closed-contests">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center section-heading">
-            <h6>VISITED SITES</h6>
-            <h4><em>Previous Visited</em> With Photography  and <em>Adventures</em></h4>
+          <div class="main-button" style="float: right;">
+            <a href="{% url 'categories' %}#portfolio">Discover All Tourist Attraction Site</a>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
+            {% for site in tourism_sites1 %}
             <div class="item" id="popular-site" >
               <div class="closed-item" id="popular-site" >
                 <div class="thumb"id="top-site" >
-                  <img src="{% static 'tour/maasaimarawb.jpg' %}" alt="">
-                  <span class="winner"><em>Place:</em>Maasai Mara</span>
-                  <span class="price"><em>Event :</em>Wildebeest Migration </span>
+                  <img style="border-radius: 20px;" src="{{ site.image.url }}" alt="">
+                  <span class="winner"><em>Place:</em>{{ site.place }}</span>
+                  <span class="price"><em>Name :</em>{{ site.name }} </span>
                 </div>
-                <div class="down-content">
-                  <div class="row">
-                    <div class="col-7">
-                      <h4>45 Participants <br><span>Number Of Tourist</span></h4>
-                    </div>
-                    <div class="col-5">
-                      <h4 class="pics">320 Pictures <br><span>Pictures Taken</span></h4>
-                    </div>
-                  </div>
+                <div class="border-button text-center">
+                  <a href="{% url 'book' site.id %} ">Book Tour</a>
                 </div>
               </div>
             </div>
-            <div class="item" id="popular-site" >
-              <div class="closed-item" id="popular-site" >
-                <div class="thumb" id="top-site">
-                  <img src="{% static 'tour/Mtkenyahike.jpg' %}" alt="">
-                  <span class="winner"><em>Place:</em>  Mt Kenya</span>
-                  <span class="price"><em>Event :</em> Hikes and Nature</span>
-                </div>
-                <div class="down-content">
-                  <div class="row">
-                    <div class="col-7">
-                      <h4>76 Participants <br><span>Number Of Tourist</span></h4>
-                    </div>
-                    <div class="col-5">
-                      <h4 class="pics">410 Pictures <br><span>Pictures Taken</span></h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item" id="popular-site" >
-              <div class="closed-item" id="popular-site" >
-                <div class="thumb" id="top-site">
-                  <img src="{% static 'tour/Kilifi_bay_beach.jpg' %}" alt="">
-                  <span class="winner"><em>Place:</em>Kilifi</span>
-                  <span class="price"><em>Event :</em> Beach</span>
-                </div>
-                <div class="down-content">
-                  <div class="row">
-                    <div class="col-7">
-                      <h4>65 Participants <br><span>Number Of Tourist</span></h4>
-                    </div>
-                    <div class="col-5">
-                      <h4 class="pics">284 Pictures <br><span>Submited Pics</span></h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
         <div class="col-lg-12">
           <div class="text-center border-button">
-            <a href="{url 'contests' }">Browse Open Contests</a>
+            <a href="{% url 'categories' %}#portfolio">Discover All Tourist Attraction Site</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section> 
+
+
+
+  <div class="user-info" style="margin-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="avatar">
+                    <h4><b>Stevensons Trails Company Other Services</b></h4>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-sm-6">
+                <div class="info-box">
+                    <h4>Car Rental Services</h4>
+                    <h6>We offer reliable and affordable car rental services for your travel needs.</h6>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-sm-6">
+                <div class="info-box">
+                    <h4>Customized Tour Packages</h4>
+                    <h6>Tailor-made tours to match your travel preferences and budget.</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="info-box">
+                    <h4>Hotel & Lodge Bookings</h4>
+                    <h6>We assist in securing the best accommodation for a comfortable stay.</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="info-box">
+                    <h4>Airport Transfers</h4>
+                    <h6>Convenient airport pick-up and drop-off services for seamless travel.</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="info-box">
+                    <h4>Event Planning & Management</h4>
+                    <h6>We organize corporate and private events, from logistics to execution.</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="info-box">
+                    <h4>Photography & Travel Documentation</h4>
+                    <h6>Professional photography and travel documentation services.</h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+  
 
 
 

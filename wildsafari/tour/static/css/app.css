@@ -214,9 +214,9 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   color: #7a0485;
-  width: 250px;
+  width: 300px;
   text-align: center;
-  height: 250px;
+  height: 300px;
   justify-content: space-around;
   
 }
@@ -356,3 +356,31 @@
   }
  
 
+
+
+
+.popular-item {
+  height: 300px; /* Ensures uniform height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid #ddd; /* Optional: Adds a light border */
+  border-radius: 10px; /* Optional: Rounds the corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow */
+}
+
+.popular-item .thumb {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px; /* Adjust based on preference */
+  overflow: hidden;
+}
+
+.popular-item img {
+  width: 300px;
+  height: 250px;
+
+}

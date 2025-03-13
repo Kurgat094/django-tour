@@ -15,82 +15,6 @@
     </div>
   </div>
 
-  <div class="tour-booking">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="main-content">
-            <h4>Book Your Solo Wild Safari Tour</h4>
-            <p>Embark on an unforgettable adventure into the wild. Fill out the form below to reserve your spot for a solo safari tour.</p>
-            <form id="tour-booking-form" method="post">
-              <div class="form-body">
-                <div class="row">
-                  {% if form.errors %}
-                          <div class="alert alert-warning" role="alert">
-                              <ul class="mb-0">
-                                  {% for key, error in form.errors.items %}
-                                      <li>{{ error }}</li>
-                                  {% endfor %}
-                              </ul>
-                          </div>
-                    {% endif %}
-                    {% csrf_token %}
-                  
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Name</label> {{ form.contact_name }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Email</label> {{ form.s_email }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Phone Number</label> {{ form.s_phone }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Date of Visit</label> {{ form.s_date_of_visit }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Time of Visit</label> {{ form.s_time_of_visit }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Place of Visit</label> {{ form.s_place_of_visit }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Tour Package</label> {{ form.s_tour_package }}
-                      </div>
-                  </div>
-                  <div class="col-lg-6">
-                      <div class="form-group">
-                          <label for="">Payment Method</label> {{ form.s_payment_method }}
-                      </div>
-                  </div>
-                  
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                        <button type="button" class="main-button-book" id="bookNowButton">Book Now</button>
-                    </div>
-                  </div>
-      
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <section class="contest-waiting">
     <div class="container">
@@ -155,4 +79,103 @@
     </div>
   </section>
 
+
+  <section class="contest-win">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center section-heading">
+            <h6>Recently Added Tourism Site </h6>
+            <h4>Current <em>Tour</em> to Visit Now &amp; <em>Book</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content">
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$1,200</span>
+            </div>
+            <img src="{% static 'tour/chalbi.jpg' %}" alt="">
+            <h4>Hot Climate</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>80 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>260 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content">
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$2,400</span>
+            </div>
+            <img src="{% static 'tour/torokfalls.jpg' %}" alt="">
+            <h4>Great Rift Valley</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>60 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>212 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content">
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$3,600</span>
+            </div>
+            <img src="{% static 'tour/rendile.jpg' %}" alt="">
+            <h4>Cushites Culture</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>55 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>150 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contest-details' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="contest-item" id="top-site">
+            <div class="top-content" >
+              <span class="award"> <a href="" style="color: white">Book Now</a>
+              </span>
+              <span class="price">$4,800</span>
+            </div>
+            <img src="{% static 'tour/migingo.jpg' %}" alt="">
+            <h4>Migingo in Lake victoria</h4>
+            <!-- {{-- <div class="info">
+              <span class="participants"><img src="{% static 'images/icon-03.png' %}" alt=""><br>40 Participants</span>
+              <span class="submittions"><img src="{% static 'images/icon-01.png' %}" alt=""><br>120 Submissions</span>
+            </div> --}} -->
+            <div class="border-button">
+              <a href="{ url 'contestdetails' }">Book Solo Tour</a>
+            </div>
+            <span class="info">* Client will pay via Online Payments</span>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 {% endblock %}

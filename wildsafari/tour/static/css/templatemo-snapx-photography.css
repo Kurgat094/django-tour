@@ -231,7 +231,7 @@ Header Style
 
 .background-header {
   background-color: #fff;
-  height: 70px!important;
+  height: auto!important;
   position: fixed!important;
   top: 0!important;
   left: 0;
@@ -246,7 +246,7 @@ Header Style
 .header-area {
   background-color: #fff;
   position: absolute;
-  height: 70px;
+  height: auto;
   top: 0;
   left: 0;
   right: 0;
@@ -258,7 +258,7 @@ Header Style
 }
 
 .header-area .main-nav {
-  min-height: 80px;
+  min-height: auto;
   background: transparent;
   display: flex
 }
@@ -282,7 +282,7 @@ Header Style
 
 .header-area .main-nav .nav {
   flex-basis: 60%;
-  height: 70px;
+  height: auto;
   margin-top: 0px;
   margin-right: 0px;
   -webkit-transition: all 0.3s ease 0s;
@@ -561,6 +561,12 @@ Header Style
 }
 
 @media (max-width: 1200px) {
+  .header-area{
+    height: auto;
+  }
+  .header-area .main-nav{
+    height: auto;
+  }
   .header-area .main-nav .nav li {
     padding-left: 10px;
     padding-right: 10px;
@@ -572,6 +578,9 @@ Header Style
 }
 
 @media (max-width: 767px) {
+  .header-area .main-nav{
+    height: auto;
+  }
   .header-area .main-nav .nav {
     height: auto;
     flex-basis: 100%;
@@ -607,7 +616,7 @@ Header Style
   .header-area {
     background-color: #f7f7f7;
     padding: 0px 15px;
-    height: 100px;
+    height: 105px;
     box-shadow: none;
     text-align: center;
   }
@@ -638,9 +647,11 @@ Header Style
   }
   .header-area.header-sticky .nav {
     margin-top: 100px !important;
+    height: auto;
   }
   .background-header.header-sticky .nav {
     margin-top: 70px !important;
+    height: auto;
   }
   .header-area .main-nav .nav li {
     width: 100%;
@@ -685,11 +696,11 @@ Header Style
     height: auto;
   }
   .header-area .main-nav .nav li.has-sub:after {
-    color: #3B06E;
+    color: #3B06EE; /* Adjusted hex color */
     right: 30px;
     font-size: 14px;
     top: 15px;
-  }
+}
   .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
   }
@@ -1184,6 +1195,7 @@ section.popular-categories .main-button {
 .popular-item .icon img {
   max-width: 36px;
   border-radius: 0px;
+  
 }
 
 .popular-item h4 {
@@ -1198,8 +1210,7 @@ section.popular-categories .main-button {
   font-size: 15px;
   font-weight: 500;
   padding: 5px 8px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   color: #00bdfe;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
@@ -1213,6 +1224,7 @@ section.popular-categories .main-button {
 
 .popular-item img {
   border-radius: 15px;
+  height: 250px; 
 }
 
 .popular-item .thumb {
@@ -2380,14 +2392,19 @@ Users Page
 
 section.portfolio {
   padding: 80px 0px;
-  background-color: #f7f7f7;
+  background-color: #dbdad3;
+  margin-bottom: 10px !important;
+  margin-top: 10px;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 section.portfolio .thumb {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 section.portfolio .thumb:hover .hover-effect {
