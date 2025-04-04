@@ -405,7 +405,7 @@ Header Style
 
 .header-area .main-nav .nav li.has-sub ul li a:hover {
   background: #fff;
-  color: #00bdfe;
+  color: rgb(2, 110, 20);
   padding-left: 25px;
 }
 
@@ -577,7 +577,7 @@ Header Style
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #00bdfe!important;
+   color: rgb(2, 110, 20)!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -952,7 +952,7 @@ Banner Style
 
 .main-banner h2 em {
   font-style: normal;
-  color: #00bdfe;
+  color: #fed800;
 }
 
 .main-banner p {
@@ -985,7 +985,14 @@ Banner Style
 
 .main-banner .big-border-button a:hover {
   background-color: #fff;
-  color: #00bdfe;
+  color: rgb(255, 217, 0) ; 
+text-decoration: none;
+ padding: 10px 20px; 
+ border: 2px solid rgb(255, 217, 0); 
+ color: rgb(255, 217, 0); 
+
+transition: 0.3s; 
+font-size: 16px; font-weight: bold;
 }
 
 .main-banner .icon-button a {
@@ -994,7 +1001,7 @@ Banner Style
   margin-left: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #fff;
+  color: rgb(255, 217, 0 ) ; 
   transition: all .3s;
 }
 
@@ -1004,7 +1011,7 @@ Banner Style
 }
 
 .main-banner .icon-button a:hover {
-  color: #00bdfe;
+  color: rgb(255, 217, 0);
 }
 
 
@@ -1055,7 +1062,7 @@ section.featured-items {
 
 .featured-items .item .thumb .hover-effect .content h4 {
   font-size: 20px;
-  color: #00bdfe;
+  color: #feed00;
   margin-bottom: 22px;
 }
 
@@ -1112,7 +1119,7 @@ section.featured-items {
   font-size: 24px;
   display: inline-block;
   color: #fff;
-  background-color: #00bdfe;
+  background-color: #feed00;
   border-radius: 50%;
   opacity: 0.75;
   transition: all .3s;
@@ -1393,7 +1400,7 @@ pricing-plans
 }
 
 .pricing-item:hover h4 {
-  color: #00bdfe;
+  color: #919b06;
 }
 
 .pricing-item img {
@@ -1412,7 +1419,7 @@ pricing-plans
 
 .pricing-item ul li {
   font-size: 15px;
-  color: #00bdfe;
+  color: #000000;
   margin-bottom: 10px;
 }
 
@@ -1433,7 +1440,7 @@ pricing-plans
 
 .pricing-item span.price {
   font-size: 30px;
-  color: #00bdfe;
+  color: #000000;
   font-weight: 700;
   display: inline-block;
   margin-top: 30px;
