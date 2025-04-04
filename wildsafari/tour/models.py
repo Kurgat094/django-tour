@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from datetime import timedelta
 # Create your models here.
 
 
@@ -10,17 +12,18 @@ class Otp(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
 
 
-
+def get_end_of_visit():
+    return timezone.now() + timedelta(days=7)
 class Booking(models.Model):
     name=models.CharField(max_length=100)
     contactname = models.CharField(max_length=255,)  # Choose an appropriate default
     email=models.EmailField()
     phone=models.CharField(max_length=10)
     date_of_visit=models.DateField()
+    end_of_visit = models.DateTimeField()   
     time_of_visit=models.TimeField()
     place_of_visit=models.CharField(max_length=100)
-    
-
+    tour_package=models.CharField(max_length=100,default="Basic Package")
     status = models.TextField(default='Pending',max_length=100)
     
 class SoloBooking(models.Model):

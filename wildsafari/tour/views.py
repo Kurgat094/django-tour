@@ -60,13 +60,19 @@ def book(request, site_id):
                 place_of_visit=tourism_site.place,  # Automatically set from tourism_site
                 tour_package=form.cleaned_data['tour_package'],
                 date_of_visit=form.cleaned_data['date_of_visit'],
+                end_of_visit=form.cleaned_data['end_of_visit'],
                 time_of_visit=form.cleaned_data['time_of_visit']
             )
             messages.success(request, "Booking successful!")
-            return redirect('home',)
+            return redirect('home')
         else:
             messages.error(request, "Booking failed")
-            return render(request, 'contests.html', )
+            return render(request, 'contests.html' ,{
+                'tourism_site': tourism_site,
+                'itineraries': itineraries,
+                'day_count': day_count,
+                'form_data': request.POST,
+            })
     
     return render(request, 'contests.html', {
         'tourism_site': tourism_site,
@@ -94,6 +100,7 @@ def tzbook(request, site_id):
                 place_of_visit=tourism_site.place,  # Automatically set from tourism_site
                 tour_package=form.cleaned_data['tour_package'],
                 date_of_visit=form.cleaned_data['date_of_visit'],
+                end_of_visit=form.cleaned_data['end_of_visit'],
                 time_of_visit=form.cleaned_data['time_of_visit']
             )
             messages.success(request, "Booking successful!")
@@ -128,6 +135,7 @@ def ugbook(request, site_id):
                 place_of_visit=tourism_site.place,  # Automatically set from tourism_site
                 tour_package=form.cleaned_data['tour_package'],
                 date_of_visit=form.cleaned_data['date_of_visit'],
+                end_of_visit=form.cleaned_data['end_of_visit'],
                 time_of_visit=form.cleaned_data['time_of_visit']
             )
             messages.success(request, "Booking successful!")

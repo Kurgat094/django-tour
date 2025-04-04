@@ -13,7 +13,7 @@
       <div class="row">
           <div class="col-lg-8 offset-lg-2 header-text">
            {% if tourism_site.itinerary.all or tourism_site.Ug_itinerary.all or tourism_site.Tz_itinerary.all%}
-        <h2>{{ day_count }}-day tour at <em>{{ tourism_site.place }}</em></h2>
+        <h2>{{ day_count }}-day tour at <em style="color: rgb(255, 196, 0);" >{{ tourism_site.place }}</em></h2>
         <p>Embark on an unforgettable journey into the heart of the wild. <br>
            <em>{{ tourism_site.description }}</em>
         </p>
@@ -22,7 +22,7 @@
 
           {% if tourism_site.details %}
 <div class="col-lg-8 offset-lg-2 header-text">
-    <p style="color: aqua;">{{ tourism_site.details|linebreaksbr }}</p>
+    <p style="color: rgb(255, 217, 0);">{{ tourism_site.details|linebreaksbr }}</p>
 </div>
   {% endif %}
       </div>
@@ -35,7 +35,7 @@
   
 
   {% if itineraries %}
-  <h2 class="text-center text-primary">Itinerary</h2>
+  <h2 class="text-center text-success">Itinerary</h2>
   <div class="table-responsive">
       <table class="table table-bordered table-striped table-hover">
           <thead class="table-primary">
@@ -116,13 +116,31 @@
                       <input type="text" name="place_of_visit" value="{{ tourism_site.place }}" class="form-control" placeholder="Place of Visit" required>
                     </div>
                   </div>
-                
+                <!-- A drop down to show tour packages -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="">Tour Package</label>
+                    <select name="tour_package" id="tour_package" class="form-control" required>
+                      <option value="" disabled selected>Select Tour Package</option>
+                      <option value="Basic">Basic Package</option>
+                      <option value="Premium">Premium Package</option>
+                      <option value="Luxury">Luxury Package</option>
+                    </select>
+                  </div>
+                </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="">Date of Visit</label>
+                        <label for="">Arrival Date</label>
                         <input type="date" name="date_of_visit" id="date_of_visit" class="form-control" required>
                     </div>
                 </div>
+                <!-- end of visit -->
+                 <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="">End Of Journey</label>
+                    <input type="date" name="end_of_visit" id="end_of_visit" class="form-control" required>
+                  </div>
+                 </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">Time of Visit</label>
@@ -131,13 +149,13 @@
                   </div>
                   
                   <div class="col-lg-12">
-                    <div class="form-group">
-                      <button type="submit" class="main-button-book">Book Now</button>
+                    <div class="form-group " >
+                      <button type="submit"  >Inquire Now</button>
                     </div>
                   </div>
                   <div class="col-lg-12">
-                    <div class="form-group">
-                      <p><a href="{% url 'terms_conditions' %}">View Our Terms And Conditions</a></p>   
+                    <div class="form-group" >
+                      <p ><a href="{% url 'terms_conditions' %}" style="color: rgb(0, 255, 0);">View Our Terms And Conditions</a></p>   
                     </div>  
 
                   </div>
@@ -244,9 +262,9 @@
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
-                  <fieldset>
-                    <button type="submit" id="form-submit" class="orange-button">Send Message Now</button>
-                  </fieldset>
+                  <div class="form-group">
+                    <button type="submit" id="form-submit">Send Message Now</button>
+                  </div>
                 </div>
               </div>
             </form>

@@ -13,11 +13,11 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="header-text">
-            <h2>Enter a world of <em>Tourism</em> Culture  <em>Adventure</em> Hikes &amp;<em>Recreation</em></h2>
+            <h2>Enter a world of <em style="color: rgb(255, 217, 0);">Tourism</em> Culture  <em style="color: rgb(255, 217, 0);">Adventure</em> Hikes &amp;<em style="color: rgb(255, 217, 0);">Recreation</em></h2>
             <p>Stevensons Trails - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
             <div class="buttons">
               <div class="big-border-button">
-                <a href="{% url 'categories' %}">Explore Stevensons Trails Company</a>
+                <a href="{% url 'categories' %}" >Explore Stevensons Trails Company</a>
               </div>
               <div class="icon-button">
                 <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
@@ -48,7 +48,7 @@
                             <ul>
                                 <li><span>Place:</span>{{ site.place }}</li>
                                 <li><span>Description:</span> {{ site.description }}</li>
-                                <li><span>Book:</span><b style="color: blue;">Click to Reserve</b></li>
+                                <li><span>Book:</span><b style="color: #228B22;">Click to Reserve</b></li>
                             </ul>
                           </a>
                     </div>
@@ -67,8 +67,8 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="text-center section-heading">
-            <h6>Our Top Tourism SITES</h6>
-            <h4>Check Out <em>Popular</em> Tourism <em>Sites Kenya</em></h4>
+            <h6 style="color: rgb(255, 217, 0);">Our Top Tourism SITES</h6>
+            <h4>Check Out <em style="color: rgb(0, 255, 0);">Popular</em> Tourism <em style="color: rgb(0, 255, 0);">Sites Kenya</em></h4>
           </div>
         </div>
         
@@ -79,8 +79,8 @@
               <div class="closed-item" id="popular-site" >
                 <div class="thumb"id="top-site" >
                   <img style="border-radius: 20px;" src="{{ site.image.url }}" alt="">
-                  <span class="winner"><em>Place:</em>{{ site.place }}</span>
-                  <span class="price"><em>Name :</em>{{ site.name }} </span>
+                  <span class="winner" style="color: black;"><em>Place:</em>{{ site.place }}</span>
+                  <span class="price"style="color: black;"><em>Name :</em>{{ site.name }} </span>
                 </div>
                 <div class="border-button text-center">
                   <a href="{% url 'book' site.id %} ">Book Tour</a>

@@ -39,19 +39,7 @@ class OtpForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
-    TOUR_PACKAGE_CHOICES = [
-        ('basic', 'Basic Package'),
-        ('premium', 'Premium Package'),
-        ('luxury', 'Luxury Package'),
-    ]
-
-   
-
-    tour_package = forms.ChoiceField(
-        choices=[('', 'Select a Tour Package')] + TOUR_PACKAGE_CHOICES, 
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
-
+    
 
     date_of_visit = forms.DateField(
         widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
@@ -63,7 +51,7 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ['name', 'contactname' ,'email', 'phone', 'date_of_visit', 'time_of_visit', 'place_of_visit', 'tour_package']
+        fields = ['name', 'contactname', 'email', 'phone', 'place_of_visit','tour_package', 'date_of_visit', 'end_of_visit', 'time_of_visit']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -73,9 +61,11 @@ class BookingForm(forms.ModelForm):
         self.fields["email"].widget.attrs.update({"placeholder": "Email"})
         self.fields["phone"].widget.attrs.update({"placeholder": "Phone"})
         self.fields["date_of_visit"].widget.attrs.update({"placeholder": "Date of Visit"})
+        self.fields["end_of_visit"].widget.attrs.update({"placeholder": "End of Visit"})
         self.fields["time_of_visit"].widget.attrs.update({"placeholder": "Time of Visit"})
         self.fields["place_of_visit"].widget.attrs.update({"placeholder": "Place of Visit"})
         self.fields["tour_package"].widget.attrs.update({"placeholder": "Tour Package"})   
+
 
     def clean_group_size(self):
         group_size = self.cleaned_data.get('group_size')

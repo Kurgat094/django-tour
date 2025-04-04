@@ -13,9 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- Additional CSS Files -->
-<link rel="stylesheet" href="{% static 'css/app.css' %}">
-<link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
-<link rel="stylesheet" href="{% static 'css/templatemo-snapx-photography.css' %}">
+
 <link rel="stylesheet" href="{% static 'css/owl.css' %}">
 <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 <link rel="stylesheet" href="{% static 'css/flex-slider.css' %}">
@@ -29,12 +27,232 @@
 <!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
 <!-- External CDN -->
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+<link rel="stylesheet" href="{% static 'css/templatemo-snapx-photography.css' %}">
 
+
+
+<style>
+
+.header-area .main-nav .nav li.has-sub ul li a:hover {
+  background: #fff;
+  color: rgb(2, 110, 20);
+  padding-left: 25px;
+}
+.section-heading h6 {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: rgb(255, 217, 0);
+  font-weight: 400;
+}
+.section-heading h4 {
+  margin-top: 10px;
+  line-height: 36px;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #212741;
+}
+
+.section-heading h4 em {
+  color: rgb(255, 217, 0);
+  font-style: normal;
+}
+
+.main-banner .big-border-button a:hover {
+  background-color: #fff;
+  color: rgb(255, 217, 0 ) ; 
+  text-decoration: none;
+ border: 2px solid rgb(0, 255, 0); 
+font-size: 16px; font-weight: bold;
+}
+.main-banner .icon-button a {
+  margin-top: 20px;
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(255, 217, 0 ) ; 
+  transition: all .3s;
+}
+/* hover icon-button */
+.main-banner .icon-button a:hover {
+ color: rgb(0, 255, 0) ; 
+ text-decoration: none;
+    
+}
+.featured-items .item .thumb .hover-effect .content h4 {
+  font-size: 20px;
+  color:rgb(0, 0, 0);
+  margin-bottom: 22px;
+}
+.featured-items .owl-nav .owl-prev span,
+.featured-items .owl-nav .owl-next span  {
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 24px;
+  display: inline-block;
+  color: white;
+  font-weight: bolder;
+  background-color: rgb(2, 110, 20);
+  border-radius: 50%;
+  opacity: 0.75;
+  transition: all .3s;
+}
+.featured-items .owl-nav .owl-prev span:hover,  
+.featured-items .owl-nav .owl-next span:hover {
+  background-color: rgb(255, 217, 0);
+  color: rgb(0, 0, 0);
+  opacity: 1;
+}
+.border-button a {
+  font-size: 15px;
+  color: rgb(2, 110, 20);
+  background-color: transparent;
+  border: 1px solid rgb(0, 255, 0);
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 10px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+}
+
+.border-button a:hover {
+  background-color: rgb(255, 217, 0);
+  color: #050101;
+}
+
+.main-button a {
+  font-size: 15px;
+  color: #fff;
+  background-color: #00bdfe;
+  border: 1px solid #00bdfe;
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 10px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+}
+
+.main-button a:hover {
+  background-color: transparent;
+  color: rgb(0, 255, 0);
+}
+section.portfolio .thumb .hover-effect .content ul li a:hover {
+  background-color: rgb(0, 255, 0);
+  color: #fff;
+}
+.pricing-item:hover h4 {
+  color: rgb(255 ,217, 20);
+}
+
+.pricing-item img {
+  max-width: 240px;
+}
+
+
+
+.pricing-item ul li {
+  font-size: 15px;
+  color: rgb(2, 110, 20);
+  margin-bottom: 10px;
+}
+
+.pricing-item ul.first-plan li:nth-child(5),
+.pricing-item ul.first-plan li:nth-child(7) {
+  color: #afafaf;
+  text-decoration: line-through;
+}
+
+.pricing-item ul.second-plan li:nth-child(5) {
+  color: #afafaf;
+  text-decoration: line-through;
+}
+
+.pricing-item ul li:last-child {
+  margin-bottom: 0px;
+}
+
+.pricing-item span.price {
+  font-size: 30px;
+  color: #000000;
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 30px;
+}
+footer a:hover {
+    color: #FFD700; 
+    text-decoration: underline; 
+}
+.form-group button:hover {
+    background-color: #FFD700 !important; 
+    color: #228B22 !important; 
+    transform: scale(1.009); 
+    font-weight: bold;
+}
+.form-group button {
+    background-color: #228B22; 
+    color: #fff; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.info-item{
+    color: #228B22;
+}
+.info-item a{
+    color: #228B22;
+}
+.header-text em{
+    color: #FFD700;
+}
+.header-text h2 em {
+    color: #FFD700;
+}
+.header-text  p a {
+    color: #228B22;
+}
+.main-button a {
+  font-size: 15px;
+  color: #228B22;
+  background-color: #228B22;
+  border: 1px solid #228B22;
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 10px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+}
+
+.main-button a:hover {
+  background-color: transparent;
+  color: #228B22;
+}
+.sign-in-form h3{
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #228B22;
+
+}
+.sign-in-form h6 a{
+    color: #228B22;
+}
+</style>
 </head>
 <body>
         <!-- ***** Header Area Start ***** -->
@@ -51,12 +269,11 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav" id="dashboard">
                         <li><a href="{% url 'home' %}" class="active">Home</a></li>
-                        <!-- <li><a href="{% url 'uganda' %}">Uganda</a></li>
-                        <li><a href="{% url 'tanzania' %}">Tanzania</a></li> -->
-                    
+                        <li><a href="{% url 'uganda' %}">About Us</a></li>
+                        
                         <li><a href="{% url 'categories' %}">Explore Us</a></li>
                         <li class="has-sub">
-                            <a href="javascript:void(0)">Other  Destinations</a>
+                            <a href="javascript:void(0)">Our  Destinations</a>
                             <ul class="sub-menu">
                                 <li><a href="{% url 'home' %}">Kenya</a></li>
                                 <li><a href="{% url 'uganda' %}">Uganda</a></li>
