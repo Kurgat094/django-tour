@@ -14,6 +14,7 @@ urlpatterns = [
     path('users', users, name='users'),
     path('terms_conditions', terms_conditions, name='terms_conditions'),
     path('contact_messages', contact_messages, name='contact_messages'),
+    path('about', about, name='about'),
 
 
     # Auth urls
@@ -46,6 +47,7 @@ urlpatterns = [
     path('tanzania',tanzania,name='tanzania'),
     path('tzbook/<int:site_id>/',tzbook,name='tzbook'),
     path('rwanda',rwanda,name='rwanda'),
+    path('indianocean',indianocean,name='indianocean'),
 
 ]
 

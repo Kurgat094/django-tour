@@ -29,6 +29,9 @@ def home(request):
     itinaries = Itinerary.objects.all()
     return render(request, 'index.html', {'tourism_sites': tourism_sites  , 'itinaries': itinaries , 'tourism_sites_2': tourism_sites_2 , 'tourism_sites1': tourism_sites1})
 
+@csrf_exempt
+def about(request):
+    return render(request, 'about_us.html')
 
 @csrf_exempt
 def categories(request):
@@ -115,6 +118,7 @@ def tzbook(request, site_id):
         'day_count': day_count,
         'form': form,
     })
+
 @csrf_exempt
 def ugbook(request, site_id):
     # Get the tourism site or return a 404 error if not found
@@ -433,6 +437,7 @@ Best Regards,
     send_mail(subject, message, from_email, recipient_list)
 
     return redirect('approvals')
+
 @csrf_exempt    
 def solo_denial(request,id):
     solo_booking = get_object_or_404(SoloBooking, id=id)  # Fetch the booking safely
@@ -492,3 +497,8 @@ def uganda(request):
 @csrf_exempt
 def rwanda(request):
     return render(request, 'rwanda.html')
+
+
+@csrf_exempt
+def indianocean(request):
+    return render(request, 'indianocean.html')
