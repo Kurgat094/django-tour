@@ -49,7 +49,7 @@
 .section-heading h6 {
   font-size: 15px;
   text-transform: uppercase;
-  color: rgb(255, 217, 0);
+  color: #D86F2C;
   font-weight: 400;
 }
 .section-heading h4 {
@@ -62,13 +62,13 @@
 }
 
 .section-heading h4 em {
-  color: rgb(255, 217, 0);
+  color: #D86F2C;
   font-style: normal;
 }
 
 .main-banner .big-border-button a:hover {
   background-color: #fff;
-  color: rgb(255, 217, 0 ) ; 
+  color: #D86F2C ; 
   text-decoration: none;
  border: 2px solid rgb(0, 255, 0); 
 font-size: 16px; font-weight: bold;
@@ -79,7 +79,7 @@ font-size: 16px; font-weight: bold;
   margin-left: 15px;
   font-size: 15px;
   font-weight: 500;
-  color: rgb(255, 217, 0 ) ; 
+  color: #D86F2C ; 
   transition: all .3s;
 }
 /* hover icon-button */
@@ -109,15 +109,15 @@ font-size: 16px; font-weight: bold;
 }
 .featured-items .owl-nav .owl-prev span:hover,  
 .featured-items .owl-nav .owl-next span:hover {
-  background-color: rgb(255, 217, 0);
+  background-color: #D86F2C;
   color: rgb(0, 0, 0);
   opacity: 1;
 }
 .border-button a {
   font-size: 15px;
-  color: rgb(2, 110, 20);
+  color: #D86F2C;
   background-color: transparent;
-  border: 1px solid rgb(0, 255, 0);
+  border: 1px solid #D86F2C;
   padding: 10px 30px;
   display: inline-block;
   border-radius: 10px;
@@ -128,8 +128,8 @@ font-size: 16px; font-weight: bold;
 }
 
 .border-button a:hover {
-  background-color: rgb(255, 217, 0);
-  color: #050101;
+  background-color: #228B22;
+  color: #f0f0f0;
 }
 
 .main-button a {
@@ -155,7 +155,7 @@ section.portfolio .thumb .hover-effect .content ul li a:hover {
   color: #fff;
 }
 .pricing-item:hover h4 {
-  color: rgb(255 ,217, 20);
+  color: #D86F2C;
 }
 
 .pricing-item img {
@@ -193,11 +193,11 @@ section.portfolio .thumb .hover-effect .content ul li a:hover {
   margin-top: 30px;
 }
 footer a:hover {
-    color: #FFD700; 
+    color: #D86F2C; 
     text-decoration: underline; 
 }
 .form-group button:hover {
-    background-color: #FFD700 !important; 
+    background-color: #D86F2C !important; 
     color: #228B22 !important; 
     transform: scale(1.009); 
     font-weight: bold;
@@ -216,10 +216,10 @@ footer a:hover {
     color: #228B22;
 }
 .header-text em{
-    color: #FFD700;
+    color: #D86F2C;
 }
 .header-text h2 em {
-    color: #FFD700;
+    color: #D86F2C;
 }
 .header-text  p a {
     color: #228B22;
@@ -240,17 +240,17 @@ footer a:hover {
 
 .main-button a:hover {
   background-color: transparent;
-  color: #228B22;
+  color: #D86F2C;
 }
 .sign-in-form h3{
   margin-bottom: 20px;
   font-size: 24px;
   text-align: center;
-  color: #228B22;
+  color: #D86F2C;
 
 }
 .sign-in-form h6 a{
-    color: #228B22;
+    color: #D86F2C;
 }
 </style>
 </head>
@@ -269,7 +269,7 @@ footer a:hover {
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav" id="dashboard">
                         <li><a href="{% url 'home' %}" class="active">Home</a></li>
-                        <li><a href="{% url 'uganda' %}">About Us</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
                         
                         <li><a href="{% url 'categories' %}">Explore Us</a></li>
                         <li class="has-sub">
@@ -278,6 +278,7 @@ footer a:hover {
                                 <li><a href="{% url 'home' %}">Kenya</a></li>
                                 <li><a href="{% url 'uganda' %}">Uganda</a></li>
                                 <li><a href="{% url 'tanzania' %}">Tanzania</a></li>
+                                <li><a href="{% url 'indianocean' %}">Indian Ocean </a></li>
                                 <!-- <li><a href="{% url 'rwanda'%}">Rwanda</a></li> -->
                             </ul>
                         </li>
