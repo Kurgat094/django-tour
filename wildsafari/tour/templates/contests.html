@@ -41,7 +41,7 @@
           <thead class="table-primary">
               <tr>
                   <th>Day</th>
-                  <th>Title</th>
+                  <th>Destinations</th>
                   <th>Description</th>
                   <th>Meals</th>
               </tr>
@@ -52,7 +52,7 @@
                   <td>{{ itinerary.day_number }}</td>
                   <td>{{ itinerary.title }}</td>
                   <td>{{ itinerary.description|linebreaksbr }}</td>
-                  <td>{{ itinerary.meals }}</td>
+                  <td>{{ itinerary.meals|linebreaksbr }}</td>
               </tr>
               {% endfor %}
           </tbody>
