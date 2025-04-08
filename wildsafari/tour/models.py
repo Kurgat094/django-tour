@@ -55,7 +55,7 @@ class Itinerary(models.Model):
     day_number = models.PositiveIntegerField()
     title = models.CharField(max_length=255)
     description = models.TextField()
-    meals = models.TextField( help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+    meals = models.TextField( blank=True, help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
 
     class Meta:
         ordering = ['name']
