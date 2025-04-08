@@ -8,7 +8,7 @@ Admin Approvals
 <div class="container">
     <h1 class="text-center my-4">Tourist Bookings</h1>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover ">
             <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
@@ -63,7 +63,7 @@ Admin Approvals
                     <td>{{ solo_booking.s_payment_method }}</td>
                     <td>{{ solo_booking.s_status }}</td>
                     <td>
-                        <a href="{% url 'solo_approval' solo_booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
+                        <a href="{% url 'solo_approval' solo_booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%  ;">Approve</a>
                         <a href="{% url 'solo_denial' solo_booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
                     </td>
                     

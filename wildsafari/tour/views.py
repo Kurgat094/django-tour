@@ -11,10 +11,19 @@ from .forms import SignUpForm,OtpForm,TourismSiteForm,BookingForm,SoloBookingFor
 from .models import Otp
 from .models import *
 from .forms import BookingForm
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 import random
 import logging
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.html import strip_tags
+
+from django.core.signing import Signer
+
+signer = Signer()
+# Ensure 'booking' is defined before using it
+# Example: Replace 'booking.id' with a valid booking instance or remove this code if not needed
+# signed_id = signer.sign(booking.id)
+# payment_url = f"https://yourwebsite.com/payment/{signed_id}/"
 
 
 
@@ -341,39 +350,131 @@ def approvals(request):
     }
     return render(request, 'admin/approvals.html', context)
 
+from django.urls import reverse
+
 @csrf_exempt
-def group_approval(request, id):
+def bookapproval(request, id):
     booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
     booking.status = "Approved"
     booking.save()
 
-    subject = "Booking Approved"
-    message = f"""Hello Adventurer!  
+    payment_url = request.build_absolute_uri(reverse('payment', args=[booking.id]))
+    payment_urls = f"https://stevensons-trails-company-1n65.onrender.com/payment/{booking.id}"
 
-Great news! 🎉 Your booking with Stevensons Trails Company has been **approved**!  
 
-🗺️ Get ready to embark on an unforgettable adventure filled with breathtaking views and thrilling experiences.  
+    subject = 'Your Inquiry Has Been Approved - Stevensons Trails'
+    html_content = f"""
+    <html>
+    <head>
+        <style>
+            body {{
+                font-family: 'Segoe UI', sans-serif;
+                background-color: #f5f7fa;
+                padding: 20px;
+                color: #333;
+            }}
+            .container {{
+                max-width: 600px;
+                margin: auto;
+                background: #fff;
+                border-radius: 8px;
+                padding: 30px;
+                background-color: #ecf0f1;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }}
+            .header {{
+                background-color: #2c3e50;
+                padding: 20px;
+                color: white;
+                border-radius: 8px 8px 0 0;
+                text-align: center;
+            }}
+            .section {{
+                margin-top: 20px;
+            }}
+            .section h3 {{
+                color: #2c3e50;
+            }}
+            .card {{
+                background-color: #D86F2C;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                color: white;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }}
+            .btn {{
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #2980b9;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                margin-top: 20px;
+                text-align: center;
+                
+            }}
+            .footer {{
+                margin-top: 30px;
+                color: #777;
+                text-align: center;
+                font-size: 16px;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>🎉 Inquiry Approved!</h2>
+                <p>Stevensons Trails Company</p>
+            </div>
 
-📅 Your approved booking details are confirmed, and we can't wait to host you! If you have any questions or need further assistance, feel free to reach out. 
+            <div class="section">
+                <p>Hello Adventurer,</p>
+                <p>We're thrilled to let you know your Inquiry has been <strong>approved</strong>!</p>
 
-Your Tour will be on {booking.date_of_visit} at {booking.time_of_visit} at {booking.place_of_visit}
+                <div class="section">
+                    <h3>📅 Your Tour Details</h3>
+                    <p><strong>Date of Tour:</strong> {booking.date_of_visit}</p>
+                    <p><strong>End of Tour:</strong> {booking.end_of_visit}</p>
+                    <p><strong>Time:</strong> {booking.time_of_visit}</p>
+                    <p><strong>Location:</strong> {booking.place_of_visit}</p>
+                    <p><strong>Package:</strong> {booking.tour_package}</p>
+                    <p><strong>Amount to Pay:</strong> 1000</p>
+                </div>
 
-Thanks for choosing us—your adventure starts now!
+                <div class="section">
+                    <h3>💳 Payment Methods</h3>
+                    <div class="card">
+                        <strong>Mastercard</strong><br/>
+                        Acc No: 123456789
+                    </div>
+                    <div class="card">
+                        <strong>Visa</strong><br/>
+                        Acc No: 987654321
+                    </div>
+                </div>
 
-If you didn’t make this booking, please contact us immediately.  
+               <a href="{payment_url}" class="btn">Make Payment</a>
+               <a href="{payment_urls}" class="btn">Make Payment</a>
 
-Thanks for choosing us—your adventure starts now!  
+            </div>
 
-Happy Trails,  
-🌲 The Stevensons Trails Team 🌲  
-"""
+            <div class="footer">
+                <p>If you didn’t make this Inquiry, please contact us immediately.</p>
+                <p>🌲 Thanks for choosing Stevensons Trails – Your adventure starts now! 🌲</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    text_content = strip_tags(html_content)
 
-    from_email = "tobiaskipkogei@gmail.com"
-    recipient_list = [booking.email]  # Use the actual email from booking
-
-    send_mail(subject, message, from_email, recipient_list)
-
+    msg = EmailMultiAlternatives(subject, text_content, 'tobiaskipkogei@gmail.com', [booking.email])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
     return redirect('approvals')
+
 @csrf_exempt
 def solo_approval(request,id):
     solo_booking = get_object_or_404(SoloBooking, id=id)  # Fetch the booking safely
@@ -409,32 +510,93 @@ Happy Trails,
     return redirect('approvals')
 
 @csrf_exempt
-def group_denial(request,id):
+def bookdenial(request,id):
     booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
     booking.status = "Decline"
     booking.save()
 
-    subject = "Booking Denied"
-    message = f"""Hello Adventurer,  
+    
+    subject = "Inquiry Declined - Stevensons Trails"
+    html_content = f"""
+<html>
+<head>
+    <style>
+        body {{
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            padding: 20px;
+            color: #333;
+        }}
+        .container {{
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #ecf0f1;
+        }}
+        .header {{
+            background-color: #e74c3c;
+            padding: 20px;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }}
+        .section {{
+            margin-top: 20px;
+        }}
+        .section h3 {{
+            color: #e74c3c;
+        }}
+        .card {{
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }}
+        .footer {{
+            margin-top: 30px;
+            color: #777;
+            text-align: center;
+            font-size: 16px;
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>⚠️ Inquiry Denied</h2>
+            <p>Stevensons Trails Company</p>
+        </div>
 
-We regret to inform you that your booking for { booking.place_of_visit }with **Stevensons Trails Company** has not been approved. 😞  
+        <div class="section">
+            <p>Hello Adventurer,</p>
+            <p>We regret to inform you that your Inquiry for <strong>{booking.place_of_visit}</strong> with <strong>Stevensons Trails Company</strong> has not been approved. 😞</p>
+            <p>Unfortunately, due to <strong>[reason]</strong>, we are unable to confirm your inquiry at this time.</p>
 
-Unfortunately, due to [reason, e.g., unavailability, scheduling conflicts, or other circumstances], we are unable to confirm your booking at this time.  
+            <div class="section">
+                <h3>💡 Next Steps</h3>
+                <p>If you'd like to reschedule or explore other available options, please feel free to reach out to us.</p>
+            </div>
 
-We sincerely apologize for any inconvenience this may cause. If you’d like to reschedule or explore other available options, please feel free to reach out to us.  
-
-If you have any questions or need assistance, we're here to help!  
-
-We hope to welcome you on an adventure with us soon.  
-
-Best Regards,  
-🌲 The Stevensons Trails Team 🌲  
+            <div class="footer">
+                <p>If you have any questions or need assistance, we're here to help!</p>
+                <p>🌲 Thanks for considering Stevensons Trails – we hope to welcome you on an adventure soon! 🌲</p>
+            </div>
+        </div>
+    </body>
+</html>
 """
+    text_content = strip_tags(html_content)
 
     from_email = "tobiaskipkogei@gmail.com"
     recipient_list = [booking.email]  # Use the actual email from booking
 
-    send_mail(subject, message, from_email, recipient_list)
+    msg = EmailMultiAlternatives(subject, text_content, from_email, recipient_list)
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
 
     return redirect('approvals')
 
@@ -469,7 +631,12 @@ Best Regards,
     return redirect('approvals')
 
 
-
+@csrf_exempt
+def payment(request,id):
+    booking = get_object_or_404(Booking, pk=id)
+    return render(request, 'payment/payment.html' ,{
+        'booking': booking,
+    })
 
 
 

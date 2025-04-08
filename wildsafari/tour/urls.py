@@ -7,14 +7,18 @@ from django.conf.urls.static import static
 urlpatterns = [
     # user urls
     path('', home, name='home'),
-    path('categories', categories, name='categories'),
-    path('contests', contests, name='contests'),
+    path('explore_us', categories, name='categories'),
+    path('booking', contests, name='contests'),
     path('book/<int:site_id>/', book, name='book'),
     path('contestdetails', contestdetails, name='contestdetails'),
-    path('users', users, name='users'),
+    path('contct_us', users, name='users'),
     path('terms_conditions', terms_conditions, name='terms_conditions'),
     path('contact_messages', contact_messages, name='contact_messages'),
     path('about', about, name='about'),
+
+
+    # payment
+    path('payment/<int:id>/', payment, name='payment'),
 
 
     # Auth urls
@@ -32,10 +36,11 @@ urlpatterns = [
     # Admin urls
     path('approvals', approvals, name='approvals'),
     path('adminhome', adminhome, name='adminhome'),
-    path('group_approval/<int:id>/', group_approval, name='group_approval'),
-    path('group_denial/<int:id>/', group_denial, name='group_denial'),
+    path('approval/<int:id>/', bookapproval, name='group_approval'),
+    path('denial/<int:id>/', bookdenial, name='group_denial'),
     path('solo_approval/<int:id>/', solo_approval, name='solo_approval'),
     path('solo_denial/<int:id>/', solo_denial, name='solo_denial'),
+
 
 
 

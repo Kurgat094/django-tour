@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Payment{% endblock %}
+{% block content %}
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: transparent;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 400px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    .close {
+        color: #f72727;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .model-content h3 {
+        text-align: center;
+        color: #D86F2C;
+    }
+    .modal-content h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        text-align: center;
+        color: #D86F2C;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+        .modal-content {
+            margin-top: 60%;
+            width: 90%; /* Set a smaller width on small screens */
+            padding: 20px; /* Adjust padding */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .modal-content {
+            margin-top: 60%;
+            
+            width: 95%; /* Set even smaller width for very small screens */
+            padding: 15px; /* Adjust padding */
+        }
+    }
+</style>
+
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        {% csrf_token %}
+        <h3>💳 Enter Payment Details</h3>
+        <form action="/submit-booking/" method="post">
+            <label for="payment_method">Payment Method:</label><br/>
+            <select id="payment_method" name="payment_method" required>
+                <option value="mastercard">Mastercard</option>
+                <option value="visa">Visa</option>
+                <option value="mpesa">Mpesa</option>
+            </select><br/><br/>
+
+            <label for="amount">Amount:</label><br/>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount" required /><br/><br/>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Payment</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+<script>
+    // Open the modal automatically when the page loads
+    window.onload = function() {
+        document.getElementById('bookingModal').style.display = 'block';
+    };
+
+    function closeModal() {
+        // Redirect to the homepage after closing the modal
+        window.location.href = "/";
+    }
+
+    // Optional: Close modal if user clicks outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('bookingModal');
+        if (event.target === modal) {
+            window.location.href = "/";
+        }
+    }
+    
+</script>
+{% endblock %}
