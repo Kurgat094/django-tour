@@ -669,3 +669,7 @@ def rwanda(request):
 @csrf_exempt
 def indianocean(request):
     return render(request, 'indianocean.html')
+
+@csrf_exempt
+def mtKenya(request):
+    return render(request,'mtKenya.html')

@@ -420,7 +420,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li a :hover {
-  color: rgb(30, 12, 194) !important;
+  color: #D86F2C!important;
   transform: scale(1.1) !important;
 }
 
@@ -431,7 +431,7 @@ Header Style
 
 
 .main-nav .nav li:hover a {
-  color: rgb(84, 143, 252) !important;
+  color: #D86F2C !important;
   transform: scale(1.1) !important;
 }
 
@@ -767,7 +767,7 @@ Header Style
 
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #00bdfe !important;
+    color: #D86F2C !important;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu {

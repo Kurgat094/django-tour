@@ -1,99 +1,139 @@
 {% extends 'base.html' %}
-{% load static  %}
-
-{% block title %}Idian Oceans{% endblock %}
-
+{% load static %}
+{% block title %}Indian Ocean{% endblock %}
 {% block content %}
-
- <!-- ***** Main Banner Area Start ***** -->
- <div class="main-banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'tour/Uganda.jpg' %}')">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="header-text">
-          <h2>Enter a world of <em>Tourism</em> Culture  <em>Adventure</em> Hikes &amp;<em>Recreation</em></h2>
-          <p>Stevensons Trails - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
-          <div class="buttons">
-            <div class="big-border-button">
-              <a href="{% url 'categories' %}">Explore Stevensons Trails Company</a>
-            </div>
-            <div class="icon-button">
-              <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="video-banner">
+  <video id="background-video" autoplay muted loop>
+    <source src="{% static 'tour/IndianOcean.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="text">
+    <h1>Video is working</h1>
+    <p>This is text over the background video.</p>
+  </div>
+  <div class="arrow">
+    <a href="#destinations">
+      <i class="fa fa-arrow-down"></i>
+    </a>
   </div>
 </div>
-<!-- ***** Main Banner Area End ***** -->
 
-<section class="featured-items" id="featured-items">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
-          
-          {% for site in tourism_sites %}
-          <div class="item" id="popular-site">
-              <div class="thumb" id="thumb-card">
-                
-                  <img src="{{ site.image.url }}" alt="">
-                  <div class="hover-effect">
-                      <a href="{% url 'ugbook' site.id %}#booking" class="content">
-                          <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
-                          <ul>
-                              <li><span>Place:</span>{{ site.place }}</li>
-                              <li><span>Description:</span> {{ site.description }}</li>
-                              <li><span>Book:</span><b style="color: blue;">Click to Reserve</b></li>
-                          </ul>
-                        </a>
-                  </div>
-                  
-              </div>
-          </div>
-          {% endfor %}
+<div class="beach-destinations">
+  <div class="row">
+    <!-- invisibale in small devices -->
+
+    <div class="col-3 d-none d-md-block">
+      <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/map.jpeg' %}" alt="Africa Beach Map">
+      <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/diani.jpg' %}" alt="Africa Beach Map">
+      <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/Kilifi_bay_beach.jpg' %}" alt="Africa Beach Map">
+      <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/zanzibar.jpeg' %}" alt="Africa Beach Map">
+      <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/mauritius.jpeg' %}" alt="Africa Beach Map">
+      <img style="padding: 6px; margin: 10px; max-height: 460px;" src="{% static 'tour/mozambique.jpg' %}" alt="Africa Beach Map">
+    </div>
+    <div class="col-lg-8 col-12 text-center">
+      <div class="row">
+        <h1 class="section-title">Top Beach Destinations in Indian Ocean</h1>
+    
+        <div class="destination col-lg-5 col-12  px-2" id="destinations">
+          <h2>1. Tanzania Beaches & Zanzibar Islands</h2>
+          <p>
+            The shimmering white sands and blue-green waters of the Indian Ocean make Tanzania an exceptional beach destination. From the castaway charm of Mafia, Pemba, and Fanjove Islands to the serene shores of Ras Kutani, Kilwa, and Bagamoyo, these coastal gems detox your mind, relax your body, and rejuvenate your spirit.
+          </p>
+          <p>
+            Whether you're soaking in the laid-back seaside lifestyle or diving into thrilling marine adventures, Tanzania’s beaches offer it all. Witness migrating humpback whales in Mafia, spot coastal primates in Jozani Forest, and marvel at unique marine life on Chumbe Island.
+          </p>
+          <p>
+            Island-hop through the Zanzibar archipelago, take cultural Swahili tours, explore vibrant markets, and enjoy endless water sports. Known as the “Spice Island,” Zanzibar enchants visitors with its rich history, UNESCO-listed Stone Town, and the aroma of exotic seasonings in the air.
+          </p>
+          <p>
+            Turquoise waters, idyllic beaches, and the warm hospitality of the Swahili people make Zanzibar a truly unforgettable destination.
+          </p>
+        </div>
+    <div class=" col-lg-1" ></div>
+        <div class="destination col-lg-5 col-12 mb-4 px-2">
+          <h2>2. Kenya Beaches & Islands</h2>
+          <p>
+            Complement your high-paced East African safari with a restful escape to Kenya’s fabulous coastal beaches and islands, from the famed Diani, Galu, Tiwi, Nyali, Bamburi, Shanzu, Kilifi, Malindi, Watamu to the isolated Msambweni, Funzi, Lamu, and Chale Islands! Located along the eastern edge of the continent, the Kenyan coastline is a stunning location to enjoy the bounty of the Indian Ocean.
+          </p>
+          <p>
+            Pale sand Swahili beaches contrast with jade green and cerulean waters. Palm tree fronds dance to the rhythm of gentle ocean breezes. Romantic fishing dhows sail the moonlit ocean. Swaying palms and the rhythmic breeze create the perfect setting for unwinding.
+          </p>
+          <p>
+            For those times when you seek aquatic adventures, skim across the water jet-skiing, waterskiing, kitesurfing, windsurfing, to name only some of the available activities. Kenya is a global hotspot for world-class diving and snorkeling—explore Kisite Marine Park’s underwater realm of brightly colored marine life amidst reefs of curious, odd, and eerie coral.
+          </p>
+          <p>
+            For a thrilling challenge, go after some of the largest and feistiest creatures in the ocean in Watamu, Malindi, and Mombasa — marlin, sailfish, swordfish, massive yellowfin tuna, and many other game fish!
+          </p>
+        </div>
+    
+        <div class="destination col-lg-5 col-12">
+          <h2>3. Mozambique Beaches & Islands</h2>
+          <p>
+            Lose yourself in the coastal lifestyle of Mozambique! Encircled by the brilliant sandy coastline, sparkling blue waters, and distinct island archipelagos like Bazaruto and Quirimbas, Mozambique is a picturesque beach vacation destination that offers an almost endless variety of activities.
+          </p>
+          <p>
+            The high visibility waters around the Bazaruto National Park region are a well-known site for exceptional diving and snorkeling. You can even go horseback riding on the beach at Benguerra Island and along the coast of Vilanculos.
+          </p>
+          <p>
+            If you dream of seeing manta rays and whale sharks, Mozambique’s Tofo at Inhambane should top your list! Even discerning foodies are in absolute heaven as they dine upon freshly-caught seafood prepared with divine exotic spices.
+          </p>
+          <p>
+            You simply will not believe your eyes when you travel inland to the breathtaking Gorongosa National Park and Niassa National Reserve to explore grasslands, floodplains of Lake Urema, rainforest, woodland plateau, highlands of Mount Gorongosa, riverine thickets, Miombo coppices, and much more.
+          </p>
+        </div>
+        <div class=" col-lg-1" ></div>
+        <div class="destination col-lg-5 col-12">
+          <h2>4. Seychelles Beaches & Islands</h2>
+          <p>
+            Africa is a land of surprises, and no other place on Earth offers more of the unexpected than the 116 inner granitic and outer coralline islands of the Seychelles Archipelago. With the exception of Praslin and Mahe that host 90% of the Creole population, the islands are rarely touched by humans. The two islands, though, are highly desired for engaging guests who seek the utmost tropical African tour, and island hopping takes you into the more secluded and isolated islands.
+          </p>
+          <p>
+            On Mahe Island, tour farms where fragrant vanilla is grown, all-encompassing bays, dense inland forests, touring the capital town of Victoria, and shopping in bazaars. Praslin, the second largest island, is popular amongst our guests who long for quiet beaches and the mesmerizing experience of Vallee de Mai, a UNESCO World Heritage Site.
+          </p>
+          <p>
+            The third largest island is La Digue, an off-beat laidback island. AfricanMecca also recommends beach vacationing in the private isles like North, Fregate, Denis, and Desroches Islands.
+          </p>
+        </div>
+    
+        <div class="destination col-lg-5 col-12">
+          <h2>5. Mauritius Beaches & Islands</h2>
+          <p>
+            Mauritius has something for every coastal traveler! The island is loosely divided into four polar coastlines (north, east, south, and west), each offering a unique African beach trip experience. Grand Baie in the north offers everything you would expect from a busy resort town, such as shopping, energetic water sports, nightlife, restaurants, and more! Island sunsets in Africa are not to be missed, and the western Flic en Flac coast of Mauritius is the perfect place to catch the golden rays of sunlight dancing upon the water.
+          </p>
+          <p>
+            You can also go diving, snorkeling, swimming with dolphins, spa pampering, and other activities while surrounded by the impressive coastal scenery. The eastern coast is distinguished by its elegant oceanfront hotels and striking beaches like Belle Mare, and the southern coastline of Blue Bay Marine Park offers beautifully rugged ocean-facing cliffs.
+          </p>
+        </div>
+        <div class=" col-lg-1" ></div>
+        <div class="destination col-lg-5 col-12">
+          <h2>6. South Africa Beaches</h2>
+          <p>
+            Camps Bay in Cape Town is the most popular beach destination in the country — and with good reason! Undulating aquamarine waters wash upon a golden shoreline that is dotted with a massive rock range of the 12 Apostles, giving one a sense of connecting with nature’s quiet yet powerful presence. The beach transforms into a gentle slope of lush green foothills before rushing skyward to the cloud-kissed peaks of its majestic highlands. Spending time at Camps Bay makes you feel as if you are experiencing all of Africa’s many outdoor activities in one location.
+          </p>
+          <p>
+            Imagine days of sipping delicious cocktails, watching the waves, joining in a game of beach volleyball, cooling off with locally-crafted ice cream, digging your toes into the sand at sunrise, celebrating with friends and family at local nightclubs and dining upon delectable food! Camps Bay is absolute perfection for your South African coastal experience! Other beach locations in South Africa are Clifton, Sodwana Bay, Ballito, North and South Beach in Durban, Santos Beach at Mossel Bay, and many others.
+          </p>
+        </div>
+    
+        <div class="destination col-lg-5 col-12">
+          <h2>7. Madagascar Beaches & Islands</h2>
+          <p>
+            Madagascar — the word evokes a sense of liveliness, thanks to Dreamworks for their Hollywood animation. The island setting is unique amongst Africa’s other coastal destinations, offering as much tranquility or thrill-seeking as you desire. You can dive and snorkel on pristine coral reefs at Tanikely Marine Reserve, laze about on gorgeous beaches, and even tour the unusually-named Nosy Be Island.
+          </p>
+          <p>
+            For a sense of isolation from modern life, we recommend Ile Ste-Marie, and the island is especially romantic for honeymooners when the native orchids are in bloom. Discover rolling sand dunes, fishing villages, and a leisurely pace of life at Ifaty and Nosy Ve. Socialize with other global travelers at Mahajanga, a preferred location for sunsets and aquatic activities. Tsarabanjina is a distinct private island that hosts the premium Constance Resort.
+          </p>
         </div>
       </div>
     </div>
+    
   </div>
-</section>
+  
+  </div>
+ 
+  <script>
+    
+  </script>
 
   
-  <section class="closed-contests">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center section-heading">
-            <h6>Our Top Tourism SITES</h6>
-            <h4>Check Out <em>Popular</em> Tourism <em>Sites Uganda</em></h4>
-          </div>
-        </div>
-       
-        <div class="col-lg-12">
-          <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
-            {% for site in tourism_sites1 %}
-            <div class="item" id="popular-site" >
-              <div class="closed-item" id="popular-site" >
-                <div class="thumb"id="top-site" >
-                  <img style="border-radius: 20px;" src="{{ site.image.url }}" alt="">
-                  <span class="winner"><em>Place:</em>{{ site.place }}</span>
-                  <span class="price"><em>Name :</em>{{ site.name }} </span>
-                </div>
-                <div class="border-button text-center">
-                  <a href="{% url 'ugbook' site.id %} ">Book Tour</a>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="text-center border-button">
-            <a href="{% url 'categories' %}#ugportfolio">Discover All Tourist Attraction Site</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> 
 {% endblock %}

@@ -8,26 +8,33 @@
 {% block content %}
 
  <!-- ***** Main Banner Area Start ***** -->
- <div class="main-banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <div class="header-text">
-            <h2>Enter a world of <em style="color: #D86F2C;">Tourism</em> Culture  <em style="color: #D86F2C;">Adventure</em> Hikes &amp;<em style="color: #D86F2C;">Recreation</em></h2>
-            <p>Stevensons Trails - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
-            <div class="buttons">
-              <div class="big-border-button">
-                <a href="{% url 'categories' %}" >Explore Stevensons Trails Company</a>
-              </div>
-              <div class="icon-button">
-                <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
-              </div>
+ <div class="main-banner" >
+  <div class="video-container">
+    <video autoplay muted loop class="background-video">
+        <source src="{% static 'tour/Kenya.mp4' %}" type="video/mp4">
+    </video>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="header-text">
+          <h2 >Enter a world of <em>Tourism</em> Culture <em>Adventure</em> Hikes &amp;<em>Recreation</em></h2>
+          <p>Stevensons Trails - Experience breathtaking landscapes, rich cultural heritage, and thrilling adventures. Whether you're looking for serene nature walks, exhilarating hikes, or unforgettable wildlife encounters, our platform connects you with the best tourism attractions.</p>
+          <div class="buttons">
+            <div class="big-border-button">
+              <a href="{% url 'categories' %}">Explore Stevensons Trails Company</a>
+            </div>
+            <div class="icon-button">
+              <a href="{% static 'tour/maasai_culture.mp4' %}" target="_blank"><i class="fa fa-play"></i> Watch Our Video Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
   <!-- ***** Main Banner Area End ***** -->
 
 

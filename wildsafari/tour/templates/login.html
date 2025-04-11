@@ -43,6 +43,7 @@
               <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
               </div>
               <div class="form-group">
                 <h6>
@@ -63,5 +64,117 @@
     </div>
   </div>
 
-
+  <footer class="custom-footer">
+    <div class="footer-left">
+      <a href="#" class="footer-button">Our African<br>Collection<br>Online<br>Brochure</a>
+      <a href="#" class="footer-button">Meet us at<br>ITB 2025</a>
+    </div>
+  
+    <div class="footer-center">
+      <div class="footer-links">
+        <a href="#">Careers</a> | <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-icons">
+        <a href="#"><span>&#9993;</span></a> <!-- Email Icon -->
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="copyright">Copyright © Private Safaris 2025</p>
+    </div>
+  
+    <div class="footer-right">
+      <img src="atta-logo.png" alt="ATTA Logo" class="footer-logo">
+      <img src="satsa-logo.png" alt="SATSA Logo" class="footer-logo">
+    </div>
+  </footer>
+  <style>
+    .site-footer {
+      background-color: #111;
+      color: #fff;
+      padding: 40px 20px;
+      font-family: Georgia, serif;
+    }
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+  
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+  
+    .footer-btn {
+      display: block;
+      border: 1px solid white;
+      padding: 12px 10px;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin: 20px auto;
+      width: 180px;
+      line-height: 1.4;
+    }
+  
+    .footer-btn:hover {
+      background-color: white;
+      color: black;
+      transition: 0.3s;
+    }
+  
+    .footer-links {
+      margin-bottom: 15px;
+    }
+  
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  
+    .footer-social a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 10px;
+    }
+  
+    .footer-copy {
+      font-style: italic;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  
+    .footer-logo {
+      max-width: 100px;
+      margin: 20px auto;
+      display: block;
+    }
+  
+    @media screen and (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .footer-left, .footer-center, .footer-right {
+        text-align: center;
+      }
+    }
+  </style>
 {% endblock %}

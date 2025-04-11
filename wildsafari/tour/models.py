@@ -79,7 +79,7 @@ class Tanzania_Itinerary(models.Model):
     day_number=models.PositiveIntegerField()
     title=models.CharField(max_length=255)  
     description=models.TextField()
-    meals=models.TextField(help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+    meals=models.TextField( blank=True,help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
 
     class Meta:
         ordering = ['name']
@@ -102,13 +102,36 @@ class Uganda_Itinerary(models.Model):
     day_number=models.PositiveIntegerField()
     title=models.CharField(max_length=255)  
     description=models.TextField()
-    meals=models.TextField(help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+    meals=models.TextField( blank=True,help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return f" Day {self.day_number} -{self.name.name} "
+
+# Indian Ocean Tours
+class IndianOceanSite(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(default="No description available") 
+    place=models.CharField(max_length=200)
+    image = models.ImageField()
+    details=models.TextField(default="No details available")
+
+    def __str__(self):
+        return self.name
+    
+class IndianOcean_Itinerary(models.Model):
+    name=models.ForeignKey(IndianOceanSite,on_delete=models.CASCADE,related_name="Ind_itinerary")
+    day_number=models.PositiveIntegerField()
+    title=models.CharField(max_length=255)
+    description=models.TextField()
+    meals=models.TextField( blank=True,help_text="E.g., B, L & D for Breakfast, Lunch & Dinner")
+    class Meta:
+        ordering = ['name']
+    def __str__(self):
+        return f" Day {self.day_number} -{self.name.name} "
+
 # contact messages
 
 class ContactMessage(models.Model):
