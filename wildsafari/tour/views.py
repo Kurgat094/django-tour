@@ -16,9 +16,13 @@ import random
 import logging
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.html import strip_tags
-
+from django.db.models import Q
 from django.core.signing import Signer
+from django.conf import settings
+from django.shortcuts import redirect
+import stripe
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
 signer = Signer()
 # Ensure 'booking' is defined before using it
 # Example: Replace 'booking.id' with a valid booking instance or remove this code if not needed
@@ -28,6 +32,38 @@ signer = Signer()
 
 
 logger = logging.getLogger(__name__)
+
+
+from django.shortcuts import get_object_or_404
+@csrf_exempt
+def create_checkout_session(request, booking_id):
+    # Fetch the booking instance using the booking_id
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    # Extract the amount from the booking instance
+    # Assuming the amount is stored in cents (e.g., 1000 for $10.00)
+    amount = int(booking.amount*100) # Convert to cents
+
+    # Create a Stripe Checkout session
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price_data': {
+                'currency': 'usd',
+                'product_data': {
+                    'name': f'Tour Package: {booking.tour_package}',  # Use the tour package name
+                },
+                'unit_amount': amount,  # Pass the amount dynamically
+            },
+            'quantity': 1,
+        }],
+        mode='payment',
+        success_url=request.build_absolute_uri('/success/'),  # Replace with your success URL
+        cancel_url=request.build_absolute_uri('/cancel/'),    # Replace with your cancel URL
+    )
+
+    # Redirect the user to the Stripe Checkout page
+    return redirect(session.url, code=303)
 
 # Create your views here.
 @csrf_exempt
@@ -343,6 +379,24 @@ def adminhome(request):
 def approvals(request):
     bookings = Booking.objects.all()
     solo_bookings = SoloBooking.objects.all()
+    search_query = request.GET.get('search', '')  # Get the search query from the URL
+    if search_query:
+        # Filter bookings by matching the search query in any of the relevant fields
+        bookings = Booking.objects.filter(
+            Q(name__icontains=search_query) |
+            Q(contactname__icontains=search_query) |
+            Q(email__icontains=search_query) |
+            Q(phone__icontains=search_query) |
+            Q(place_of_visit__icontains=search_query) |
+            Q(date_of_visit__icontains=search_query) |
+            Q(end_of_visit__icontains=search_query) |
+            Q(time_of_visit__icontains=search_query) |
+            Q(tour_package__icontains=search_query) |
+            Q(status__icontains=search_query)
+        )
+    else:
+        # If no search query, return all bookings
+        bookings = Booking.objects.all()
     
     context = {
         'bookings': bookings,
@@ -355,11 +409,25 @@ from django.urls import reverse
 @csrf_exempt
 def bookapproval(request, id):
     booking = get_object_or_404(Booking, id=id)  # Fetch the booking safely
-    booking.status = "Approved"
-    booking.save()
+    if request.method == "POST":
+        # Get the amount entered by the admin
+        amount = request.POST.get("amount")
+        if amount:
+            try:
+                # Save the entered amount to the booking
+                booking.amount = float(amount)  # Convert to float and save
+                booking.status = "Approved"
+                booking.save()
+            except ValueError:
+                messages.error(request, "Invalid amount entered.")
+                return redirect('approvals')
+        else:
+            messages.error(request, "Amount is required.")
+            return redirect('approvals')
+    
 
-    payment_url = request.build_absolute_uri(reverse('payment', args=[booking.id]))
-    payment_urls = f"https://stevensons-trails-company-1n65.onrender.com/payment/{booking.id}"
+    payment_urls = f"https://stevensons-trails-company-1n65.onrender.com/buy/{booking.id}"
+    payment=request.build_absolute_uri(reverse('buy', args=[booking.id]))
 
 
     subject = 'Your Inquiry Has Been Approved - Stevensons Trails'
@@ -439,8 +507,9 @@ def bookapproval(request, id):
                     <p><strong>End of Tour:</strong> {booking.end_of_visit}</p>
                     <p><strong>Time:</strong> {booking.time_of_visit}</p>
                     <p><strong>Location:</strong> {booking.place_of_visit}</p>
-                    <p><strong>Package:</strong> {booking.tour_package}</p>
-                    <p><strong>Amount to Pay:</strong> 1000</p>
+                    <p><strong>Package:</strong> {booking.tour_package} Package</p>
+                    <p><strong>Amount to Pay USD:</strong> ${booking.amount}</p>
+                    <p><strong>Amount to Pay Ksh:</strong> Ksh {booking.amount *  134.8744:.2f}</p>
                 </div>
 
                 <div class="section">
@@ -455,8 +524,9 @@ def bookapproval(request, id):
                     </div>
                 </div>
 
-               <a href="{payment_url}" class="btn">Make Payment</a>
+               <a href="{payment}" class="btn">Make Payment</a>
                <a href="{payment_urls}" class="btn">Make Payment</a>
+               
 
             </div>
 

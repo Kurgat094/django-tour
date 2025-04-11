@@ -5,6 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+
+    path('buy/<int:booking_id>/', create_checkout_session, name='buy'),
     # user urls
     path('', home, name='home'),
     path('explore_us', categories, name='categories'),
@@ -36,10 +38,9 @@ urlpatterns = [
     # Admin urls
     path('approvals', approvals, name='approvals'),
     path('adminhome', adminhome, name='adminhome'),
-    path('approval/<int:id>/', bookapproval, name='group_approval'),
-    path('denial/<int:id>/', bookdenial, name='group_denial'),
-    path('solo_approval/<int:id>/', solo_approval, name='solo_approval'),
-    path('solo_denial/<int:id>/', solo_denial, name='solo_denial'),
+    path('approval/<int:id>/', bookapproval, name='approval'),
+    path('denial/<int:id>/', bookdenial, name='denial'),
+    
 
 
 

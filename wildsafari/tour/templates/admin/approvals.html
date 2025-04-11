@@ -7,8 +7,21 @@ Admin Approvals
 {% block content %}
 <div class="container">
     <h1 class="text-center my-4">Tourist Bookings</h1>
+    <!-- A search bar to show those either pending approved or decline -->
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            <form method="GET" action="{% url 'approvals' %}">
+                <div class="input-group">
+                    <input type="text" id="searchInput" name="search" class="form-control" placeholder="Search by any field" value="{{ request.GET.search }}">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover ">
+        <table id="bookingsTable" class="table table-bordered table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
@@ -38,44 +51,53 @@ Admin Approvals
                         <td>{{ booking.tour_package }}</td>
                         <td>{{ booking.status }}</td>
                         <td>
-                            <a href="{% url 'group_approval' booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
-                            <a href="{% url 'group_denial' booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
+                            <button class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#approveModal{{ booking.id }}">
+                                Approve
+                            </button>
+                            <a href="{% url 'denial' booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
                         </td>
-                        
                     </tr>
                 {% empty %}
                     <tr>
-                        <td colspan="8" class="text-center">No bookings found.</td>
+                        <td colspan="11" class="text-center">No bookings found.</td>
                     </tr>
                 {% endfor %}
-
-                {% for solo_booking in solo_bookings  %}
-
-                <tr>
-                    <td>{{ solo_booking.contact_name }}</td>
-                    <td>{{ solo_booking.s_email}}</td>
-                    <td>{{ solo_booking.s_phone  }}</td>
-                    <td>Solo</td>
-                    <td>{{ solo_booking.s_place_of_visit }}</td>
-                    <td>{{ solo_booking.s_date_of_visit }}</td>
-                    <td>{{ solo_booking.s_time_of_visit  }}</td>
-                    <td>{{ solo_booking.s_tour_package }}</td>
-                    <td>{{ solo_booking.s_payment_method }}</td>
-                    <td>{{ solo_booking.s_status }}</td>
-                    <td>
-                        <a href="{% url 'solo_approval' solo_booking.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%  ;">Approve</a>
-                        <a href="{% url 'solo_denial' solo_booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
-                    </td>
-                    
-                </tr>
-                {% empty %}
-                    <tr>
-                        <td colspan="8" class="text-center">No bookings found.</td>
-                    </tr>
-                {% endfor %}
-
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const tableRows = document.querySelectorAll("tbody tr");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const cells = row.querySelectorAll("td");
+                let rowMatches = false;
+
+                cells.forEach(cell => {
+                    const originalText = cell.textContent;
+                    const lowerText = originalText.toLowerCase();
+
+                    if (searchTerm && lowerText.includes(searchTerm)) {
+                        rowMatches = true;
+                        const regex = new RegExp(`(${searchTerm})`, "gi");
+                        cell.innerHTML = originalText.replace(regex, "<mark>$1</mark>");
+                    } else {
+                        cell.innerHTML = originalText; // reset
+                    }
+                });
+
+                row.style.display = (searchTerm === "" || rowMatches) ? "" : "none";
+            });
+        });
+    });
+</script>
+
 {% endblock %}

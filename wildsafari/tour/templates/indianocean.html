@@ -8,9 +8,12 @@
     Your browser does not support the video tag.
   </video>
   <div class="text">
-    <h1>Video is working</h1>
-    <p>This is text over the background video.</p>
-  </div>
+    <h1>Explore the Wonders of the Indian Ocean</h1>
+    <p>
+        Embark on a breathtaking journey across the Indian Ocean, where pristine beaches, turquoise waters, and vibrant marine life await. 
+        Discover the hidden gems of Zanzibar, Mauritius, Seychelles, and more, each offering unique experiences, from serene island escapes to thrilling water adventures.
+    </p>
+</div>
   <div class="arrow">
     <a href="#destinations">
       <i class="fa fa-arrow-down"></i>
@@ -29,6 +32,7 @@
       <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/zanzibar.jpeg' %}" alt="Africa Beach Map">
       <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/mauritius.jpeg' %}" alt="Africa Beach Map">
       <img style="padding: 6px; margin: 10px; max-height: 460px;" src="{% static 'tour/mozambique.jpg' %}" alt="Africa Beach Map">
+      <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/kilifi.jpg' %}" alt="Africa Beach Map">
     </div>
     <div class="col-lg-8 col-12 text-center">
       <div class="row">
@@ -115,7 +119,7 @@
           </p>
         </div>
     
-        <div class="destination col-lg-5 col-12">
+        <div class="destination col-lg-12 col-12">
           <h2>7. Madagascar Beaches & Islands</h2>
           <p>
             Madagascar — the word evokes a sense of liveliness, thanks to Dreamworks for their Hollywood animation. The island setting is unique amongst Africa’s other coastal destinations, offering as much tranquility or thrill-seeking as you desire. You can dive and snorkel on pristine coral reefs at Tanikely Marine Reserve, laze about on gorgeous beaches, and even tour the unusually-named Nosy Be Island.
@@ -130,10 +134,24 @@
   </div>
   
   </div>
- 
-  <script>
-    
-  </script>
+
+  <div class="card mt-4 text-center">
+    <div class="card-header text-center " style="background-color: #228B22;">
+        <h5>Contact Us for Tour Inquiries</h5>
+    </div>
+    <div class="card-body" style="color: #D86F2C;">
+        <p style="color: #D86F2C;">If you have any questions or would like to inquire about tours to Mount Kenya, feel free to reach out to us:</p>
+        <ul class="list-unstyled" style="color: #228B22;">
+            <li><strong style="color: #D86F2C;">Email:</strong> info@stevensonstrails.com</li>
+            <li><strong style="color: #D86F2C;">Phone:</strong> +254 712 345 678</li>
+            <li><strong style="color: #D86F2C;">Office Hours:</strong> Mon-Fri, 9:00 AM - 5:00 PM</li>
+        </ul>
+        <div class="form-group">
+            <a href="{% url 'users' %}" class="">Contact Us</a>
+        </div>
+        
+    </div>
+</div>
 
   
 {% endblock %}
