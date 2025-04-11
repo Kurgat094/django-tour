@@ -21,7 +21,26 @@ Admin Approvals
         </div>
     </div>
     <div class="table-responsive">
-        <table id="bookingsTable" class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover ">
+            {% if form.errors %}
+                <div class="alert alert-warning" role="alert">
+                    <ul class="mb-0">
+                        {% for key, error in form.errors.items %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+              {% endif %}
+              {% if messages %}
+              <div id="popup-message-container">
+                  {% for message in messages %}
+                      <div class="popup-message">
+                          {{ message }}
+                          <span class="close-btn" onclick="closePopup(this)">&times;</span>
+                      </div>
+                  {% endfor %}
+              </div>
+          {% endif %}
             <thead class="thead-dark">
                 <tr>
                     <th>Name</th>
@@ -59,6 +78,30 @@ Admin Approvals
                             <a href="{% url 'denial' booking.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Deny</a>
                         </td>
                     </tr>
+            
+                    <!-- Modal for Approve -->
+                    <div class="modal fade" id="approveModal{{ booking.id }}" tabindex="-1" aria-labelledby="approveModalLabel{{ booking.id }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="approveModalLabel{{ booking.id }}">Approve Booking</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p  style="color: #228B22;"><strong style="color: #D86F2C;">Package:</strong> <b>{{ booking.tour_package }} Package</b> </p>
+                                    <p style="color: #228B22;"><strong style="color: #D86F2C;">Place of Visit:</strong> <b>{{ booking.place_of_visit }}</b></p>
+                                    <form method="POST" action="{% url 'approval' booking.id %}">
+                                        {% csrf_token %}
+                                        <div class="mb-3">
+                                            <label for="amount{{ booking.id }}" class="form-label">Enter Amount to Pay (USD)</label>
+                                            <input type="number" class="form-control" id="amount{{ booking.id }}" name="amount" placeholder="$" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Approve</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% empty %}
                     <tr>
                         <td colspan="11" class="text-center">No bookings found.</td>
@@ -99,5 +142,6 @@ Admin Approvals
         });
     });
 </script>
+
 
 {% endblock %}
