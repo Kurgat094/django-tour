@@ -176,8 +176,63 @@
       color: #D86F2C;
     }
 
+    .siteto-inquire {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 40px 20px; /* Add padding for spacing */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center-align the content */
+    margin-top: 30px; /* Add spacing above the section */
+}
 
+.siteto-inquire h2 {
+    font-size: 28px; /* Adjust the font size */
+    color: #228B22; /* Green text color */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    font-weight: bold; /* Make the text bold */
+}
 
+.siteto-inquire p {
+    font-size: 16px; /* Adjust the font size */
+    color: #D86F2C; /* Dark gray text color */
+    margin-bottom: 30px; /* Add spacing below the paragraph */
+}
+
+.site-inquery {
+    background-color: #228B22; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.site-inquery:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+}
+
+.site-inquery a {
+    text-decoration: none; /* Remove underline from the link */
+    color: #228B22; /* Green text color */
+    font-weight: bold; /* Make the text bold */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.site-inquery a:hover {
+    color: #D86F2C; /* Change text color to orange on hover */
+}
+
+.site-inquery h4 {
+    font-size: 20px; /* Adjust the font size */
+    margin-bottom: 10px; /* Add spacing below the heading */
+    color: #000; /* Black text color */
+}
+
+.site-inquery h6 {
+    font-size: 14px; /* Adjust the font size */
+    color: white; /* Dark gray text color */
+    margin-top: 5px; /* Add spacing above the subheading */
+}
 </style>
 </head>
 <body>
@@ -203,7 +258,6 @@
                                       <li><a href="{% url 'home' %}">Kenya</a></li>
                                       <li><a href="{% url 'tanzania' %}">Tanzania</a></li>
                                       <li><a href="{% url 'uganda' %}">Uganda</a></li>
-                                      <li><a href="{% url 'mtKenya' %}">Mt Kenya</a></li>
                                       <li><a href="{% url 'indianocean' %}">Indian Ocean</a></li>
                                       
                                   </ul>
