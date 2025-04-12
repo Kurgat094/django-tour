@@ -796,20 +796,22 @@ Header Style
     font-weight: 400;
    
   } */
+  
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
     color: black !important;
-    margin-top: 0px;
-    padding: 0px 5px;
-    font-size: 12px;
+    margin-top: 0px !important;
+    padding: 0px 0px;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    height: 40px !important;
+    
   }
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
     color: #D86F2C !important;
 
   }
   .header-area .main-nav .nav li.has-sub ul.sub-menu li  {
-    height: auto;
-    
-  
+    height: 60px;
   }
   .header-area .main-nav .nav li.submenu ul li a:hover:before {
     width: 0px;
@@ -867,7 +869,7 @@ Header Style
 .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
     display: block; /* Ensure the links take up the full width */
     color: black; /* Black text color */
-    font-size: 10px; /* Adjust font size */
+    font-size: 14px; /* Adjust font size */
     font-weight: 300; /* Normal font weight */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
