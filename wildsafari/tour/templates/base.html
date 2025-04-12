@@ -175,7 +175,9 @@
     .section-title{
       color: #D86F2C;
     }
-    
+
+
+
 </style>
 </head>
 <body>
@@ -199,10 +201,11 @@
                                   <a href="javascript:void(0)" >Our Destinations</a>
                                   <ul class="sub-menu">
                                       <li><a href="{% url 'home' %}">Kenya</a></li>
-                                      <li><a href="{% url 'uganda' %}">Uganda</a></li>
                                       <li><a href="{% url 'tanzania' %}">Tanzania</a></li>
-                                      <li><a href="{% url 'indianocean' %}">Indian Ocean</a></li>
+                                      <li><a href="{% url 'uganda' %}">Uganda</a></li>
                                       <li><a href="{% url 'mtKenya' %}">Mt Kenya</a></li>
+                                      <li><a href="{% url 'indianocean' %}">Indian Ocean</a></li>
+                                      
                                   </ul>
                               </li>
                               <li><a href="{% url 'users' %}" class="{% if request.path == '/users/' %}active{% endif %}">Contact Us</a></li>

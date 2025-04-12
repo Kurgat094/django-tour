@@ -370,10 +370,10 @@ Header Style
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../tour/giraffe.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../tour/giraffe.jpg');
   background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: fill;
+  background-repeat: repeat;
   padding: 1px 2px;
   list-style: none;
   flex-wrap: nowrap;
@@ -458,7 +458,7 @@ Header Style
 .header-area .main-nav .nav li.has-sub ul.sub-menu {
   position: absolute;
   width: 160px;
-  background-color: #fff;
+  
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
   top: 70px;
@@ -469,18 +469,22 @@ Header Style
   visibility: hidden;
   z-index: -1;
 }
-
+.header-area .main-nav .nav li.has-sub ul.sub-menu{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('../tour/giraffe.jpg');
+  border-radius: 8px 8px 15px 8px;
+}
 .header-area .main-nav .nav li.has-sub ul.sub-menu li {
   margin-left: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  margin-bottom: 2px;
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
   opacity: 1;
   display: block;
-  background: #f7f7f7;
-  color: #2a2a2a !important;
+  color: #fff !important;
+  border-radius: 0px 0px 20px 0px;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;
@@ -491,13 +495,14 @@ Header Style
   position: relative;
   font-size: 13px;
   font-weight: 400;
-  border-bottom: 1px solid #eee;
+  
 }
 
 .header-area .main-nav .nav li.has-sub ul li a:hover {
-  background: #fff;
-  color: #00bdfe;
+  background-color: #FFF !important;
+  color: #D86F2C !important;
   padding-left: 25px;
+  border-radius: 8px 8px 15px 8px;
 }
 
 .header-area .main-nav .nav li.has-sub ul li a:hover:before {
@@ -750,12 +755,13 @@ Header Style
 
   .header-area .main-nav .nav li {
     width: 100%;
-    background: #fff;
+    background: #f5f5f5;
     border-bottom: 1px solid #eee;
     padding-left: 20px !important;
     padding-right: 20px !important;
 
   }
+  
 
   .header-area .main-nav .nav li a {
     height: 50px !important;
@@ -767,12 +773,13 @@ Header Style
 
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #00bdfe !important;
+    color:#D86F2C !important;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     position: relative;
     visibility: inherit;
+    background-color: #00bdfe !important;
     opacity: 1;
     z-index: 1;
     transform: translateY(0%);
@@ -781,13 +788,29 @@ Header Style
     box-shadow: none;
     height: 0px;
     transition: all 0s;
+    color:  black !important;
   }
 
-  .header-area .main-nav .nav li.submenu ul li a {
+  /* .header-area .main-nav .nav li.submenu ul li a {
     font-size: 12px;
     font-weight: 400;
+   
+  } */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    color: black !important;
+    margin-top: 0px;
+    padding: 0px 5px;
+    font-size: 12px;
   }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    color: #D86F2C !important;
 
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li  {
+    height: auto;
+    
+  
+  }
   .header-area .main-nav .nav li.submenu ul li a:hover:before {
     width: 0px;
   }
@@ -795,6 +818,7 @@ Header Style
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     height: auto;
   }
+  
 
   .header-area .main-nav .nav li.has-sub:after {
     color: #3B06EE;
@@ -807,7 +831,52 @@ Header Style
   .header-area .main-nav .nav li.submenu:hover ul,
   .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
+    background-color: #00bdfe !important;
+    color: #228B22;
   }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    position: absolute; /* Ensure the submenu is positioned relative to the parent */
+    visibility: hidden; /* Initially hide the submenu */
+    background-color: #fff; /* White background */
+    opacity: 0; /* Make it invisible initially */
+    z-index: 1; /* Ensure it appears above other elements */
+    transform: translateY(10px); /* Slightly offset for animation */
+    top: 100%; /* Position it below the parent menu item */
+    width: 200px; /* Set a fixed width for the submenu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for visibility and position */
+}
+
+.header-area .main-nav .nav li.has-sub:hover ul.sub-menu,
+.header-area .main-nav .nav li.has-sub:focus-within ul.sub-menu {
+    visibility: visible; /* Show the submenu on hover or focus */
+    opacity: 1; /* Make it fully visible */
+    transform: translateY(0); /* Reset the offset */
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li {
+    padding: 5px 5px; /* Add padding for spacing */
+    border-bottom: 1px solid #ddd; /* Add a divider between items */
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child {
+    border-bottom: none; /* Remove the divider for the last item */
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    display: block; /* Ensure the links take up the full width */
+    color: black; /* Black text color */
+    font-size: 10px; /* Adjust font size */
+    font-weight: 300; /* Normal font weight */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    color: #D86F2C; /* Change text color to #D86F2C on hover */
+    background-color: #f9f9f9; /* Optional: Add a light background on hover */
+}
 }
 
 
@@ -1494,16 +1563,16 @@ section.closed-contests {
   line-height: 46px;
   font-size: 24px;
   display: inline-block;
-  color: #afafaf;
-  background-color: #fff;
+  color: White;
+  background-color: rgb(2, 110, 20);;
   border-radius: 50%;
   transition: all .3s;
 }
 
 .closed-contests .owl-nav .owl-prev span:hover,
 .closed-contests .owl-nav .owl-next span:hover {
-  background-color: #00bdfe;
-  color: #fff;
+  background-color: #D86F2C;
+  color: #228B22;
 }
 
 .closed-contests .border-button {
