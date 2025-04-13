@@ -40,6 +40,9 @@ urlpatterns = [
     path('adminhome', adminhome, name='adminhome'),
     path('approval/<int:id>/', bookapproval, name='approval'),
     path('denial/<int:id>/', bookdenial, name='denial'),
+    path('messages',contactmessages, name='contactmessages'),
+    path('approve/<int:message_id>/', message_approve, name='message_approve'),
+    path('delete/<int:message_id>/', message_delete, name='message_delete'),
     
 
 

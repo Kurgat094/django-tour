@@ -1,0 +1,114 @@
+{% extends 'admin/adminhome.html' %}
+
+{% block title %}
+Admin Approvals
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Contact Messages</h1>
+    <!-- Search bar -->
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            <form method="GET" action="{% url 'contactmessages' %}">
+                <div class="input-group">
+                    <input type="text" id="searchInput" name="search" class="form-control" placeholder="Search by any field" value="{{ request.GET.search }}">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if form.errors %}
+                <div class="alert alert-warning" role="alert">
+                    <ul class="mb-0">
+                        {% for key, error in form.errors.items %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+              {% endif %}
+              {% if messages %}
+              <div id="popup-message-container">
+                  {% for message in messages %}
+                      <div class="popup-message">
+                          {{ message }}
+                          <span class="close-btn" onclick="closePopup(this)">&times;</span>
+                      </div>
+                  {% endfor %}
+              </div>
+          {% endif %}
+    <!-- Table to display messages -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Telephone</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in messages_list %}
+                    <tr>
+                        <td>{{ message.name }}</td>
+                        <td>{{ message.telephone }}</td>
+                        <td>{{ message.email }}</td>
+                        <td>{{ message.subject }}</td>
+                        <td>{{ message.message }}</td>
+                        <td>{{ message.created_at }}</td>
+                        <td>
+                            <!-- action of approve and delete -->
+                            <a href="{% url 'message_approve' message.id %}" class="btn btn-success btn-sm" style="margin:1px; padding:1px; width:100%;">Approve</a>
+                            <a href="{% url 'message_delete' message.id %}" class="btn btn-danger btn-sm" style="margin:1px; padding:1px; width:100%;">Delete</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No messages found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const tableRows = document.querySelectorAll("tbody tr");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            tableRows.forEach(row => {
+                const cells = row.querySelectorAll("td");
+                let rowMatches = false;
+
+                cells.forEach(cell => {
+                    const originalText = cell.textContent;
+                    const lowerText = originalText.toLowerCase();
+
+                    if (searchTerm && lowerText.includes(searchTerm)) {
+                        rowMatches = true;
+                        const regex = new RegExp(`(${searchTerm})`, "gi");
+                        cell.innerHTML = originalText.replace(regex, "<mark>$1</mark>");
+                    } else {
+                        cell.innerHTML = originalText; // reset
+                    }
+                });
+
+                row.style.display = (searchTerm === "" || rowMatches) ? "" : "none";
+            });
+        });
+    });
+</script>
+
+
+{% endblock %}

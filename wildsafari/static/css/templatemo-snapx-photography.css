@@ -2586,7 +2586,7 @@ Users Page
 
 section.portfolio {
   padding: 80px 0px;
-  background-color: #dbdad3;
+  background-image: url(../images/closed-bg.jpg);
   margin-bottom: 10px !important;
   margin-top: 10px;
   border-radius: 20px;

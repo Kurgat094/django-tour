@@ -247,3 +247,198 @@
     color: #D86F2C!important;
     transform: scale(1.1) !important;
   }
+
+  .video-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+  }
+
+  .video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire container */
+  }
+
+  .video-banner .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #D86F2C;
+    text-align: center;
+    z-index: 1; /* Ensures the text appears above the video */
+  }
+  .text h1{
+    font-size: 50px;
+    color: #D86F2C;
+    
+
+  }
+  .text p{
+    font-size: 20px;
+    color: #fff;
+    
+  }
+
+  .video-banner .arrow {
+    position: absolute;
+    bottom: 20px; /* Position the arrow near the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Ensure the arrow appears above the video and other elements */
+    background-color: #228B22; /* Green background */
+    width: 50px; /* Circular size */
+    height: 50px;
+    border-radius: 50%; /* Circular shape */
+    display: flex; /* Center the arrow icon */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.video-banner .arrow a {
+    color: whitesmoke; /* White arrow icon */
+    font-size: 24px; /* Adjust size for better visibility */
+    text-decoration: none; /* Remove underline */
+}
+
+.video-banner .arrow:hover {
+    background-color: #D86F2C; /* Change background to orange on hover */
+    transform: translateX(-50%) scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+  
+  .beach-destinations {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .beach-destinations .col-3 {
+      flex: 1;
+      padding: 30px;
+      border-right: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .beach-destinations .col-3 img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    
+
+    
+
+    .beach-destinations .col-lg-8 {
+      flex: 2;
+      padding: 30px;
+      justify-content: space-between;
+      
+    }
+
+    .beach-destinations h1.section-title {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .destination {
+      margin-bottom: 40px;
+      background-color: aliceblue;
+      padding: 20px;
+      margin-left: 0.1cm;
+      justify-content: space-between;
+    }
+    .destination:hover{
+      background-color: #f0f8ff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      transform: scale(1.002);
+    }
+
+    .destination h2 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: #228B22;
+    }
+
+    .destination p {
+      line-height: 1.6;
+      font-size: 15px;
+      margin-bottom: 10px;
+      color: black;
+    }
+    .section-title{
+      color: #D86F2C;
+    }
+
+    .siteto-inquire {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 40px 20px; /* Add padding for spacing */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center-align the content */
+    margin-top: 30px; /* Add spacing above the section */
+}
+
+.siteto-inquire h2 {
+    font-size: 28px; /* Adjust the font size */
+    color: #228B22; /* Green text color */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    font-weight: bold; /* Make the text bold */
+}
+
+.siteto-inquire p {
+    font-size: 16px; /* Adjust the font size */
+    color: #D86F2C; /* Dark gray text color */
+    margin-bottom: 30px; /* Add spacing below the paragraph */
+}
+
+.site-inquery {
+    background-color: #228B22; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.site-inquery:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+}
+
+.site-inquery a {
+    text-decoration: none; /* Remove underline from the link */
+    color: #228B22; /* Green text color */
+    font-weight: bold; /* Make the text bold */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.site-inquery a:hover {
+    color: #D86F2C; /* Change text color to orange on hover */
+}
+
+.site-inquery h4 {
+    font-size: 20px; /* Adjust the font size */
+    margin-bottom: 10px; /* Add spacing below the heading */
+    color: #000; /* Black text color */
+}
+
+.site-inquery h6 {
+    font-size: 14px; /* Adjust the font size */
+    color: white; /* Dark gray text color */
+    margin-top: 5px; /* Add spacing above the subheading */
+}

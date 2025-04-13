@@ -129,6 +129,7 @@ def book(request, site_id):
         'form': form,
     })
 
+@csrf_exempt
 def tzbook(request, site_id):
     # Get the tourism site or return a 404 error if not found
     tourism_site = get_object_or_404(TanzaniaSite, id=site_id)
@@ -223,7 +224,16 @@ def contact_messages(request):
 
 
     return render(request, "contests.html")
+def message_approve(request, message_id):
+    message = get_object_or_404(ContactMessage, id=message_id)
+    messages.success(request, f"Message from {message.name} has been approved.")
+    return redirect('contactmessages')
 
+def message_delete(request, message_id):
+    message = get_object_or_404(ContactMessage, id=message_id)
+    message.delete()
+    messages.success(request, f"Message from {message.name} has been deleted.")
+    return redirect('contactmessages')
 
 @csrf_exempt
 def contests(request):
@@ -403,6 +413,24 @@ def approvals(request):
         'solo_bookings': solo_bookings
     }
     return render(request, 'admin/approvals.html', context)
+def contactmessages(request):
+    search_query = request.GET.get('search', '')  # Get the search query from the URL
+    if search_query:
+        # Filter messages by matching the search query in any of the relevant fields
+        messages_list = ContactMessage.objects.filter(
+            Q(name__icontains=search_query) |
+            Q(telephone__icontains=search_query) |
+            Q(email__icontains=search_query) |
+            Q(subject__icontains=search_query) |
+            Q(message__icontains=search_query)
+        )
+    else:
+        # If no search query, return all messages
+        messages_list = ContactMessage.objects.all()
+
+        
+
+    return render(request, 'admin/messages.html',{'messages_list': messages_list})
 
 from django.urls import reverse
 
