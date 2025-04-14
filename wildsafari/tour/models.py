@@ -26,6 +26,11 @@ class Booking(models.Model):
     tour_package=models.CharField(max_length=100,default="Basic Package")
     status = models.TextField(default='Pending',max_length=100)
     amount=models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    # order 
+    class Meta:
+        ordering = ['-date_of_visit']
+    def __str__(self):
+        return f"{self.name} - {self.date_of_visit} - {self.place_of_visit}"
     
 class SoloBooking(models.Model):
     id = models.AutoField(primary_key=True)
