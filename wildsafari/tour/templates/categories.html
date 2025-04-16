@@ -101,35 +101,37 @@
   <section class="portfolio" id="ugportfolio">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center header-text" style="margin-bottom: 15px;">
-              <h4 style="color: #D86F2C;">Ugandan Safaris</h4>
-              <h2>Explore Our <b style="color: #228b22;"> Safaris</b></h2>
-          </div>
-      </div>
-      </div>
-      
-      <!-- Flexbox Row for Horizontal Layout -->
-      <div class="row d-flex flex-wrap justify-content-between">
-        {% for site in tourism_sites2 %} 
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 {% if forloop.counter > 8 %}hidden{% endif %}">
-          <div class="thumb" id="thumb-card">
-            <img src="{{ site.image.url }}" alt="{{ site.name }}" class="img-fluid">
-            <div class="hover-effect">
-              <a href="{% url 'ugbook' site.id %}#booking" class="content">
-                <h4>{{ site.name }}</h4>
-                <span>{{ site.description }}</span>
-              </a>
+      <div class="siteto-inquire">
+        <h2>Site Your can Contact Stevensons Trails to Inquire about a Tour</h2>
+        <p>For inquiries and bookings, please reach out to us through our contact page or call our customer service team. We are here to help you plan your perfect adventure!</p>
+        <div class="container mt-4" >
+          <div class="row">
+            <div class="col-lg-4 mb-4 col-sm-12" >
+              <div class="site-inquery">
+                <a href="{% url 'mtKenya' %}" >
+                  <h4> Mt Kenya</h4>
+                  <h6>Inquire and Learn About Mt Kenya Tours</h6>
+                </a>
+              </div>
             </div>
+            <div class="col-lg-4 mb-4  col-sm-12">
+              <div class="site-inquery">
+                <a href="{% url 'indianocean' %}" >
+                  <h4> IndianOcean</h4>
+                  <h6>Inquire And Learn About IndianOcean Tours</h6>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4  col-sm-12">
+              <div class="site-inquery">
+                <a href="{% url 'uganda' %}" >
+                  <h4> Uganda</h4>
+                  <h6>Inquire And Learn About Uganda Safaris</h6>
+                </a>
+              </div>
           </div>
         </div>
-        {% endfor %}
       </div>
-      <div class="text-center section-heading">
-        <div class="main-button">
-          <a id="load-more" style="color: white;">Load More Sites</a>
-          <a id="view-less" class="btn btn-success" style="display: none;" >View Less</a>
-        </div>
       </div>
     </div>
   </section>

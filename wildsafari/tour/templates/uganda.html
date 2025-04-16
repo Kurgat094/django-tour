@@ -6,7 +6,7 @@
 {% block content %}
 
  <!-- ***** Main Banner Area Start ***** -->
- <div class="main-banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'tour/Uganda.jpg' %}')">
+ <div class="main-banner" style=" background-image: (rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'tour/Uganda.jpg' %}')">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
@@ -28,72 +28,159 @@
 </div>
 <!-- ***** Main Banner Area End ***** -->
 
-<section class="featured-items" id="featured-items">
-  <div class="container">
+<div class="beach-destinations">
     <div class="row">
-      <div class="col-lg-12">
-        <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
-          
-          {% for site in tourism_sites %}
-          <div class="item" id="popular-site">
-              <div class="thumb" id="thumb-card">
-                
-                  <img src="{{ site.image.url }}" alt="">
-                  <div class="hover-effect">
-                      <a href="{% url 'ugbook' site.id %}#booking" class="content">
-                          <h4>{{ site.name }}<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h4>
-                          <ul>
-                              <li><span>Place:</span>{{ site.place }}</li>
-                              <li><span>Description:</span> {{ site.description }}</li>
-                              <li><span>Book:</span><b style="color: blue;">Click to Reserve</b></li>
-                          </ul>
-                        </a>
-                  </div>
-                  
-              </div>
-          </div>
-          {% endfor %}
+      <!-- invisibale in small devices -->
+  
+      <div class="col-3 d-none d-md-block">
+        
+          <iframe 
+
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993167.013217374!2d29.873888!3d1.373333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1771a1f9b8b8b8b8%3A0x8b8b8b8b8b8b8b8b!2sUganda!5e0!3m2!1sen!2sug!4v1697040000000!5m2!1sen!2sug"
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/uganda_gorilla.jpeg' %}" alt="Gorilla Trekking">
+        <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/thompsonfalls.jpg' %}" alt="Uganda">
+        <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/birds_watching.jpeg' %}" alt="Uganda">
+        <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/MargheritaPeak.jpeg' %}" alt="Uganda">
+        <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/MtElgon.jpeg' %}" alt="Uganda">
+        <img style="padding: 6px; margin: 10px; max-height: 500px;" src="{% static 'tour/uganda_culture.jpeg' %}" alt="Uganda">
+    
+      </div>
+      <div class="col-lg-8 col-12 text-center">
+        <div class="row">
+          <h1 class="section-title">Top  Destinations in Uganda</h1>
+      
+          <div class="destination col-lg-5 col-12 px-2" id="destinations">
+            <h2>Gorilla Trekking</h2>
+            <p>
+                Gorilla trekking remains the number one product for Uganda. It distinguishes Uganda from its main competitors, Kenya and Tanzania. 
+                It provides Uganda with an iconic tourism asset. With insecurity in DRC and expensive permits in Rwanda versus demand growth, Uganda enjoys an enviable position. 
+                As demand begins to exceed supply, increasing the fee during the high season is justified, making gorilla trekking a world-class experience.
+            </p>
+            <p>
+                This includes improved roads, planned towns, and capacity development for local service providers, using it for extended visits to other parts of the country. 
+                In a high season, preference should be given to tourists booking a full 7-14 day trip to Uganda. Through research, options for increasing the supply of permits 
+                can be explored through more habituations and conservation of Enchuya Forest into a National Park.
+            </p>
+            <p>
+                There should be no relaxation on the rules governing gorilla trekking (tourists, time, etc.) to maintain its quality. Wildlife safaris complement gorilla trekking, 
+                offering tourists a complete and unforgettable experience in Uganda.
+            </p>
+        </div>
+      <div class=" col-lg-1" ></div>
+      <div class="destination col-lg-5 col-12 px-2" id="destinations">
+        <h2>Safaris in Uganda</h2>
+        <p>
+            Murchison Falls National Park currently comes first in Uganda for safaris. Though driven by oil extraction, bridge construction will address the ferry issues vs tourist crossing. 
+            Take note of potential incompatibility of oil drilling and wildlife tourism and pay utmost attention to environmental protection and safeguarding the needs of the tourism industry.
+        </p>
+        <p>
+            Being one of the top three iconic tourist attractions in Uganda, Murchison Falls can be further developed by constructing a glass bridge and a high-end facility on top of the falls. 
+            Building a dam would lead to product destruction and should be dropped.
+        </p>
+        <p>
+            Anti-poaching efforts, management of human-wildlife conflict, and addressing invasive species are key in Queen Elizabeth National Park. A positive safari experience in Queen Elizabeth National Park 
+            will augment hotel investment and associated multiplier effects, further boosting Uganda's tourism industry.
+        </p>
+    </div>
+      
+    <div class="destination col-lg-5 col-12 px-2" id="destinations">
+      <h2>Bird Watching in Uganda</h2>
+      <p>
+          Uganda is blessed with an extraordinary diversity of birds, boasting over 1,000 species. This is certainly an asset to be exploited. 
+          Bird watchers tend to visit for longer durations, given the long list of species to be found and the amount of time needed to locate them.
+      </p>
+      <p>
+          Bird guiding is very demanding, requiring skilled guides to meet the expectations of bird watchers. While bird-watching will remain a smaller part of wildlife tourism, 
+          it offers a unique and rewarding experience for enthusiasts and contributes to Uganda's diverse tourism offerings.
+      </p>
+  </div>
+          <div class=" col-lg-1" ></div>
+          <div class="destination col-lg-5 col-12 px-2" id="destinations">
+            <h2>Chimpanzee Trekking in Uganda</h2>
+            <p>
+                Chimpanzee trekking is an underdeveloped product that needs more attention and can be as rewarding as gorilla trekking. 
+                Only 50 forests in Africa offer the potential for chimpanzee trekking, and 20 of them are in Uganda and easily accessible from Kampala.
+            </p>
+            <p>
+                Many of the locations with chimpanzees are in national forests rather than national parks. This provides a unique opportunity to develop 
+                chimpanzee trekking as a key tourism product, further enhancing Uganda's reputation as a top wildlife destination.
+            </p>
+        </div>
+        <div class="destination col-lg-5 col-12 px-2" id="destinations">
+          <h2>Source of the Nile</h2>
+          <p>
+              One of Uganda’s iconic attractions is the source of the Nile. It has become a moderately successful hub for adventure tourism, 
+              offering activities such as whitewater rafting, bungee jumping, and zip lining.
+          </p>
+          <p>
+              The colourful history of the search for the source of the Nile could support a small museum, but currently, there is not even an information center. 
+              Developing such facilities would enhance the visitor experience and further establish the Source of the Nile as a must-visit destination in Uganda.
+          </p>
+      </div>
+      <div class=" col-lg-1" ></div>
+      <div class="destination col-lg-5 col-12 px-2" id="destinations">
+        <h2>Rwenzori Mountains</h2>
+        <p>
+            The Rwenzori Mountains present another tourism opportunity unique to Uganda. It promotes peak trekking, but also offers 1-3 day hikes in the lower altitudes, 
+            making it accessible to a wider range of tourists. The breathtaking scenery and unique biodiversity make the Rwenzori Mountains a must-visit destination for adventure seekers.
+        </p>
+    </div>
+    
+    <div class="destination col-lg-5 col-12 px-2" id="destinations">
+        <h2>Mount Elgon</h2>
+        <p>
+            Mount Elgon presents another opportunity more akin to Mount Kilimanjaro. As a large volcano, its summit is much more accessible. 
+            Its wildlife, waterfalls, caldera, and caves, combined with uncrowded trails, could be an attractive alternative as Kilimanjaro becomes more and more popular. 
+            Mount Elgon offers a unique and serene trekking experience for those looking to explore Uganda's natural beauty.
+        </p>
+    </div>
+    <div class=" col-lg-1" ></div>
+    <div class="destination col-lg-5 col-12 px-2" id="destinations">
+      <h2>Cultural Tourism in Uganda</h2>
+      <p>
+          After wildlife, tourists also want to experience cultural tourism. Outside of Kampala, many communities are eager to host tourists for short visits or overnight stays. 
+          These cultural experiences provide a unique opportunity for visitors to immerse themselves in Uganda's rich traditions, music, dance, and cuisine, 
+          while also supporting local communities and promoting sustainable tourism.
+      </p>
+  </div>
+  
+  <div class="destination col-lg-12 col-12 px-2" id="destinations">
+      <h2>MICE Tourism in Uganda</h2>
+      <p>
+          MICE tourism is a new and exciting opportunity for Uganda. Conference organizers are always looking for new locations to provide variety for their participants. 
+          With its unique attractions, serene environments, and growing infrastructure, Uganda has the potential to become a preferred destination for meetings, incentives, conferences, and exhibitions. 
+          This sector can significantly contribute to the country's tourism growth and economic development.
+      </p>
+  </div>
         </div>
       </div>
+      
     </div>
-  </div>
-</section>
+    
+    </div>
+    <div class="card mt-4 text-center">
+        <div class="card-header text-center " style="background-color: #228B22;">
+            <h5>Contact Us for Tour Inquiries</h5>
+        </div>
+        <div class="card-body" style="color: #D86F2C;">
+            <p style="color: #D86F2C;">If you have any questions or would like to inquire about tours to Mount Kenya, feel free to reach out to us:</p>
+            <ul class="list-unstyled" style="color: #228B22;">
+                <li><strong style="color: #D86F2C;">Email:</strong> info@stevensonstrails.com</li>
+                <li><strong style="color: #D86F2C;">Phone:</strong> +254 712 345 678</li>
+                <li><strong style="color: #D86F2C;">Office Hours:</strong> Mon-Fri, 9:00 AM - 5:00 PM</li>
+            </ul>
+            <div class="form-group">
+                <a href="{% url 'users' %}" class="">Contact Us</a>
+            </div>
+            
+        </div>
+    </div>
 
   
-  <section class="closed-contests">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center section-heading">
-            <h6>Our Top Tourism SITES</h6>
-            <h4>Check Out <em>Popular</em> Tourism <em>Sites Uganda</em></h4>
-          </div>
-        </div>
-       
-        <div class="col-lg-12">
-          <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
-            {% for site in tourism_sites1 %}
-            <div class="item" id="popular-site" >
-              <div class="closed-item" id="popular-site" >
-                <div class="thumb"id="top-site" >
-                  <img style="border-radius: 20px;" src="{{ site.image.url }}" alt="">
-                  <span class="winner"><em>Place:</em>{{ site.place }}</span>
-                  <span class="price"><em>Name :</em>{{ site.name }} </span>
-                </div>
-                <div class="border-button text-center">
-                  <a href="{% url 'ugbook' site.id %} ">Book Tour</a>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="text-center border-button">
-            <a href="{% url 'categories' %}#ugportfolio">Discover All Tourist Attraction Site</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> 
 {% endblock %}
