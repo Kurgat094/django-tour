@@ -268,19 +268,36 @@
     transform: translate(-50%, -50%);
     color: #D86F2C;
     text-align: center;
+    padding: 20px;
     z-index: 1; /* Ensures the text appears above the video */
   }
   .text h1{
-    font-size: 50px;
     color: #D86F2C;
-    
+    font-size: 50px;
 
   }
   .text p{
-    font-size: 20px;
     color: #fff;
-    
+    font-size: 20px;
   }
+  @media (max-width: 768px) {
+    .video-banner .text {
+        top: 40%;
+        padding: 0 15px;
+        margin-top: 40px;
+        font-size: smaller;
+        text-align:start;
+        width: 100%;
+        text-align: center;
+    }
+    .text h1{
+        margin-top: 40px;
+        font-size: 30px;
+    }
+    .text p{
+        font-size: 15px;
+    }
+}
 
   .video-banner .arrow {
     position: absolute;
