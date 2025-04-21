@@ -165,6 +165,25 @@
 	// 	}
 	// });
 
+	let context = getContext($(window).width());
+
+	let resizeTimeout;
+	$(window).on('resize', function() {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(function() {
+			let newContext = getContext($(window).width());
+			if (newContext !== context) {
+				location.reload();
+			}
+		}, 200); // Delay to avoid rapid firing
+	});
+
+	function getContext(width) {
+		if (width <= 768) return 'small';
+		if (width <= 970) return 'medium';
+		return 'large';
+	}
+
 	$("#modal_trigger").leanModal({
 		top: 100,
 		overlay: 0.6,
