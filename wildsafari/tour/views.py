@@ -413,6 +413,34 @@ def approvals(request):
         'solo_bookings': solo_bookings
     }
     return render(request, 'admin/approvals.html', context)
+
+@csrf_exempt
+def pending_approvals(request):
+    bookings = Booking.objects.filter(status='Pending')
+    solo_bookings = SoloBooking.objects.filter(s_status='Pending')
+    search_query = request.GET.get('search', '')
+    if search_query:
+        # Filter bookings by matching the search query in any of the relevant fields
+        bookings = bookings.filter(
+            Q(name__icontains=search_query) |
+            Q(contactname__icontains=search_query) |
+            Q(email__icontains=search_query) |
+            Q(phone__icontains=search_query) |
+            Q(place_of_visit__icontains=search_query) |
+            Q(date_of_visit__icontains=search_query) |
+            Q(end_of_visit__icontains=search_query) |
+            Q(time_of_visit__icontains=search_query) |
+            Q(tour_package__icontains=search_query)
+        )
+    else:
+        # If no search query, return all pending bookings
+        bookings = Booking.objects.filter(status='Pending')
+    context = {
+        'bookings': bookings,
+        'solo_bookings': solo_bookings
+    }
+    return render(request, 'admin/pending.html', context)
+
 def contactmessages(request):
     search_query = request.GET.get('search', '')  # Get the search query from the URL
     if search_query:

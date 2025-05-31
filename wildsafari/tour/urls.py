@@ -38,6 +38,7 @@ urlpatterns = [
     # Admin urls
     path('approvals', approvals, name='approvals'),
     path('adminhome', adminhome, name='adminhome'),
+    path('pending_tours', pending_approvals, name='pending_tours'),
     path('approval/<int:id>/', bookapproval, name='approval'),
     path('denial/<int:id>/', bookdenial, name='denial'),
     path('messages',contactmessages, name='contactmessages'),
