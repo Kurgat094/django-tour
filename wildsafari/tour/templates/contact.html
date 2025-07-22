@@ -1,256 +1,470 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block title %}Stevensons Contact{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block title %}Stevensons
+Contact{% endblock %} {% block content %}
 
 <div class="page-heading">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2 header-text">
-          <h2>Explore Stevensons Trails Company and <em >Contact Details</em></h2>
-          <p>Embark on an unforgettable journey with <em>Stevensons Trails Company</em> If you have any questions or need assistance, feel free to <a rel="nofollow" href="https://stevensons-trails-company-1n65.onrender.com/users" target="_blank">contact us</a>. We're here to help you plan your next thrilling safari experience.</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 header-text">
+        <h2>Explore Stevensons Trails Company and <em>Contact Details</em></h2>
+        <p>
+          Embark on an unforgettable journey with
+          <em>Stevensons Trails Company</em> If you have any questions or need
+          assistance, feel free to
+          <a
+            rel="nofollow"
+            href="https://stevensons-trails-company-1n65.onrender.com/users"
+            target="_blank"
+            >contact us</a
+          >. We're here to help you plan your next thrilling safari experience.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="user-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="avatar">
+          <img src="{% static 'tour/logo-stevensons-.png' %}" alt="" />
+          <h4><b>Stevensons Trails Company</b></h4>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="info-box">
+          <h4>🌍 Our Vision</h4>
+          <h6>To be a best choice safari Partner</h6>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="info-box">
+          <h4>Our Mission</h4>
+          <h6>To offer best holiday experience to our clients</h6>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="info-box">
+          <h4>Core value</h4>
+          <h6>Customer oriented company.</h6>
         </div>
       </div>
     </div>
   </div>
-  
-  <div class="user-info">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="avatar">
-            <img src="{% static 'tour/logo-stevensons-.png' %}" alt="">
-            <h4> <b>Stevensons Trails Company</b></h4>
+</div>
+
+<section class="contact-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center section-heading">
+          <h6>Contact This User</h6>
+          <h4>
+            Don't Be Shy <em></em> to contact the
+            <em>Stevensons Trails Company</em>
+          </h4>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="info-item">
+          <i
+            class="fa fa-phone"
+            style="
+              color: #d86f2c;
+              background-color: #228b22;
+              font-size: 24px;
+              margin-bottom: 10px;
+            "
+          ></i>
+          <h4>Phone Numbers</h4>
+          <span>
+            <a href="#" style="color: #228b22">+254 796108272</a><br />
+            <a href="#" style="color: #228b22">+254 726053339</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="info-item">
+          <i
+            class="fa fa-envelope"
+            style="
+              color: #d86f2c;
+              background-color: #228b22;
+              font-size: 24px;
+              margin-bottom: 10px;
+            "
+          ></i>
+          <h4>Email Addresses</h4>
+          <span>
+            <a href="#" style="color: #228b22">stevensonstrail@company.com</a
+            ><br />
+            <a href="#" style="color: #228b22">Stevensons Trail Company</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="info-item">
+          <i
+            class="fa fa-map-marked"
+            style="
+              color: #d86f2c;
+              background-color: #228b22;
+              font-size: 24px;
+              margin-bottom: 10px;
+            "
+          ></i>
+          <h4>Office Location</h4>
+          <span>
+            <a href="#" style="color: #228b22"
+              >30700 Naivasha , Kenya,<br />IL 60601, Naivasha</a
+            >
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <form id="contact" action="{% url 'contact_messages' %}" method="post">
+          <div class="row">
+            {% if form.errors %}
+            <div class="alert alert-warning" role="alert">
+              <ul class="mb-0">
+                {% for key, error in form.errors.items %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %} {% if messages %}
+            <div id="popup-message-container">
+              {% for message in messages %}
+              <div class="popup-message">
+                {{ message }}
+                <span class="close-btn" onclick="closePopup(this)"
+                  >&times;</span
+                >
+              </div>
+              {% endfor %}
+            </div>
+            {% endif %} {% csrf_token %}
+            <div class="col-lg-6">
+              <fieldset>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your Name..."
+                  autocomplete="on"
+                  required
+                />
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset>
+                <input
+                  type="text"
+                  name="telephone"
+                  id="telephone"
+                  placeholder="Your Telephone..."
+                  autocomplete="on"
+                  required
+                />
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your E-mail..."
+                  required=""
+                />
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset>
+                <input
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject..."
+                  autocomplete="on"
+                />
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Your Message"
+                ></textarea>
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <button type="submit" id="form-submit">Send Message Now</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center section-heading">
+          <h6>What Our Adventurers Say</h6>
+          <h4>
+            What <em>Stevensons Trail Company</em> Visitors Are Saying
+            <em>About Us</em>
+          </h4>
+        </div>
+      </div>
+      <div class="col-lg-8 offset-lg-2">
+        <div class="owl-testimonials owl-carousel">
+          <div class="item">
+            <div class="content">
+              <div class="left-content">
+                <p>
+                  “Stevensons Trail Company was the most thrilling experience of
+                  my life! From the breathtaking landscapes to the close
+                  encounters with wildlife, every moment was unforgettable.”
+                </p>
+                <h4>Sarah Johnson</h4>
+                <span>Adventurer #007704</span>
+              </div>
+              <div class="image">
+                <img
+                  src="{% static 'tour/carol.jpeg' %}"
+                  alt="Sarah Johnson"
+                  class="testimonial-image"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <div class="left-content">
+                <p>
+                  “The guides were incredibly knowledgeable and made us feel
+                  safe throughout the entire safari. I can’t wait to come back
+                  for another adventure!”
+                </p>
+                <h4>Michael Brown</h4>
+                <span>Adventurer #007772</span>
+              </div>
+              <div class="image">
+                <img
+                  src="{% static 'tour/carol.jpeg' %}"
+                  alt="Michael Brown"
+                  class="testimonial-image"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <div class="left-content">
+                <p>
+                  “Stevensons Trail Company exceeded all my expectations. The
+                  luxury tents, delicious food, and incredible wildlife
+                  sightings made this trip a dream come true.”
+                </p>
+                <h4>Emily Davis</h4>
+                <span>Adventurer #007794</span>
+              </div>
+              <div class="image">
+                <img
+                  src="{% static 'tour/git.jpeg' %}"
+                  alt="Emily Davis"
+                  class="testimonial-image"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <div class="left-content">
+                <p>
+                  “I’ve been on safaris before, but Stevensons Trail Company is
+                  in a league of its own. The attention to detail and
+                  personalized service made all the difference.”
+                </p>
+                <h4>David Wilson</h4>
+                <span>Adventurer #007765</span>
+              </div>
+              <div class="image">
+                <img
+                  src="{% static 'tour/git.jpeg' %}"
+                  alt="David Wilson"
+                  class="testimonial-image"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <div class="left-content">
+                <p>
+                  “If you’re looking for an adventure of a lifetime, Stevensons
+                  Trail Company is the way to go. The memories I made here will
+                  stay with me forever.”
+                </p>
+                <h4>Laura Martinez</h4>
+                <span>Adventurer #007788</span>
+              </div>
+              <div class="image">
+                <img
+                  src="{% static 'tour/carol.jpeg' %}"
+                  alt="Laura Martinez"
+                  class="testimonial-image"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-box">
-            <h4>🌍 Our Vision</h4>
-            <h6>To be a best choice safari Partner</h6>
+      </div>
+      <!-- not to be visible in small devices -->
+      <!-- <div class="col-lg-12 d-none d-lg-block">
+        <div class="clients">
+          <div class="row">
+            <div class="col-lg-2 col-4">
+              <img
+                src="{% static 'tour/lion.jpg' %}"
+                alt="Lion"
+                class="animal-image"
+              />
+            </div>
+            <div class="col-lg-2 col-4">
+              <img
+                src="{% static 'tour/elephant2.jpg' %}"
+                alt="Elephant"
+                class="animal-image"
+              />
+            </div>
+            <div class="col-lg-2 col-4">
+              <img
+                src="{% static 'tour/giraff.jpg' %}"
+                alt="Giraffe"
+                class="animal-image"
+              />
+            </div>
+            <div class="col-lg-2 col-4">
+              <img
+                src="{% static 'tour/zebra.jpg' %}"
+                alt="Zebra"
+                class="animal-image"
+              />
+            </div>
+            <div class="col-lg-2 col-4">
+              <img
+                src="{% static 'tour/cheateah.jpg' %}"
+                alt="Cheetah"
+                class="animal-image"
+              />
+            </div>
+            <div class="col-lg-2 col-4">
+              <img
+                src="{% static 'tour/rhino.jpg' %}"
+                alt="Rhino"
+                class="animal-image"
+              />
+            </div>
           </div>
         </div>
-        
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-box">
-            <h4>Our Mission</h4>
-            <h6>To  offer best holiday experience to our clients</h6>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-box">
-            <h4>Core value </h4>
-            <h6> Customer oriented company.</h6>
+      </div> -->
+      <div class="col-lg-12 d-none d-lg-block">
+        <div class="social-media">
+          <div class="row justify-content-center">
+            <div class="col-lg-2 col-4 text-center">
+              <a
+                href="https://facebook.com/stevensonstrails"
+                target="_blank"
+                class="social-link"
+              >
+                <i
+                  class="fab fa-facebook-f"
+                  style="font-size: 48px; color: #1877f2"
+                ></i>
+                <p>Facebook</p>
+              </a>
+            </div>
+            <div class="col-lg-2 col-4 text-center">
+              <a
+                href="https://instagram.com/stevensonstrails"
+                target="_blank"
+                class="social-link"
+              >
+                <i
+                  class="fab fa-instagram"
+                  style="font-size: 48px; color: #e4405f"
+                ></i>
+                <p>Instagram</p>
+              </a>
+            </div>
+            <div class="col-lg-2 col-4 text-center">
+              <a
+                href="https://twitter.com/stevensonstrails"
+                target="_blank"
+                class="social-link"
+              >
+                <i
+                  class="fab fa-twitter"
+                  style="font-size: 48px; color: #1da1f2"
+                ></i>
+                <p>Twitter</p>
+              </a>
+            </div>
+            <div class="col-lg-2 col-4 text-center">
+              <a
+                href="https://youtube.com/stevensonstrails"
+                target="_blank"
+                class="social-link"
+              >
+                <i
+                  class="fab fa-youtube"
+                  style="font-size: 48px; color: #ff0000"
+                ></i>
+                <p>YouTube</p>
+              </a>
+            </div>
+            <div class="col-lg-2 col-4 text-center">
+              <a
+                href="https://linkedin.com/company/stevensonstrails"
+                target="_blank"
+                class="social-link"
+              >
+                <i
+                  class="fab fa-linkedin-in"
+                  style="font-size: 48px; color: #0077b5"
+                ></i>
+                <p>LinkedIn</p>
+              </a>
+            </div>
+            <div class="col-lg-2 col-4 text-center">
+              <a
+                href="https://tiktok.com/@stevensonstrails"
+                target="_blank"
+                class="social-link"
+              >
+                <i
+                  class="fab fa-tiktok"
+                  style="font-size: 48px; color: #000000"
+                ></i>
+                <p>TikTok</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <section class="contact-us">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center section-heading">
-            <h6>Contact This User</h6>
-            <h4>Don't Be Shy <em></em> to contact the <em>Stevensons Trails Company</em></h4>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="info-item">
-            <i class="fa fa-phone" style="color: #D86F2C; background-color: #228B22; font-size: 24px; margin-bottom: 10px;"></i>
-            <h4>Phone Numbers</h4>
-            <span>
-              <a href="#" style="color: #228B22;">+254 796108272</a><br>
-              <a href="#" style="color: #228B22;">+254 726053339</a>
-            </span>
-          </div>
-        </div>
-        
-        <div class="col-lg-4">
-          <div class="info-item">
-            <i class="fa fa-envelope" style="color: #D86F2C; background-color: #228B22; font-size: 24px; margin-bottom: 10px;"></i>
-            <h4>Email Addresses</h4>
-            <span>
-              <a href="#" style="color: #228B22;">stevensonstrail@company.com</a><br>
-              <a href="#" style="color: #228B22;">Stevensons Trail Company</a>
-            </span>
-          </div>
-        </div>
-        
-        <div class="col-lg-4">
-          <div class="info-item">
-            <i class="fa fa-map-marked" style="color: #D86F2C; background-color: #228B22; font-size: 24px; margin-bottom: 10px;"></i>
-            <h4>Office Location</h4>
-            <span>
-              <a href="#" style="color: #228B22;">30700 Naivasha , Kenya,<br>IL 60601, Naivasha</a>
-            </span>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <form id="contact" action="{% url 'contact_messages' %}" method="post">
-            <div class="row">
-              {% if form.errors %}
-                          <div class="alert alert-warning" role="alert">
-                              <ul class="mb-0">
-                                  {% for key, error in form.errors.items %}
-                                      <li>{{ error }}</li>
-                                  {% endfor %}
-                              </ul>
-                          </div>
-                      {% endif %}
-                      {% if messages %}
-                      <div id="popup-message-container">
-                          {% for message in messages %}
-                              <div class="popup-message">
-                                  {{ message }}
-                                  <span class="close-btn" onclick="closePopup(this)">&times;</span>
-                              </div>
-                          {% endfor %}
-                      </div>
-                  {% endif %}
-                  {% csrf_token %}
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="text" name="telephone" id="telephone" placeholder="Your Telephone..." autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="email" name="email" id="email" placeholder="Your E-mail..." required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="text" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <div class="form-group">
-                  <button type="submit" id="form-submit">Send Message Now</button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  
-  <section class="testimonials">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center section-heading">
-            <h6>What Our Adventurers Say</h6>
-            <h4>What <em>Stevensons Trail Company</em> Visitors Are Saying <em>About Us</em></h4>
-          </div>
-        </div>
-        <div class="col-lg-8 offset-lg-2">
-            <div class="owl-testimonials owl-carousel">
-              <div class="item">
-                <div class="content">
-                  <div class="left-content">
-                    <p>“Stevensons Trail Company was the most thrilling experience of my life! From the breathtaking landscapes to the close encounters with wildlife, every moment was unforgettable.”</p>
-                    <h4>Sarah Johnson</h4>
-                    <span>Adventurer #007704</span>
-                  </div>
-                  <div class="image">
-                    <img src="{% static 'tour/carol.jpeg' %}" alt="Sarah Johnson" class="testimonial-image">
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="content">
-                  <div class="left-content">
-                    <p>“The guides were incredibly knowledgeable and made us feel safe throughout the entire safari. I can’t wait to come back for another adventure!”</p>
-                    <h4>Michael Brown</h4>
-                    <span>Adventurer #007772</span>
-                  </div>
-                  <div class="image">
-                    <img src="{% static 'tour/carol.jpeg' %}" alt="Michael Brown" class="testimonial-image">
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="content">
-                  <div class="left-content">
-                    <p>“Stevensons Trail Company exceeded all my expectations. The luxury tents, delicious food, and incredible wildlife sightings made this trip a dream come true.”</p>
-                    <h4>Emily Davis</h4>
-                    <span>Adventurer #007794</span>
-                  </div>
-                  <div class="image">
-                    <img src="{% static 'tour/git.jpeg' %}" alt="Emily Davis" class="testimonial-image">
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="content">
-                  <div class="left-content">
-                    <p>“I’ve been on safaris before, but Stevensons Trail Company is in a league of its own. The attention to detail and personalized service made all the difference.”</p>
-                    <h4>David Wilson</h4>
-                    <span>Adventurer #007765</span>
-                  </div>
-                  <div class="image">
-                    <img src="{% static 'tour/git.jpeg' %}" alt="David Wilson" class="testimonial-image">
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="content">
-                  <div class="left-content">
-                    <p>“If you’re looking for an adventure of a lifetime, Stevensons Trail Company is the way to go. The memories I made here will stay with me forever.”</p>
-                    <h4>Laura Martinez</h4>
-                    <span>Adventurer #007788</span>
-                  </div>
-                  <div class="image">
-                    <img src="{% static 'tour/carol.jpeg' %}" alt="Laura Martinez" class="testimonial-image">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- not to be visible in small devices -->
-        <div class="col-lg-12 d-none d-lg-block">  
-          <div class="clients">
-            <div class="row">
-                <div class="col-lg-2 col-4">
-                  <img src="{% static 'tour/lion.jpg' %}" alt="Lion" class="animal-image">
-                </div>
-                <div class="col-lg-2 col-4">
-                  <img src="{% static 'tour/elephant2.jpg' %}" alt="Elephant" class="animal-image">
-                </div>
-                <div class="col-lg-2 col-4">
-                  <img src="{% static 'tour/giraff.jpg' %}" alt="Giraffe" class="animal-image">
-                </div>
-                <div class="col-lg-2 col-4">
-                  <img src="{% static 'tour/zebra.jpg' %}" alt="Zebra" class="animal-image">
-                </div>
-                <div class="col-lg-2 col-4">
-                  <img src="{% static 'tour/cheateah.jpg' %}" alt="Cheetah" class="animal-image">
-                </div>
-                <div class="col-lg-2 col-4">
-                  <img src="{% static 'tour/rhino.jpg' %}" alt="Rhino" class="animal-image">
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
+</section>
 
 {% endblock %}
