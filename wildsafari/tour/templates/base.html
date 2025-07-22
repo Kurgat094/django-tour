@@ -2,173 +2,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{% static 'tour/logo-stevensons-.png' %}">
-    <title>{%  block title %}{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">      
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="{% static 'tour/logo-stevensons-.png' %}">
+  <title>{% block title %}{% endblock %}</title>
 
-<!-- Bootstrap core CSS -->
-<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-<!-- Additional CSS Files -->
-
-<link rel="stylesheet" href="{% static 'css/owl.css' %}">
-<link rel="stylesheet" href="{% static 'css/animate.css' %}">
-<link rel="stylesheet" href="{% static 'css/flex-slider.css' %}">
-
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<!-- FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
-<!-- External CDN -->
-<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-<link rel="stylesheet" href="{% static 'css/app.css' %}">
-<link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
-<link rel="stylesheet" href="{% static 'css/templatemo-snapx-photography.css' %}">
-
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-  
-    
-<style>
-</style>
+  <!-- CSS Libraries -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/flex-slider.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'css/templatemo-snapx-photography.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-        <!-- ***** Header Area Start ***** -->
-        <header class="header-area header-sticky">
-          <div class="container">
-              <div class="row">
-                  <div class="col-12">
-                      <nav class="main-nav">
-                          <!-- ***** Logo Start ***** -->
-                          <a href="{% url 'home' %}" class="logo">
-                              <img src="{% static 'tour/logo-stevensons-.png' %}" style="height: 80px; width:80px; margin-top: 0px;" alt="Stevensons Tail Company">
-                          </a>
-                          <!-- ***** Logo End ***** -->
-                          <!-- ***** Menu Start ***** -->
-                          <ul class="nav" id="dashboard">
-                              <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
-                              <li><a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About Us</a></li>
-                              <li><a href="{% url 'categories' %}" class="{% if request.path == '/categories/' %}active{% endif %}">Explore Us</a></li>
-                              <li class="has-sub">
-                                  <a href="javascript:void(0)" >Our Destinations</a>
-                                  <ul class="sub-menu">
-                                      <li><a href="{% url 'home' %}">Kenya</a></li>
-                                      <li><a href="{% url 'tanzania' %}">Tanzania</a></li>
-                                      <li><a href="{% url 'uganda' %}">Uganda</a></li>
-                                      <li><a href="{% url 'indianocean' %}">Indian Ocean</a></li>
-                                      
-                                  </ul>
-                              </li>
-                              <li><a href="{% url 'users' %}" class="{% if request.path == '/users/' %}active{% endif %}">Contact Us</a></li>
-                          </ul>
-                          <div class="border-button">
-                              {% if user.is_authenticated %}
-                                  <a href="{% url 'signout' %}" class="sign-in-up">
-                                      <i class="fa fa-user"></i> Sign Out
-                                  </a>
-                              {% else %}
-                                  <a id="modal_trigger" href="{% url 'signin' %}" class="sign-in-up">
-                                      <i class="fa fa-user"></i> Sign In
-                                  </a>
-                              {% endif %}
-                          </div>
-                          
-                          <a class='menu-trigger'>
-                              <span>Menu</span>
-                          </a>
-                          <!-- ***** Menu End ***** -->
-                      </nav>
-                  </div>
-              </div>
+
+<!-- Header -->
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- Logo -->
+          <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'tour/logo-stevensons-.png' %}" style="height: 80px; width: 80px;" alt="Stevensons Trail Company">
+          </a>
+          <!-- Navigation -->
+          <ul class="nav" id="dashboard">
+            <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About Us</a></li>
+            <li><a href="{% url 'categories' %}" class="{% if request.path == '/categories/' %}active{% endif %}">Explore Us</a></li>
+            <li class="has-sub">
+              <a href="javascript:void(0)">Our Destinations</a>
+              <ul class="sub-menu">
+                <li><a href="{% url 'home' %}">Kenya</a></li>
+                <li><a href="{% url 'tanzania' %}">Tanzania</a></li>
+                <li><a href="{% url 'uganda' %}">Uganda</a></li>
+                <li><a href="{% url 'indianocean' %}">Indian Ocean</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'users' %}" class="{% if request.path == '/users/' %}active{% endif %}">Contact Us</a></li>
+          </ul>
+          <div class="border-button">
+            {% if user.is_authenticated %}
+              <a href="{% url 'signout' %}" class="sign-in-up">
+                <i class="fa fa-user"></i> Sign Out
+              </a>
+            {% else %}
+              <a href="{% url 'signin' %}" class="sign-in-up">
+                <i class="fa fa-user"></i> Sign In
+              </a>
+            {% endif %}
           </div>
-      </header>
-      
-
-
-</form>
-</div>
-
-<!-- Payment Modal -->
-<div id="paymentModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Enter Payment Details</h2>
-        <form id="paymentForm">
-            <div class="form-group">
-                <label for="amount">Amount to Pay:</label>
-                <input type="number" id="amount" name="amount" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required>
-            </div>
-            <button type="button" id="confirmPayment" class="btn btn-primary">Confirm Payment</button>
-        </form>
+          <a class="menu-trigger"><span>Menu</span></a>
+        </nav>
+      </div>
     </div>
-</div>
+  </div>
+</header>
 
+<!-- Flash Messages -->
+{% if messages %}
+  <div id="popup-message-container">
+    {% for message in messages %}
+      <div class="popup-message">
+        {{ message }}
+        <span class="close-btn" onclick="closePopup(this)">&times;</span>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
 
-                {% if messages %}
-                      <div id="popup-message-container">
-                          {% for message in messages %}
-                              <div class="popup-message">
-                                  {{ message }}
-                                  <span class="close-btn" onclick="closePopup(this)">&times;</span>
-                              </div>
-                          {% endfor %}
-                      </div>
-                  {% endif %}
-  {%  block content %}
+<!-- Page Content -->
+{% block content %}{% endblock %}
 
-  {%  endblock %}
-
-    
-  <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p> View Our <em><b><a href="{% url 'terms_conditions' %}">Terms And Conditions</a></b></em>
-                    
-                    <br>Copyright © 2025 <a href="#">Stevensons Trails Company</a>. All rights reserved.
-                <br>Experience the thrill of the wild with our guided safari tours. Explore nature's beauty and witness majestic wildlife in their natural habitat. </p>
-            </div>
-        </div>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          View Our <em><b><a href="{% url 'terms_conditions' %}">Terms And Conditions</a></b></em><br>
+          &copy; 2025 <a href="#">Stevensons Trails Company</a>. All rights reserved.<br>
+          Experience the thrill of the wild with our guided safari tours.
+        </p>
+      </div>
     </div>
+  </div>
 </footer>
 
-<!-- jQuery (Only One Version, Defer Not Needed Here) -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<!-- Bootstrap (Depends on jQuery) -->
-<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}" defer></script>
+<!-- Floating Social Button -->
+<div id="socialToggleBtn" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #D86F2C;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 28px;
+  z-index: 9999;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+">
+<i class="fas fa-envelope"></i>
+</div>
 
-<!-- Plugins -->
+<!-- Vertical Social Media Sidebar -->
+<div id="socialPopup" style="
+  position: fixed;
+  top: 50%;
+  right: 45px;
+  transform: translateY(-50%);
+  background: rgb(3, 151, 27); 
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 10000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  display: none;
+  width: 80px;
+">
+  <div style="text-align: right; margin-bottom: 5px;">
+    <button onclick="toggleSocialPopup()" style="
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      cursor: pointer;
+    ">&times;</button>
+  </div>
+  <div class="d-flex flex-column align-items-center">
+    <a href="https://facebook.com/stevensonstrails" target="_blank" title="Facebook">
+      <i class="fab fa-facebook-f" style="font-size: 32px; color: #1877f2; margin: 10px 0;"></i>
+    </a>
+    <a href="https://instagram.com/stevensonstrails" target="_blank" title="Instagram">
+      <i class="fab fa-instagram" style="font-size: 32px; color: #e4405f; margin: 10px 0;"></i>
+    </a>
+    <a href="https://twitter.com/stevensonstrails" target="_blank" title="Twitter">
+      <i class="fab fa-twitter" style="font-size: 32px; color: #1da1f2; margin: 10px 0;"></i>
+    </a>
+    <a href="https://youtube.com/stevensonstrails" target="_blank" title="YouTube">
+      <i class="fab fa-youtube" style="font-size: 32px; color: #ff0000; margin: 10px 0;"></i>
+    </a>
+    <a href="https://linkedin.com/company/stevensonstrails" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin-in" style="font-size: 32px; color: #0077b5; margin: 10px 0;"></i>
+    </a>
+    <a href="https://tiktok.com/@stevensonstrails" target="_blank" title="TikTok">
+      <i class="fab fa-tiktok" style="font-size: 32px; color: #000000; margin: 10px 0;"></i>
+    </a>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}" defer></script>
 <script src="{% static 'js/isotope.min.js' %}" defer></script>
 <script src="{% static 'js/owl-carousel.js' %}" defer></script>
 <script src="{% static 'js/tabs.js' %}" defer></script>
 <script src="{% static 'js/popup.js' %}" defer></script>
-
-<!-- Custom Scripts -->
 <script src="{% static 'js/app.js' %}" defer></script>
 <script src="{% static 'js/custom.js' %}" defer></script>
 
+<!-- Social Toggle Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('socialToggleBtn');
+    const popup = document.getElementById('socialPopup');
+
+    btn.addEventListener('click', () => {
+      popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+    });
+  });
+
+  function toggleSocialPopup() {
+    document.getElementById('socialPopup').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
